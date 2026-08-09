@@ -1,0 +1,730 @@
+﻿<!doctype html> <html lang="uz-Cyrl"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="format-detection" content="telephone=no,address=no"> <title>KoвЂrlikdan xalos boвЂldim вЂ” KRISTALL</title> <link rel="icon" href="../assets/favicon.jpg"> <style> :root{--blue:#185b9d;--blue-dark:#123e74;--orange:#f27419;--ink:#172033;--muted:#667085;--paper:#fff;--bg:#eef3f8;--line:#dce5ee;--green:#168a4b;--red:#d22f2f}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#eef4fa 0,#f7f9fc 420px,#eef3f8 100%);font-family:Arial,"Segoe UI",sans-serif;color:var(--ink);font-size:18px;line-height:1.68}img{max-width:100%;height:auto}button,input{font:inherit}button{touch-action:manipulation}a{color:#1769aa;text-decoration-thickness:1px;text-underline-offset:3px}
+main{width:min(920px,calc(100% - 24px));margin:24px auto;background:var(--paper);border-radius:24px;box-shadow:0 15px 55px rgba(25,55,90,.12);padding:clamp(20px,5vw,58px);overflow:hidden}.MediaMaterial-header{border-bottom:1px solid var(--line);padding-bottom:25px;margin-bottom:30px}.MediaMaterialHeader-title{font-size:clamp(30px,5.4vw,52px);line-height:1.12;letter-spacing:-1.4px;margin:0 0 18px;color:var(--blue-dark)}.MediaMaterialHeader-first111{font-size:clamp(20px,3.4vw,29px);line-height:1.35;color:#365674;margin:0;font-weight:700}p{margin:0 0 1.15em}h2,h3{line-height:1.25;color:var(--blue-dark)}main>div:not(.MediaMaterial-header):not(.cta):not(.box-blue-light){max-width:100%}.gray_block{background:#eef5fb;border:1px solid #cfe0ef;border-left:6px solid var(--blue);border-radius:16px;padding:22px 24px;margin:28px 0}.gray_block p:last-child{margin-bottom:0}.main-img,.article-img,main img:not(.ava-img):not(.order__img){display:block;margin:22px auto;border-radius:14px}.cta{background:linear-gradient(155deg,#eaf1ff,#f8fbff);border:1px solid #c9d9ef;border-radius:24px;padding:clamp(18px,4vw,34px);margin:36px 0;position:relative}.baraban__title{text-align:center;margin:0 0 18px;font-size:clamp(23px,4vw,34px)}.baraban__title-pct{color:var(--red)}
+.baraban-outer{display:flex;justify-content:center;padding:8px 0 18px}.baraban-canvas-wrap{position:relative;width:min(370px,92vw);aspect-ratio:1;border-radius:50%;padding:12px;background:conic-gradient(#8b5c00,#ffd34e,#a56d00,#ffe27a,#8b5c00);box-shadow:0 0 0 4px #684300,0 18px 44px rgba(23,38,70,.32)}#barabanWheel{display:block;width:100%;height:100%;border-radius:50%}.baraban-arrow-wrap{position:absolute;z-index:5;top:-18px;left:50%;transform:translateX(-50%);filter:drop-shadow(0 4px 3px rgba(0,0,0,.3))}.baraban-spin-btn{position:absolute;z-index:6;left:50%;top:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(#fff,#bed9f4);border:5px solid var(--blue-dark);font-size:18px;line-height:1.05;font-weight:900;color:var(--blue-dark);cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.3);user-select:none}.baraban-spin-btn:hover{transform:translate(-50%,-50%) scale(1.04)}.baraban-spin-btn.spinning{cursor:wait}.baraban-msg{text-align:center;min-height:30px;font-weight:800}.door.hidden{opacity:0;transform:scale(.96);transition:.8s}.door.none{display:none}
+.order{display:none;margin:20px auto 0;max-width:650px;background:#fff;border-radius:22px;box-shadow:0 12px 45px rgba(30,65,100,.18);overflow:hidden;border:1px solid #dce7f1}.order.active{display:block;animation:rise .45s ease}.order__header{display:grid;grid-template-columns:minmax(180px,43%) 1fr;gap:20px;align-items:center;padding:24px;background:linear-gradient(145deg,#eef6ff,#fff)}.order__img{width:100%;border-radius:14px}.order__deadline{text-align:center}.order__text{font-weight:700;line-height:1.4;margin-bottom:10px}.order__time{font-size:36px;font-weight:900;color:var(--red);letter-spacing:2px}.order__body,#orderForm2{padding:24px;display:flex;flex-direction:column;gap:13px}.order__input,#orderForm2 input{width:100%;border:2px solid #dbe4ed;background:#f8fafc;border-radius:12px;padding:14px 16px;outline:none}.order__input:focus,#orderForm2 input:focus{border-color:#2e75b7;background:#fff;box-shadow:0 0 0 4px rgba(46,117,183,.12)}.order__btn,#orderForm2 button{border:0;border-radius:999px;padding:16px 22px;background:linear-gradient(135deg,#e95a0c,#ff8a18);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 8px 24px rgba(226,91,15,.32)}.order__btn:hover,#orderForm2 button:hover{filter:brightness(1.05);transform:translateY(-1px)}.order__price{justify-content:center;gap:12px;font-size:24px;color:var(--red);font-weight:900}.spin{display:none;position:fixed;inset:0;z-index:10000;background:rgba(12,26,45,.68);padding:20px;align-items:center;justify-content:center}.spin.active{display:flex}.spin__content{background:#fff;border-radius:24px;max-width:430px;width:100%;padding:35px;text-align:center;box-shadow:0 30px 90px rgba(0,0,0,.35);animation:pop .35s ease}.spin__title{font-size:34px;color:var(--green);margin:0 0 14px}.spin__btn{border:0;border-radius:999px;padding:13px 45px;background:var(--green);color:white;font-weight:900;cursor:pointer}.js-success,.js-error-text{padding:28px!important;margin:0!important}
+.baraban-retry-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,.68);z-index:10001;align-items:center;justify-content:center;padding:18px}.baraban-retry-overlay.show{display:flex}.baraban-retry-box{background:white;border-radius:22px;max-width:350px;width:100%;padding:28px;text-align:center}.baraban-retry-attempts-row{display:flex;justify-content:center;gap:8px}.baraban-retry-dot{width:18px;height:18px;border-radius:50%;background:#dbeafe;border:2px solid #3b82f6}.baraban-retry-btn{border:0;border-radius:12px;background:var(--green);color:#fff;padding:14px 22px;font-weight:800;cursor:pointer}.confetti-piece{position:fixed;z-index:10010;top:-30px;animation:fall linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(760deg)}}
+.box-blue-light{margin-top:40px}.box-blue-light>h2,.box-blue-light>div:first-child{font-size:32px;font-weight:900;color:var(--blue-dark);margin-bottom:22px}.comments-block,.comments__kma{display:flex;flex-direction:column;gap:14px}.comment-item{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:15px;background:#f7f9fc;border:1px solid #e3e9f0;border-radius:14px}.ava-img{width:54px;height:54px;border-radius:50%;object-fit:cover;margin:0!important}.comment-name,.user-name{font-weight:800;color:#234b72}.comment-date{font-size:13px;color:#8a98a7}.comment-bottom{font-size:16px;line-height:1.48}.comment-write{padding:12px 15px;color:#637386;font-size:15px}.loading:after{content:'вЂ¦';animation:dots 1.2s infinite}@keyframes dots{50%{opacity:.3}}
+#orderWrapAfterComments{margin:34px auto!important;max-width:650px!important;padding:0!important}#orderWrapAfterComments>div{border:1px solid #dce7f1!important;box-shadow:0 12px 45px rgba(30,65,100,.16)!important}.App-footer{width:min(920px,calc(100% - 24px));margin:0 auto 35px;color:#778497;text-align:center;font-size:14px}.Footer{padding:20px}.floating-gift-box{position:fixed;z-index:9990;left:18px;bottom:18px;display:none;cursor:pointer;text-align:center;animation:bob 2s ease-in-out infinite}.floating-gift-box.show{display:block}.gift-image{width:105px;filter:drop-shadow(0 8px 13px rgba(0,0,0,.3))}.gift-label{margin-top:-7px;padding:7px 12px;border-radius:999px;background:#fff4c9;border:2px solid #f0b529;color:#bf351f;font-weight:900;font-size:13px;box-shadow:0 5px 18px rgba(0,0,0,.18)}
+@keyframes bob{50%{transform:translateY(-10px)}}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}@keyframes pop{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:none}}
+@media(max-width:680px){body{font-size:17px}main{width:100%;margin:0;border-radius:0;padding:20px 16px}.MediaMaterialHeader-title{letter-spacing:-.5px}.order__header{grid-template-columns:1fr}.order__img{max-width:360px;margin:auto}.comment-item{grid-template-columns:46px 1fr}.ava-img{width:46px;height:46px}.gift-image{width:80px}.floating-gift-box{left:9px;bottom:10px}.gift-label{font-size:11px}.baraban-spin-btn{width:78px;height:78px;font-size:16px}.App-footer{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+body{background:#f3f4f8;font-family:"Times New Roman",Times,serif;color:#202020;font-size:18px;line-height:1.35}
+main{width:min(900px,calc(100% - 34px));margin:15px auto 28px!important;background:#fff;border:1px solid #e4e4e4;border-radius:0;box-shadow:none;padding:30px 18px 24px;overflow:visible}
+.MediaMaterial-header{border-bottom:0;padding-bottom:0;margin-bottom:22px}
+.MediaMaterialHeader-title{font-family:"Times New Roman",Times,serif;text-align:center!important;color:#1d559e;font-size:clamp(30px,3.1vw,36px);line-height:1.22;letter-spacing:0;margin:0 auto 24px;max-width:760px;font-weight:900}
+.MediaMaterialHeader-first111{font-family:"Times New Roman",Times,serif;color:#111;font-size:24px;line-height:1.05;margin:0 0 4px;font-weight:900}
+p{margin:0 0 12px}
+h2,h3{font-family:"Times New Roman",Times,serif;color:#111}
+.main-img,.article-img,main img:not(.ava-img):not(.order__img){border-radius:8px;box-shadow:none;margin:18px auto}
+.gray_block{background:transparent;border:0;border-left:0;border-radius:0;padding:0;margin:20px 0}
+.cta{border-radius:0;box-shadow:none}
+.box-blue-light>h2,.box-blue-light>div:first-child{color:#111}
+@media(max-width:680px){body{font-size:17px}main{width:100%;margin:0!important;padding:18px 14px}.MediaMaterialHeader-title{font-size:28px}.MediaMaterialHeader-first111{font-size:21px}}
+.comments-block,.comments__kma{gap:12px!important}
+.comment-item{display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;align-items:start!important;gap:18px!important;min-height:94px!important;padding:18px 24px!important;margin:0!important;background:#f8fafc!important;border:1px solid #dfe7f0!important;border-radius:14px!important}
+.comment-text{min-width:0!important;padding-top:3px!important}
+.comment-top{display:block!important;margin-bottom:6px!important}
+.comment-name,.user-name{display:inline!important;font-size:18px!important;line-height:1.25!important;color:#174a80!important}
+.comment-date{display:none!important}
+.comment-bottom{display:block!important;font-size:17px!important;line-height:1.5!important;color:#111!important;word-break:normal!important;overflow-wrap:anywhere!important}
+.ava-img{width:58px!important;height:58px!important;min-width:58px!important;border-radius:50%!important;object-fit:cover!important}
+.comment-write{min-height:0!important;padding:0!important;margin:0!important}
+@media(max-width:680px){.comments-block,.comments__kma{gap:10px!important}.comment-item{grid-template-columns:52px minmax(0,1fr)!important;gap:12px!important;min-height:78px!important;padding:14px!important;border-radius:12px!important}.ava-img{width:48px!important;height:48px!important;min-width:48px!important}.comment-name,.user-name{font-size:17px!important}.comment-bottom{font-size:16px!important;line-height:1.45!important}} </style> <style> /* mobile-kristal-image-fix */
+@media (max-width: 680px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  main,
+  section,
+  article,
+  .container,
+  .content,
+  .wrapper,
+  .main,
+  .page,
+  .article,
+  [style*="max-width:1000px"],
+  [style*="max-width: 1000px"],
+  [style*="max-width:850px"],
+  [style*="max-width: 850px"],
+  [style*="max-width:800px"],
+  [style*="max-width: 800px"] {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  iframe {
+    max-width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  img[style*="height"],
+  img[height] {
+    height: auto !important;
+  }
+
+  center,
+  p,
+  div,
+  h1,
+  h2,
+  h3 {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+} </style> <script> (function(){
+  var triedKey = 'kristalFallbackTried';
+  function candidates(file){
+    return [
+      '../assets/' + file,
+      'assets/' + file,
+      '/kristal/assets/' + file,
+      '/assets/' + file
+    ];
+  }
+  function attachFallback(img){
+    img.addEventListener('error', function(){
+      var src = img.getAttribute('src') || '';
+      var file = src.split('?')[0].split('#')[0].split('/').pop();
+      if(!file) return;
+      var tried = (img.dataset[triedKey] || '').split('|').filter(Boolean);
+      tried.push(src);
+      img.dataset[triedKey] = tried.join('|');
+      var next = candidates(file).find(function(url){ return tried.indexOf(url) === -1; });
+      if(next) img.src = next;
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('img').forEach(attachFallback);
+  });
+})(); </script> <style> /* kristal final responsive polish */
+html, body {
+  min-width: 0;
+  overflow-x: hidden;
+}
+main {
+  max-width: 900px;
+}
+main,
+main * {
+  min-width: 0 !important;
+}
+main p,
+main li,
+main h1,
+main h2,
+main h3,
+main b,
+.comment-bottom,
+.comment-name,
+.user-name {
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  hyphens: auto;
+}
+.MediaMaterialHeader-title,
+.MediaMaterialHeader-first111 {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+main img:not(.ava-img):not(.gift-image) {
+  display: block;
+  max-width: min(100%, 550px) !important;
+  height: auto !important;
+  object-fit: contain;
+}
+center {
+  display: block;
+  width: 100%;
+}
+.comments-block,
+.comments__kma {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.comment-item {
+  width: 100% !important;
+  max-width: 100% !important;
+  grid-template-columns: 58px minmax(0, 1fr) !important;
+}
+.comment-text,
+.comment-top,
+.comment-bottom {
+  min-width: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+.comment-bottom {
+  white-space: normal !important;
+}
+.comment-bottom .user-name {
+  display: inline !important;
+  width: auto !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+.comment-bottom img {
+  max-width: min(100%, 400px) !important;
+  margin: 10px 0 0 !important;
+}
+#orderWrapAfterComments {
+  width: min(650px, calc(100% - 28px)) !important;
+}
+@media (max-width: 680px) {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  body {
+    font-size: 16px !important;
+    line-height: 1.48 !important;
+  }
+  main {
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    margin: 10px auto 18px !important;
+    overflow: hidden !important;
+    padding: 16px 12px 22px !important;
+  }
+  main p,
+  main li,
+  main h1,
+  main h2,
+  main h3,
+  main b,
+  .comment-bottom,
+  .comment-name,
+  .user-name {
+    overflow-wrap: anywhere !important;
+  }
+  .MediaMaterialHeader-title {
+    font-size: clamp(22px, 5.8vw, 27px) !important;
+    line-height: 1.18 !important;
+    text-wrap: balance;
+  }
+  .MediaMaterialHeader-first111 {
+    font-size: 19px !important;
+    line-height: 1.25 !important;
+  }
+  main img:not(.ava-img):not(.gift-image) {
+    max-width: min(100%, calc(100vw - 44px)) !important;
+  }
+  p[style] b,
+  p b[style] {
+    font-size: 20px !important;
+    line-height: 1.25 !important;
+  }
+  .gray_block {
+    padding: 14px !important;
+  }
+  .gray_block ul,
+  ol {
+    padding-left: 22px !important;
+  }
+  .cta {
+    margin: 28px 0 !important;
+    padding: 18px 10px !important;
+  }
+  .baraban-canvas-wrap {
+    width: min(306px, calc(100vw - 58px)) !important;
+    padding: 9px !important;
+  }
+  .comment-item {
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    padding: 12px !important;
+  }
+  .ava-img {
+    width: 46px !important;
+    height: 46px !important;
+    min-width: 46px !important;
+  }
+  .comment-name,
+  .user-name {
+    font-size: 16px !important;
+  }
+  .comment-bottom {
+    font-size: 16px !important;
+    line-height: 1.45 !important;
+  }
+  #orderWrapAfterComments {
+    width: calc(100vw - 20px) !important;
+    padding: 0 !important;
+  }
+  #orderWrapAfterComments > div {
+    padding: 18px 14px !important;
+    border-radius: 16px !important;
+  }
+  .floating-gift-box {
+    transform: scale(.86);
+    transform-origin: left bottom;
+  }
+} .comments-block,.comments__kma{display:flex!important;flex-direction:column!important;gap:14px!important}.comments-block>.comment-item,.comments__kma>.comment-item{margin:0!important}</style> </head> <body> <main style="margin-top: 15px"> <div class="MediaMaterial-header"> <div class="MediaMaterialHeader"> <h1 class="MediaMaterialHeader-title" style="text-align: center">48 С‘С€РёРјРґР° РєСћСЂРёС€РёРј С‚РёРєР»Р°РЅРґРё вЂ” ТіРµС‡ Т›Р°РЅРґР°Р№ РѕРїРµСЂР°С†РёСЏ РІР° Т›РёРјРјР°С‚Р±Р°ТіРѕ С‚РѕРјС‡РёР»Р°СЂСЃРёР·!</h1> </div> </div> <header> <h2 class="MediaMaterialHeader-first111">РўР°Р±РёРёР№ С‚Р°СЂРєРёР±Р»Рё Р±Сѓ РІРѕСЃРёС‚Р° 45 С‘С€РґР°РЅ РєРµР№РёРЅ РєСћСЂРёС€ Р·Р°РёС„Р»Р°С€РёС€РёРЅРё С‚СћС…С‚Р°С‚Р°РґРё РІР° Р±РёСЂ РѕР№ РёС‡РёРґР° РєСћР· СћС‚РєРёСЂР»РёРіРёРЅРё С‚РёРєР»Р°Р№РґРё!</h2> <p>РђСЃСЃР°Р»РѕРјСѓ Р°Р»Р°Р№РєСѓРј! РњРµРЅРёРЅРі РёСЃРјРёРј Р‘Р°ТіСЂРѕРј. РњРµРЅ 22 Р№РёР»РґР°РЅ Р±РµСЂРё РјР°РєС‚Р°Р±РґР° РјР°С‚РµРјР°С‚РёРєР° СћТ›РёС‚Р°РјР°РЅ, ТіРѕР·РёСЂ 48 С‘С€РґР°РјР°РЅ.</p> <center><img loading="eager" fetchpriority="high" alt="Р‘Р°ТіСЂРѕРј" decoding="async" src="../assets/sobirjon.jpg" style="max-width:300px;width:300px;border-radius:12px;margin:16px auto;display:block;" width="300"></center> <p>Р‘Сѓ ТіРёРєРѕСЏРЅРё С‘Р·РёС€РґР°РЅ РјР°Т›СЃР°РґРёРј вЂ” РєРёРј Р±РёР»Р°РґРё, Р±Р°Р»РєРё Р±РёСЂРѕСЂ РєРёС€РёРіР° С„РѕР№РґР°СЃРё С‚РµРіР°СЂ. Р§СѓРЅРєРё СћР·РёРј С€СѓРЅРіР° СћС…С€Р°С€ С‚Р°Р¶СЂРёР±Р°РґР°РЅ СћС‚РіР°РЅРјР°РЅ РІР° С‘СЂРґР°Рј СЃСћСЂР°Р№РґРёРіР°РЅ РѕРґР°Рј С‚РѕРїРѕР»РјР°РіР°РЅРјР°РЅ.</p> <p>РЋТ›РёС‚СѓРІС‡Рё РёС€Рё вЂ” Р±Сѓ С„Р°Т›Р°С‚ РґР°СЂСЃ Р±РµСЂРёС€ СЌРјР°СЃ. Р”Р°С„С‚Р°СЂР»Р°СЂ С‚РµРєС€РёСЂРёС€, СЃРёРЅС„ С‚Р°С…С‚Р°СЃРёРіР° С‘Р·РёС€, РєРµС‡Р°СЋ РєСѓРЅРґСѓР· РєРѕРјРїСЋС‚РµСЂ СЌРєСЂР°РЅРёРґР° РёС€Р»Р°С€, РёРјС‚РёТіРѕРЅ РёС€Р»Р°СЂРёРЅРё Р±Р°ТіРѕР»Р°С€... РљСћР·Р»Р°СЂ ТіРµС‡ С‚РёРЅС‡ Т›РѕР»РјР°Р№РґРё.</p> <p>30 С‘С€РёРјРґР° РєСћР·РѕР№РЅР°Рє С‚Р°Т›Т›РёРј. Р”Р°СЃС‚Р»Р°Р± -1.5 СЌРґРё. РљРµР№РёРЅ ТіР°СЂ 2-3 Р№РёР»РґР° С€РёС€Р°РЅРё РєСѓС‡Р°Р№С‚РёСЂРёР± Р±РѕСЂРґРёРј. 48 С‘С€РёРјРґР° -3.25 Р±СћР»РґРё. РћС„С‚Р°Р»СЊРјРѕР»РѕРі: "РљР°СЃР±РёРЅРіРёР· С€СѓРЅРґР°Р№, РєСћР·Р»Р°СЂРёРЅРіРёР· Р·СћСЂРёТ›Р°РґРё," вЂ” РґРµСЂ СЌРґРё. РњРµРЅ ТіР°Рј РѕРґР°С‚РёР№ РіР°Рї РґРµР± Т›Р°Р±СѓР» Т›РёР»Р°СЂРґРёРј.</p> <p>РђРјРјРѕ 2 Р№РёР» РѕР»РґРёРЅ Р±РёСЂРґР°РЅ ТіР°РјРјР° РЅР°СЂСЃР° С‘РјРѕРЅР»Р°С€РґРё. РљСћР·РѕР№РЅР°Рє С‚Р°Т›РёР± ТіР°Рј С‚Р°С…С‚Р°РґР°РіРё С‘Р·СѓРІРЅРё РѕС…РёСЂРіРё РїР°СЂС‚Р° СћТ›СѓРІС‡РёР»Р°СЂРёРіР° РєСћСЂСЃР°С‚Р° РѕР»РјР°Р№ Т›РѕР»РґРёРј. РљРµС‡Р°СЃРё РєРёС‚РѕР± СћТ›РёС€ вЂ” Р°Р·РѕР±РіР° Р°Р№Р»Р°РЅРґРё.</p> </header> <p style="margin: 20px 0; color: red; text-align: center"> <b style="font-size: 27px">РЎРёРЅС„ СћСЂС‚Р°СЃРёРґР° РґР°СЂСЃ Р±РµСЂСЏРїРјР°РЅ, С‚Р°С…С‚Р°РіР° С‘Р·СЏРїРјР°РЅ вЂ” РІР° СћР·РёРј С‘Р·РіР°РЅРёРјРЅРё Р°РЅРёТ› СћТ›РёР№ РѕР»РјР°СЏРїРјР°РЅ. РЋТ›СѓРІС‡РёР»Р°СЂ ТіР°Р№СЂРѕРЅ Т›Р°СЂР°Р№РґРё. Р‘Сѓ вЂ” РµСЂРґР° С‚СѓР±Р°РЅ СЌРґРё.</b> </p> <p>РЇРЅРіРё РєСћР·РѕР№РЅР°РєРєР° Р±РѕСЂРґРёРј. РЁРёС€Р°РЅРё -4.0 РіР° Р°Р»РјР°С€С‚РёСЂРёС€РґРё. Р‘РёСЂ РѕР№РґР°РЅ РєРµР№РёРЅ СЏРЅР° С…РёСЂР° РєСћСЂРёРЅР° Р±РѕС€Р»Р°РґРё. РЇРЅР° Р±РѕСЂРґРёРј вЂ” СЏРЅР° РєСѓС‡Р°Р№С‚РёСЂРґРёРє. Р‘Сѓ Р·Р°РЅР¶РёСЂ С‚СѓРіР°РјР°СЃРґРё.</p> <p>РћС„С‚Р°Р»СЊРјРѕР»РѕРі С‚РѕРјС‡РёР»Р°СЂ С‚Р°РІСЃРёСЏ Т›РёР»РґРё. Р‘РёСЂ РїР°РєРµС‚ вЂ” 80 РјРёРЅРі СЃСћРј. РћР№РёРіР° 2-3 РїР°РєРµС‚. РЇС…С€Рё, РёС‡РґРёРј. Р‘РёСЂРёРЅС‡Рё ТіР°С„С‚Р° РєСћР·Р»Р°СЂ Р±РёСЂРѕР· С‘СЂТ›РёРЅР»Р°С€РґРё. РРєРєРёРЅС‡Рё РѕР№РґР°РЅ вЂ” ТіРµС‡ РЅР°СЂСЃР°. РџСѓР»РЅРё С‚Р°С€Р»Р°РјРѕТ›РґР°РЅ Р±РѕС€Т›Р° С„Р°СЂТ›Рё Р№СћТ› СЌРґРё.</p> <p style="margin: 20px 0; text-align: center"> <b style="font-size: 24px">РЁРёС„РѕРєРѕСЂ: "Р‘Р°Р»РєРё Р»Р°Р·РµСЂ РѕРїРµСЂР°С†РёСЏСЃРё Т›РёР»Р°СЃРёР·? 12-15 РјРёР»Р»РёРѕРЅ СЃСћРј, РЅР°С‚РёР¶Р° РєР°С„РѕР»Р°С‚Р»Р°РЅРјР°РіР°РЅ." РњРµРЅ вЂ” РѕРґРґРёР№ СћТ›РёС‚СѓРІС‡Рё. Р‘СѓРЅРґР°Р№ РїСѓР»РЅРё Т›Р°РµСЂРґР°РЅ РѕР»Р°РјР°РЅ?</b> </p> <p>РћРёР»Р° С‚Р°С€РІРёС€РіР° С‚СѓС€РґРё. РљР°С‚С‚Р° СћТ“Р»РёРј: "Р”Р°РґР°, РёС€РґР°РЅ С‡РёТ›РёРЅРі, РєСћР·РёРЅРіРёР·РЅРё РґР°Рј РѕР»РґРёСЂРёРЅРі," вЂ” РґРµРґРё. РђРјРјРѕ РјРµРЅ 22 Р№РёР»Р»РёРє РёС€РёРјРЅРё С‚Р°С€Р»Р°С€РЅРё С‚Р°СЃР°РІРІСѓСЂ ТіР°Рј Т›РёР»РѕР»РјР°СЃРґРёРј. РЋТ›СѓРІС‡РёР»Р°СЂРёРј Р±РѕСЂ, СѓР»Р°СЂ РјРµРЅРё РєСѓС‚Р°РґРё.</p> <p>РЁСѓ РїР°Р№С‚РґР° Р±РёСЂ ТіР°РјРєР°СЃР±РёРј вЂ” С‚Р°СЂРёС… С„Р°РЅРё СћТ›РёС‚СѓРІС‡РёСЃРё РЁРѕРёСЂР° РѕРїР° вЂ” РјРµРЅРґР°РЅ СЃСћСЂР°РґРё: "Р‘Р°ТіСЂРѕРј Р°РєР°, СЃРёР·РіР° Р±РёСЂ РЅР°СЂСЃР° Р°Р№С‚СЃР°РјРјРё? РњРµРЅ ТіР°Рј СћС‚РіР°РЅ Р№РёР» С€СѓРЅРґР°Р№ ТіРѕР»Р°С‚РґР° СЌРґРёРј."</p> <p style="margin: 20px 0; color: red; text-align: center"> <b style="font-size: 24px">РЈ РјРµРЅРіР° В«РљР РРЎРўРђР›Р›В» ТіР°Т›РёРґР° РіР°РїРёСЂРґРё. Р”Р°СЃС‚Р»Р°Р± РёС€РѕРЅРјР°РґРёРј вЂ” РёРЅС‚РµСЂРЅРµС‚РґР° СЂРµРєР»Р°РјР° РєСћРї. РђРјРјРѕ РЁРѕРёСЂР° РѕРїР° вЂ” СЂРµРєР»Р°РјР° СЌРјР°СЃ, ТіР°С‘С‚РёР№ С‚Р°Р¶СЂРёР±Р°СЃРёРЅРё Р°Р№С‚СЏРїС‚Рё СЌРґРё.</b> </p> <p>РЈР№РіР° Т›Р°Р№С‚РёР±, В«РљР РРЎРўРђР›Р›В» ТіР°Т›РёРґР° СћТ›РёР№ Р±РѕС€Р»Р°РґРёРј. РњР°СЉР»СѓРј Р±СћР»РґРёРєРё, 45-50 С‘С€РґР°РЅ РєРµР№РёРЅ РєСћР· РјСѓСЃРєСѓР»Р»Р°СЂРё Р·Р°РёС„Р»Р°С€Р°РґРё, РєСћР· РёС‡РёРґР°РіРё Р±РѕСЃРёРј РѕС€Р°РґРё, Т›РѕРЅ Р°Р№Р»Р°РЅРёС€Рё С‘РјРѕРЅР»Р°С€Р°РґРё вЂ” РІР° Р±СѓР»Р°СЂРЅРёРЅРі ТіР°РјРјР°СЃРё РєСћСЂРёС€РЅРё СЃРµРєРёРЅ-Р°СЃС‚Р° Р№СћТ›РѕС‚Р°РґРё.</p> <p>В«РљР РРЎРўРђР›Р›В» С‚Р°СЂРєРёР±РёРґР° С‡РµСЂРЅРёРєР° СЌРєСЃС‚СЂР°РєС‚Рё, Р»СЋС‚РµРёРЅ, С‚Р°СѓСЂРёРЅ, РІРёС‚Р°РјРёРЅ Рђ РІР° Р• Р±РѕСЂ вЂ” Р±СѓР»Р°СЂРЅРёРЅРі ТіР°РјРјР°СЃРё РєСћР· С‚РѕРјРёСЂР»Р°СЂРёРЅРё РјСѓСЃС‚Р°ТіРєР°РјР»Р°Р№РґРё, РєСћР· РЅРµСЂРІРёРЅРё РѕР·РёТ›Р»Р°РЅС‚РёСЂР°РґРё РІР° РєСћР· РёС‡Рё Р±РѕСЃРёРјРёРЅРё РјРµСЉС‘СЂР»Р°С€С‚РёСЂР°РґРё. РњСѓТіРёРјРё вЂ” РєРёРјС‘РІРёР№ СЌРјР°СЃ, С‚Р°Р±РёРёР№!</p> <center> <img loading="eager" fetchpriority="high" alt="" decoding="async" src="../assets/kristall.jpg" style="max-width: 550px; width: 100%"> </center> <center> <img loading="eager" fetchpriority="high" alt="РЎРµСЂС‚РёС„РёРєР°С‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёСЏ" decoding="async" src="../assets/sertifikat.jpg" style="max-width:550px;width:100%;margin-top:16px;border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,0.15);"> </center> <p style="margin: 20px 0; color: red; text-align: center"> <b style="font-size: 24px">РђРєС†РёСЏ РѕСЂТ›Р°Р»Рё 70% С‡РµРіРёСЂРјР° Р±РёР»Р°РЅ Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј. 1 Т›Р°РґРѕТ› вЂ” 30 РєР°РїСЃСѓР»Р°, 1 РѕР№РіР° РµС‚Р°РґРё. РќРёРјР° Р±СћР»РёС€РёРЅРё РєСѓС‚РґРёРј...</b> </p> <p><b>В«РљР РРЎРўРђР›Р›В» Т›Р°Р±СѓР» Т›РёР»РіР°РЅРёРјРґР°РЅ РєРµР№РёРЅРіРё РЅР°С‚РёР¶Р°Р»Р°СЂ:</b></p> <p style="margin: 20px 0; color: red; text-align: center"> <b style="font-size: 24px">Р‘РёСЂРёРЅС‡Рё ТіР°С„С‚Р°: РљСћР·Р»Р°СЂРёРјРґР°РіРё РѕТ“СЂРёТ› РІР° С‚РѕР»РёТ›РёС€ СЃРµР·РёР»Р°СЂР»Рё РєР°РјР°Р№РґРё. Р”Р°СЂСЃ Р±РµСЂРіР°РЅРґР°РЅ РєРµР№РёРЅ РєСћР·Р»Р°СЂРёРј Р°РІРІР°Р»РіРёРґРµРє С‘РЅРјР°Р№ Т›СћР№РґРё.</b> </p> <p><b>РРєРєРёРЅС‡Рё ТіР°С„С‚Р°:</b> РўР°С…С‚Р°РґР°РіРё С‘Р·СѓРІРЅРё Р°РЅРёТ›СЂРѕТ› РєСћСЂР° Р±РѕС€Р»Р°РґРёРј. РЋТ›СѓРІС‡РёР»Р°СЂ СЃРёРЅС„РЅРёРЅРі РЅР°СЂРёСЂРѕТ› СћС‚РёСЂР°РґРё вЂ” СѓР»Р°СЂРЅРёРЅРі С‘Р·СѓРІР»Р°СЂРёРЅРё РёР»РіР°СЂРёР»РёРє РєСћР·РѕР№РЅР°Рє Р±РёР»Р°РЅ ТіР°Рј РєСћСЂР° РѕР»РјР°СЃРґРёРј. Р­РЅРґРё РєСћСЂР°РјР°РЅ.</p> <p><b>РЈС‡РёРЅС‡Рё ТіР°С„С‚Р°:</b> РћС„С‚Р°Р»СЊРјРѕР»РѕРіРіР° Р±РѕСЂРґРёРј. РЁРёС„РѕРєРѕСЂ С‚РµРєС€РёСЂСѓРІРё вЂ” ТіР°Р№СЂР°С‚: "РљСћР·РёРЅРіРёР· РЅРёРјР°РґРёСЂ СЏС…С€РёР»Р°РЅСЏРїС‚Рё! РљСћСЂРёС€ СћС‚РєРёСЂР»РёРіРё РѕС€РґРё." РљР РРЎРўРђР›Р› ТіР°Т›РёРґР° РіР°РїРёСЂРґРёРј. РЈ СЂР°Рґ СЌС‚РјР°РґРё.</p> <p><b>РўСћСЂС‚РёРЅС‡Рё ТіР°С„С‚Р°:</b> Р‘СѓС‚СѓРЅ РѕР№ РґР°РІРѕРјРёРґР° РґР°СЂСЃ Р±РµСЂРґРёРј вЂ” РєСћР·Р»Р°СЂРёРј С‡Р°СЂС‡Р°РјР°РґРё! РЎРёРЅС„РЅРёРЅРі РѕС…РёСЂРіРё РїР°СЂС‚Р°СЃРёРіР°С‡Р° Р°РЅРёТ› РєСћСЂРґРёРј. ТІР°С‚С‚Рѕ РєРµС‡Р°СЃРё РєРёС‚РѕР± СћТ›РёС€ ТіР°Рј РѕСЃРѕРЅР»Р°С€РґРё.</p> <p style="margin: 20px 0; color: red; text-align: center"> <b style="font-size: 24px">Р‘РёСЂ РѕР№ СћС‚РіР°С‡ вЂ” РєСћР·РѕР№РЅР°РєРЅРё СЃС‚РѕР»РіР° Т›СћР№РґРёРј РІР° СЃРёРЅС„РіР° РєРёСЂРґРёРј. РЋТ›СѓРІС‡РёР»Р°СЂ: "Р‘Р°ТіСЂРѕРј Р°РєР°, РєСћР·РѕР№РЅР°РіРёРЅРіРёР· Т›Р°РЅРё?" РґРµРґРё. "РљРµСЂР°РєСЃРёР· Р±СћР»РґРё," вЂ” РґРµРґРёРј.</b> </p> <p>Р­РЅРґРё ТіР°С‘С‚РёРј Т›Р°РЅРґР°Р№ Р±СћР»РґРё? 22 Р№РёР»Р»РёРє РёС€РёРјРґР° Р±РёСЂРёРЅС‡Рё РјР°СЂС‚Р° РєСћР·Р»Р°СЂРёРј Р±СѓРЅРґР°Р№ СЏС…С€Рё РєСћСЂСЏРїС‚Рё. РҐРѕС‚РёРЅРёРј РњР°С„С‚СѓРЅР° ТіР°Рј РєСѓР·Р°С‚СЏРїС‚Рё: "РђРІРІР°Р» РєРµС‡Р°СЃРё РјСѓС‚РѕР»Р°Р° Т›РёР»Р° РѕР»РјР°СЃРґРёРЅРі, СЌРЅРґРё РєРёС‚РѕР± Р±РёР»Р°РЅ СѓС…Р»Р°Р± Т›РѕР»Р°СЏРїСЃР°РЅ." РљР°С‚С‚Р° СћТ“Р»РёРј ТіР°Рј РљР РРЎРўРђР›Р› РѕР»РґРё вЂ” РєРѕРјРїСЋС‚РµСЂ РґР°СЃС‚СѓСЂС‡РёСЃРё, РєСћР·Р»Р°СЂРё Р¶СѓРґР° С‚РѕР»РёТ›Р°СЂРґРё.</p> <p>ТІР°РјРєР°СЃР±РёРј РЁРѕРёСЂР° РѕРїР°РіР° СЂР°ТіРјР°С‚ Р°Р№С‚РґРёРј. РЈ Р¶РёР»РјР°Р№РґРё: "РњРµРЅ ТіР°Рј Р±РёР»Р°РґРёРіР°РЅ Р±РёСЂ РЅР°СЂСЃР°РЅРё СЃРёР·РіР° Р°Р№С‚РґРёРј С…РѕР»РѕСЃ."</p> <p>РЁСѓРЅРґР°Р№ Т›РёР»РёР±, В«РљР РРЎРўРђР›Р›В» РІРѕСЃРёС‚Р°СЃРёРЅРё С„Р°Т›Р°С‚ Р±РёСЂ РєСѓСЂСЃ Т›Р°Р±СѓР» Т›РёР»РёРЅРі вЂ” РІР° РєСћСЂРёС€ Т›РѕР±РёР»РёСЏС‚Рё С‚РёРєР»Р°РЅР°РґРё!</p> <p>Р‘Сѓ ТіР°Т›РґР° РѕС„С‚Р°Р»СЊРјРѕР»РѕРі РСЃРјРѕРёР»РѕРІ С€СѓРЅРґР°Р№ РёР·РѕТіР»Р°Р№РґРё:</p> <img loading="eager" fetchpriority="high" alt="" decoding="async" src="../assets/hero-4.jpg" style="max-width: 550px; width: 100%"> <div class="gray_block" style="background-color: #e2e2e2"> <ul> <li><b>РљСћСЂРёС€ Т›РѕР±РёР»РёСЏС‚Рё РєСѓС‡Р°СЏРґРё:</b> ТіСѓР¶Р¶Р°С‚Р»Р°СЂРЅРё, С‚Р°С…С‚Р° С‘Р·СѓРІР»Р°СЂРёРЅРё, СЌРєСЂР°РЅРЅРё СћТ›РёС€ РѕСЃРѕРЅ Р±СћР»Р°РґРё вЂ” Р±СѓС‚СѓРЅ РєСѓРЅ РґР°РІРѕРјРёРґР°.</li> <li><b>РљСћР· С‚РѕР»РёТ›РёС€Рё РєР°РјР°СЏРґРё:</b> РєРѕРјРїСЋС‚РµСЂ РІР° С‚РµР»РµС„РѕРЅ Р±РёР»Р°РЅ 5-8 СЃРѕР°С‚ РёС€Р»Р°С€ РµРЅРіРёР»Р»Р°С€Р°РґРё.</li> <li><b>РљСћР· С‚РѕРјРёСЂР»Р°СЂРё РјСѓСЃС‚Р°ТіРєР°РјР»Р°РЅР°РґРё:</b> Т›РѕРЅ Р°Р№Р»Р°РЅРёС€Рё СЏС…С€РёР»Р°РЅР°РґРё, РєСћР· С‚СћТ›РёРјР°Р»Р°СЂРё С‚СћР»РёТ› РѕР·РёТ›Р»Р°РЅР°РґРё.</li> <li><b>РљСћР· Р±РѕСЃРёРјРё РјРµСЉС‘СЂР»Р°С€Р°РґРё:</b> РіР»Р°СѓРєРѕРјР° С…Р°РІС„Рё Р№СћТ›РѕР»Р°РґРё, РєСћР· РёС‡РєРё Р±РѕСЃРёРјРё 18вЂ“21 РјРј РґР°СЂР°Р¶Р°СЃРёРґР° Р±Р°СЂТ›Р°СЂРѕСЂ СѓС€Р»Р°РЅР°РґРё.</li> <li><b>РљСћСЂРёС€ СћС‚РєРёСЂР»РёРіРё РѕС€Р°РґРё:</b> Р°Р»РѕТіРёРґР° ТіР°СЂС„Р»Р°СЂ, СЂР°Т›Р°РјР»Р°СЂ, Р№СћР» Р±РµР»РіРёР»Р°СЂРё Р°РЅРёТ› РєСћСЂРёРЅР°РґРё.</li> <li><b>РљСћР· Т›СѓСЂРёТ›Р»РёРіРё Р№СћТ›РѕР»Р°РґРё:</b> С‚Р°Р±РёРёР№ РєСћР· РЅР°РјР»РёРіРё С‚РёРєР»Р°РЅР°РґРё, "Т›СѓРј" ТіРёСЃСЃРё, С‘РЅРёС€ РІР° Т›РёР·Р°СЂРёС€ Р№СћТ›РѕР»Р°РґРё.</li> </ul> </div> <p style="margin: 20px 0; color: red; text-align: center"> <b style="font-size: 24px">В«РљР РРЎРўРђР›Р›В» Т›РѕРЅ Р±РѕСЃРёРјРё РІР° СЋСЂР°РєРєР° С‚Р°СЉСЃРёСЂ Т›РёР»РјР°Р№РґРё вЂ” СЂРµС†РµРїС‚СЃРёР· РѕР»РёРЅР°РґРё!</b> </p> <p>В«РљР РРЎРўРђР›Р›В» РґРѕСЂРёС…РѕРЅР°Р»Р°СЂРґР° СЃРѕС‚РёР»РјР°Р№РґРё. РС€Р»Р°Р± С‡РёТ›Р°СЂСѓРІС‡Рё СЃРѕС…С‚Р° РјР°ТіСЃСѓР»РѕС‚Р»Р°СЂ Р±РѕР·РѕСЂРёРЅРё РєРµРЅРіР°Р№С‚РёСЂРјР°СЃР»РёРє СѓС‡СѓРЅ СѓРЅРё С‚СћТ“СЂРёРґР°РЅ-С‚СћТ“СЂРё Р·Р°РІРѕРґРґР°РЅ СЃРѕС‚Р°РґРё.</p> <p>ТІРѕР·РёСЂ РјР°С…СЃСѓСЃ Р°РєС†РёСЏ СћС‚РєР°Р·РёР»РјРѕТ›РґР° вЂ” ТіР°СЂ Т›Р°РЅРґР°Р№ РѕРґР°Рј РІРѕСЃРёС‚Р°РЅРё <a href="#pluginCta" target="_self">СЂР°СЃРјРёР№ СћР№РёРЅ РѕСЂТ›Р°Р»Рё</a> 70% С‡РµРіРёСЂРјР° Р±РёР»Р°РЅ РѕР»РёС€Рё РјСѓРјРєРёРЅ!</p> <div style="padding: 15px; margin: 25px 0; border: 1px solid #000; background-color: #fff2cc"> <p style="font-size: 1.2em; text-align: center"><b>РђРєС†РёСЏ Р±СћР№РёС‡Р° РљР РРЎРўРђР›Р› РєР°РїСЃСѓР»Р°Р»Р°СЂРёРЅРё РѕР»РёС€ С€Р°СЂС‚Р»Р°СЂРё:</b></p> <ol> <li><b>РЋР·Р±РµРєРёСЃС‚РѕРЅ ТіСѓРґСѓРґРёРґР° СЏС€Р°С€</b></li> <p>РђРєС†РёСЏРґР° 18 С‘С€РґР°РЅ РѕС€РіР°РЅ, РЋР·Р±РµРєРёСЃС‚РѕРЅРґР° СЏС€РѕРІС‡Рё РѕРґР°РјР»Р°СЂ Т›Р°С‚РЅР°С€РёС€Рё РјСѓРјРєРёРЅ.</p> <li><b>Р¤Р°Т›Р°С‚ С€Р°С…СЃРёР№ С„РѕР№РґР°Р»Р°РЅРёС€ СѓС‡СѓРЅ</b></li> <p>ТљР°Р№С‚Р° СЃРѕС‚СѓРІС‡РёР»Р°СЂ Р±РёР»Р°РЅ РєСѓСЂР°С€РёС€ РјР°Т›СЃР°РґРёРґР° вЂ” СѓР»РіСѓСЂР¶Рё СЃРѕС‚РёР± РѕР»РёС€ РјСѓРјРєРёРЅ СЌРјР°СЃ.</p> <li><b>РС€Р»Р°Р± С‡РёТ›Р°СЂСѓРІС‡Рё С‚РѕРјРѕРЅРёРґР°РЅ СћС‚РєР°Р·РёР»Р°РґРёРіР°РЅ СћР№РёРЅРґР° Т›Р°С‚РЅР°С€РёС€</b></li> <p>РђРєС†РёСЏ Т›Р°РґРѕТ›Р»Р°СЂРё СЃРѕРЅРё С‡РµРєР»Р°РЅРіР°РЅ. 70% С‡РµРіРёСЂРјР° РѕР»РёС€ СѓС‡СѓРЅ Р±Р°СЂР°Р±Р°РЅРЅРё Р°Р№Р»Р°РЅС‚РёСЂРёРЅРі.</p> </ol> </div> <div class="cta" id="pluginCta"> <div class="door" id="barabanGame"> <h2 class="baraban__title">рџЋ° Р‘Р°СЂР°Р±Р°РЅРЅРё Р°Р№Р»Р°РЅС‚РёСЂРёР± <span class="baraban__title-pct">70%</span> С‡РµРіРёСЂРјР° СЋС‚РёРЅРі!</h2> <div id="barabanAttempts" style="text-align:center;margin-bottom:14px;font-size:17px;font-weight:800;color:#1e3a8a;letter-spacing:0.5px;"> <span id="attemptDots"><div style="font-size:15px;font-weight:700;color:#1e3a8a;margin-bottom:6px;">РЈСЂРёРЅРёС€: <b style="font-size:20px;color:#dc2626;">1</b> / 1</div><div><span style="display:inline-block;width:32px;height:32px;border-radius:50%;background:#2563eb;border:3px solid #1e3a8a;margin:0 4px;vertical-align:middle;box-shadow:0 0 10px rgba(37,99,235,0.6);"></span></div></span> </div> <div class="baraban-outer"> <div class="baraban-canvas-wrap"> <div class="baraban-arrow-wrap" id="barabanArrow"> <svg class="baraban-arrow-svg" height="44" viewbox="0 0 36 44" width="36"> <polygon fill="#dc2626" points="18,44 0,0 36,0"></polygon> <polygon fill="#ef4444" points="18,38 4,4 32,4"></polygon> </svg> </div> <canvas height="340" id="barabanWheel" width="340"></canvas> <div class="baraban-spin-btn" id="spinBtn" onclick="spinWheel()"> <span id="spinBtnText">РђР™Р›-<br>РђРќРў</span> </div> </div> </div> <p class="baraban-msg" id="barabanMsg"></p> </div> <div class="baraban-retry-overlay" id="barabanRetryOverlay"> <div class="baraban-retry-box"> <div class="baraban-retry-body"> <div class="baraban-retry-attempts-row" id="retryDotsRow"></div> <div class="baraban-retry-msg" id="retryMsg">РЎРёР·РґР° СЏРЅР° <b id="retryLeftText">2</b> С‚Р° СѓСЂРёРЅРёС€ Т›РѕР»РґРё.<br>РЇРЅР° СѓСЂРёРЅРёР± РєСћСЂРёРЅРі!</div> <button class="baraban-retry-btn" onclick="closeRetryPopup()">рџЋЇ РЇРЅР° СѓСЂРёРЅРёС€</button> </div> </div> </div> <div class="order order-panel"> <div class="order__header"> <img loading="eager" fetchpriority="high" alt="РњР°ТіСЃСѓР»РѕС‚ СЃСѓСЂР°С‚Рё" class="order__img" decoding="async" src="../assets/kristall.jpg"> <div class="order__deadline hideOnSuccess"> <p class="order__text">РСЃРј, С„Р°РјРёР»РёСЏ, С‘С€ РІР° РјР°РЅР·РёР»РЅРё РєРёСЂРёС‚РёРЅРі.</p> <p class="order__text"> РЁРѕС€РёР»РёРЅРі! <br> ТљРѕР»РіР°РЅ РІР°Т›С‚РёРЅРіРёР·: </p> <p class="order__time"> <span class="order__time-minute" id="orderMinute">10</span> : <span class="order__time-second" id="orderSecond">00</span> </p> </div> <div class="order__price" style="display:none !important;"> <p class="order__price-old"> <span class="order__price-summ price_land_s4"></span> <span class="order__price-curr price_land_curr"></span> </p> <p class="order__price-new"> <span class="order__price-summ price_land_s1"> <x-newprice></x-newprice> <x-currency></x-currency> </span> <span style="margin-left: -0px !important;"></span> </p> </div> </div> <form class="order__body hideOnSuccess js-form" id="orderForm"> <input name="ast" type="hidden" value="26"> <input name="uid" type="hidden" value="c_revlvdt"> <input id="tz" name="tz" type="hidden" value="-300"> <input name="geo" type="hidden" value="UZ"> <input id="discountValue" name="discount" type="hidden" value="70%"> <input autocomplete="name" class="order__input" name="name" placeholder="РСЃРј Р¤Р°РјРёР»РёСЏ" required=""> <div style="position:relative; width:100%;"> <input autocomplete="tel" class="order__input" id="phoneInput" name="phone" placeholder="+998 XX XXX-XXXX" required="" style="width:100%; box-sizing:border-box;" type="tel"> <div id="phoneError" style="display:none; color:#e74c3c; font-size:13px; margin-top:4px; padding: 4px 8px; background:#ffeaea; border-radius:6px; border-left:3px solid #e74c3c;"> вљ пёЏ Telefon raqami noto'g'ri! Format: +998 XX XXX XX XX </div> <div id="phoneOk" style="display:none; color:#27ae60; font-size:13px; margin-top:4px; padding: 4px 8px; background:#eafaf1; border-radius:6px; border-left:3px solid #27ae60;"> вњ… Telefon raqami to'g'ri </div> </div> <input class="order__input" name="address" placeholder="РўСѓПЃР°СЂ Р¶РѕР№Рё (РЁР°С…Р°СЂ, Р Р°Р№РѕРЅ)" required=""> <input class="order__input" max="99" min="18" name="age" placeholder="РЃС€РёРЅРіРёР·" required="" type="number"> <button class="order__btn js-orderSubmit" type="submit">BUYURTMA BERISH</button> </form> <div class="js-success" style="display: none; text-align: center; margin: 70px 0; color: green!important;font-size:18px!important;background-color: white!important;"> <h2 class="spin-alert__header js-success-title" style="text-align: center;color:green!important; margin-bottom: 20px;font-size:25px!important;background-color: white!important;"> Р‘СѓСЋСЂС‚Рјangiz СѓС‡СѓРЅ СЂР°ТіРјР°С‚! </h2> <div> РЇТ›РёРЅ РІР°Т›С‚ РёС‡РёРґР° РјРµРЅРµРґР¶РµСЂРёРјРёР· Р±СѓСЋСЂС‚РјР° С‚Р°С„СЃРёР»РѕС‚Р»Р°СЂРёРЅРё Р°РЅРёТ›Р»Р°С€ СѓС‡СѓРЅ СЃРёР·РіР° Т›СћРЅТ“РёСЂРѕТ› Т›РёР»Р°РґРё! </div></div> <div class="js-error-text" style="display: none; text-align: center; margin: 20px 0;"> <h2 class="spin-alert__header" style="text-align: center;color: red!important;font-size:25px!important;background-color: white!important;">Р‘РёСЂРґР°РЅ РЅРёРјР°РґСѓСЂ Р±СћР»РґРё. РЎРµСЂРІРµСЂ С…Р°С‚РѕСЃРё.</h2> </div> <div class="order__footer" id="scroll"> <p class="order__info"></p> </div> </div> <div aria-hidden="true" class="spin"> <div class="spin__content"> <h2 class="spin__title">РўР°Р±СЂРёРєР»Р°Р№РјР°РЅ!</h2> <p class="spin__text"> <br> РЎРёР· <span class="cta__name-product">РљР РРЎРўРђР›Р›</span> РІРѕСЃРёС‚Р°СЃРёРЅРё 70% С‡РµРіРёСЂРјР° Р±РёР»Р°РЅ РѕР»РёС€ РјСѓРјРєРёРЅ! </p> <button class="spin__btn" onclick="document.querySelector('.order').scrollIntoView({behavior:'smooth',block:'start'})" type="button">РѕРє</button> </div> </div> </div> <br> <div class="box-blue-light"> <h2>РЁР°СЂТіР»Р°СЂ</h2><br> <div class="comments-block comments__kma" style="margin-top: 0px;"> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m1.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РњР°РЅСЃСѓСЂ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom">РЇС…С€Рё С‚СѓС€СѓРЅР°РјР°РЅ СЃРµРЅРё Р‘Р°ТіСЂРѕРј Р°РєР°, РјРµРЅРіР° 48 С‘С€, РјРµРЅРёРЅРі РјСѓР°РјРјРѕР»Р°СЂРёРј ТіР°Рј СћС…С€Р°С€. РђРєС†РёСЏ Р±СћР№РёС‡Р° РљР РРЎРўРђР›Р› Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј, РєРµС‡Р° РѕР»РґРёРј, Р±СѓРіСѓРЅ Р±РёСЂРёРЅС‡Рё РєР°РїСЃСѓР»Р° РёС‡РґРёРј. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m2.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РўРёРјСѓСЂ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> 31 С‘С€РјР°РЅ,РєСћСЂРёС€ Р±РёР»Р°РЅ РјСѓР°РјРјРѕ Р±РѕСЂ СЌРґРё. РЇС…С€РёСЏРј Р±Сѓ РІРѕСЃРёС‚Р° Р±РѕСЂ СЌРєР°РЅ. РС‡РґРёРј, ТіРѕР·РёСЂ ТіР°РјРјР° РЅР°СЂСЃР° Р¶РѕР№РёРіР° РєРµР»РґРё. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m3.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РўР°С…РёСЂ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> Р‘РёСЂРёРЅС‡Рё РјР°СЂС‚Р° РљР РРЎРўРђР›Р› С‚Р°СЉСЃРёСЂРёРЅРё ТіРёСЃ Т›РёР»РіР°РЅРёРјРґР°, СЃРёР·РЅРёРЅРі РіР°РїР»Р°СЂРёРЅРіРёР· СЂРѕСЃС‚Р»РёРіРёРіР° РёС€РѕРЅРґРёРј. Р—СћСЂ РІРѕСЃРёС‚Р°! </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m4.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РђР·РёР·Р¶РѕРЅ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> Р‘РёСЂ РєСѓСЂСЃ РёС‡РіР°РЅРґР°РЅ РєРµР№РёРЅ Р±СѓРЅР°Т›Р°РЅРіРё СЏС…С€Рё РєСћСЂРіР°РЅРґРёРј СЌРјР°СЃРјР°РЅ. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a1.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РђРґР»РёСЏ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј <a href="#pluginCta" target="_self">РљР РРЎРўРђР›Р›</a>. Р–СѓРґР° Р·СћСЂ С‚Р°СЉСЃРёСЂ Т›РёР»РґРё. ТІР°РјРјР°РіР° С‚Р°РІСЃРёСЏ Т›РёР»Р°РјР°РЅ. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m5.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РђРЅРІР°СЂ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom">РљР РРЎРўРђР›Р›РЅРё СћР· РІР°Т›С‚РёРґР° РѕР»РіР°РЅРёРјРґР°РЅ С…СѓСЂСЃР°РЅРґРјР°РЅ. РЃС€Р»РёРєРґР°РіРёРґРµРє РєСћСЂРёС€ С‚РёРєР»Р°РјРѕТ›РґР°РЅ РґРµСЏСЂР»Рё СѓРјРёРґРёРј Т›РѕР»РјР°РіР°РЅ СЌРґРё, Р±Сѓ РІРѕСЃРёС‚Р° РѕСЂР·СѓРёРјРЅРё СЂСћС‘Р±РіР° С‡РёТ›Р°СЂРґРё.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a2.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р›РѕР»Р°</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom">Р—СћСЂ РІРѕСЃРёС‚Р°РіР° СћxС€Р°Р№РґРё... Р‘СѓСЋСЂС‚РјР° Т›РёР»Р°Р№РёРЅ РґРµР№РјР°РЅ.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m6.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р‘Р°С‚С‹СЂ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> 50 С‘С€РјР°РЅ, ТіР°Р»Рё Т›Р°СЂРё СЌРјР°СЃРјР°РЅ-РґР°, Р»РµРєРёРЅ СЏТ›РёРЅРґР° РєСћСЂРёС€ Р±РёР»Р°РЅ РјСѓР°РјРјРѕР»Р°СЂ Р±РѕС€Р»Р°РЅРґРё. РљР РРЎРўРђР›Р›РЅРё РёС‡РґРёРј, 10 С‘С€ С‘С€Р°СЂРґРёРј вЂ” ТіРѕР·РёСЂ РєСћР·Р»Р°СЂРёРј СЏС…С€Рё РєСћСЂР°РґРё! </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m7.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р‘Р°С…С‚РёСЏСЂ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> РљСѓСЂСЃРЅРё РёС‡РґРёРј, РЅР°С‚РёР¶Р° ТіР°Р№СЂР°С‚Р»Р°РЅР°СЂР»Рё! <br></div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m8.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р–Р°СЃСѓСЂ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom">РљР РРЎРўРђР›Р›РЅРё СЃРёРЅР°Р± РєСћСЂРґРёРј <a href="#pluginCta" target="_self">РљР РРЎРўРђР›Р›</a> , Р¶СѓРґР° РјР°РјРЅСѓРЅРјР°РЅ. РЃС€Р»РёРіРёРјРґР° ТіР°Рј Р±СѓРЅР°Т›Р°РЅРіРё Р±СћР»РјР°РіР°РЅ СЌРґРё. Р•С‚РєР°Р·РёР± Р±РµСЂРёС€Р»Р°СЂРё ТіР°Рј С‚РµР· Р±СћР»РґРё. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m9.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РљР°СЂРёРј</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> РўСѓСЂР»Рё РІРѕСЃРёС‚Р°Р»Р°СЂ СЃРёРЅР°Р± РєСћСЂРіР°РЅРјР°РЅ, Р»РµРєРёРЅ РљР РРЎРўРђР›Р›РіРёРЅР° СЏС…С€Рё РЅР°С‚РёР¶Р° Р±РµСЂРґРё. РљСћР·Р»Р°СЂРёРј РєРѕРјРїСЋС‚РµСЂРґР° РёС€Р»Р°РіР°РЅРґР° С‡Р°СЂС‡Р°РјР°Р№ Т›СћР№РґРё. РўР°РІСЃРёСЏ Т›РёР»Р°РјР°РЅ. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a3.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РњСѓС…Р°Р±Р±Р°С‚</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> РљСћСЂРёС€ РјСѓР°РјРјРѕСЃРёРЅРё ТіР°Р» Т›РёР»Р°РґРёРіР°РЅ Р·СћСЂ РІРѕСЃРёС‚Р°. РљСћР·Р»Р°СЂРёРј Т›РѕСЂРѕРЅТ“СѓРґР° ТіР°Рј РєСћСЂР° Р±РѕС€Р»Р°РґРё. РРЅС‚РµСЂРЅРµС‚РґР°РЅ РљР РРЎРўРђР›Р›РЅРё С‚РѕРїРёР± Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј. Р‘РёСЂ ТіР°С„С‚Р°РґР° ТіР°РјРјР°СЃРё С‚СѓР·Р°Р»РґРё. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m10.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РќРѕРґРёСЂ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> 41 С‘С€РјР°РЅ-РґР° РєСћСЂС€РёРј С‘РјРѕРЅ СЌРґРё. РљР РРЎРўРђР›Р› РёС‡РґРёРј, РЅР°С‚РёР¶Р° Р°Р¶РѕР№РёР±! ! <br></div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a4.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р¤Р°С‚РёРјР°</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom">ТІР°, Р°Р»Р±Р°С‚С‚Р° Р±СѓСЋСЂС‚РјР° Т›РёР»Р°РјР°РЅ, СЃРёРЅР°Р± РєСћСЂР°РјРёР·.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a5.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р“СѓР»Рё</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom">Р‘РёР»Р°РјР°РЅ РљР РРЎРўРђР›Р›. РћС‚Р°Рј РёС‡Р°РґРё, 64 С‘С€.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a6.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РћР№РґРёРЅ</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> РЎР°Р»РѕРјР»Р°СЂ Р‘Р°ТіСЂРѕРј Р°РєР°, СЂР°ТіРјР°С‚! РўР°СЃРѕРґРёС„Р°РЅ РјР°Т›РѕР»Р°РЅРё СћТ›РёР± Т›РѕР»РґРёРј. РЋР№РёРЅРґР° С‡РµРіРёСЂРјР° С‚СѓС€РґРё, Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј. Р­РЅРґРё РєСћР·РѕР№РЅР°РєСЃРёР· РєРѕРјРїСЋС‚РµСЂРґР° РёС€Р»Р°СЏРїРјР°РЅ! </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m11.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р СѓСЃС‚Р°Рј</div> <div class="comment-date" data-num="4"></div> </div> <div class="comment-bottom"> РњРµРЅ ТіР°Рј РѕР»Р°Р№РёРЅ... <br></div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a7.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РСЂРѕРґР°</div> <div class="comment-date" data-num="3"></div> </div> <div class="comment-bottom">ТІР°РјРјР°РЅРіРёР· С€СѓРЅС‡Р° РјР°Т›С‚Р°С‘С‚РіР°РЅРёРЅРіРёР·РіР° Т›Р°СЂР°Р±, РѕР»РёС€ РєРµСЂР°Рє-РґР°.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m12.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р Р°РёСЃ</div> <div class="comment-date" data-num="3"></div> </div> <div class="comment-bottom">РљР РРЎРўРђР›Р› вЂ” РєСѓС‡Р»Рё РІРѕСЃРёС‚Р°. Р‘РёСЂ С‚Р°РЅРёС€РёРј С€РёС„РѕРєРѕСЂ Р°Р№С‚РґРё. РђР№С‚РёС€Р»Р°СЂРёС‡Р° РєСћСЂ РєРёС€РёРЅРё ТіР°Рј С‚РёРєР»Р°Р№РґРё. РС‡Р°РјР°РЅ, РєСћР·Р»Р°СЂРёРј 25 С‘С€РёРјРґР°РіРёРґР°РЅ СЏС…С€Рё РєСћСЂР°РґРё!</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a8.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РњРѕС…РёРј</div> <div class="comment-date" data-num="3"></div> </div> <div class="comment-bottom">РЋР· РІР°Т›С‚РёРґР° Р±РёР»РёР± РѕР»РґРёРј Р±Сѓ С‚Р°Р±Р»РµС‚РєР°Р»Р°СЂ ТіР°Т›РёРґР°, СЂР°ТіРјР°С‚.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a9.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РќР°СЂРіРёР·Р°</div> <div class="comment-date" data-num="3"></div> </div> <div class="comment-bottom"> Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј РљР РРЎРўРђР›Р›, Р¶СѓРґР° РєСѓС‡Р»Рё С‚Р°СЉСЃРёСЂРё Р±РѕСЂ! </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m13.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЎР°РЅР¶Р°СЂ</div> <div class="comment-date" data-num="3"></div> </div> <div class="comment-bottom"> Р—СћСЂ РІРѕСЃРёС‚Р°, СћР·РёРј РёС‡Р°РјР°РЅ. <br><img loading="lazy" alt="" decoding="async" src="../assets/111.jpg" style="max-width: 400px; width: 100%"></div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a10.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РћРјРёРЅР°</div> <div class="comment-date" data-num="3"></div> </div> <div class="comment-bottom">ТІР°, Р±Сѓ РІРѕСЃРёС‚Р° РєСћР·Р»Р°СЂРіР° Р¶СѓРґР° РєСѓС‡Р»Рё С‚Р°СЉСЃРёСЂ Т›РёР»СЏРїС‚Рё.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a11.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЎР°С„РёСЏ</div> <div class="comment-date" data-num="3"></div> </div> <div class="comment-bottom">Р‘РёСЂ РґСћСЃС‚РёРјРЅРёРЅРі Р°С‘Р»Рё РљР РРЎРўРђР›Р› ТіР°Т›РёРґР° РіР°РїРёСЂРґРё. РњРµРЅ Р±РёСЂ Т›Р°РґРѕТ› Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m1.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЎСѓСЂР°С‚</div> <div class="comment-date" data-num="2"></div> </div> <div class="comment-bottom">РњРµРЅ 8 РєСѓРЅРґР° СћР·РёРјРіР° РєРµР»РґРёРј, РєСћСЂРіР°РЅРёРј Р·СћСЂ!</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a12.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РҐРѕСЃРёСЏС‚</div> <div class="comment-date" data-num="2"></div> </div> <div class="comment-bottom">РљР РРЎРўРђР›Р› РЅРѕРјРёРіР° СћxС€Р°Р± РёС€Р»Р°Р№РґРё вЂ” С‚Р°РЅРєРґР°Р№.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m2.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РўРѕРіР°Р№</div> <div class="comment-date" data-num="2"></div> </div> <div class="comment-bottom">РРЅС‚РµСЂРЅРµС‚РґР° РљР РРЎРўРђР›Р› ТіР°Т›РёРґР° СћТ›РёР± Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј РєСћСЂРёС€РёРј СЏС…С€РёР»Р°РЅРґРё.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m3.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЈР»СЊРјР°СЃ</div> <div class="comment-date" data-num="2"></div> </div> <div class="comment-bottom">Р Р°ТіРјР°С‚ РґСћСЃС‚Р»Р°СЂ, РјРµРЅРіР° ТіР°Рј РєРµСЂР°Рє СЌРєР°РЅ.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a13.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЁР°С…РЅРѕР·Р°</div> <div class="comment-date" data-num="2"></div> </div> <div class="comment-bottom">РљР РРЎРўРђР›Р› ТіР°Т›РёТ›Р°С‚Р°РЅ СЏС…С€Рё РІРѕСЃРёС‚Р° СЌРєР°РЅ. РђР»Р±Р°С‚С‚Р° Р±СѓСЋСЂС‚РјР° Т›РёР»Р°РјР°РЅ.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m4.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЈРјРёРґ</div> <div class="comment-date" data-num="2"></div> </div> <div class="comment-bottom">Р Р°ТіРјР°С‚, С‘Р·РёР± РѕР»РґРёРј, РёС‡Р°РјР°РЅ...</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m5.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЈСЂСѓСЃ</div> <div class="comment-date" data-num="2"></div> </div> <div class="comment-bottom">РњРµРЅ ТіР°Рј Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј!.ТІР°, Р±Сѓ РІРѕСЃРёС‚Р° РєСћР·Р»Р°СЂРіР° Р¶СѓРґР° РєСѓС‡Р»Рё С‚Р°СЉСЃРёСЂ Т›РёР»СЏРїС‚Рё. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m6.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р¤Р°СЂСѓС…</div> <div class="comment-date" data-num="1"></div> </div> <div class="comment-bottom">РЇС…С€Рё РІРѕСЃРёС‚Р°, С€РёС„РѕРєРѕСЂ СЃРёС„Р°С‚РёРґР° С‚Р°РІСЃРёСЏ Т›РёР»Р°РјР°РЅ.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m7.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РҐР°Р»РёРј</div> <div class="comment-date" data-num="1"></div> </div> <div class="comment-bottom">РћР»РґРёРј, СЃРёРЅР°Р± РєСћСЂР°РјР°РЅ.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a14.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЁР°С…СЂСѓР·</div> <div class="comment-date" data-num="1"></div> </div> <div class="comment-bottom"> ТІР°Т›РёТ›Р°С‚Р°РЅ Р°Р¶РѕР№РёР± РІРѕСЃРёС‚Р°! </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m8.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РҐР°СЃР°РЅ</div> <div class="comment-date" data-num="1"></div> </div> <div class="comment-bottom"> Р‘РёСЂ С€РёС„РѕРєРѕСЂ С‚Р°РІСЃРёСЏ Т›РёР»РґРё. РђР№С‚РґРё Р±Сѓ РІРѕСЃРёС‚Р° РєСћСЂРёС€РЅРё Р°РЅРёТ› С‚РёРєР»Р°Р№РґРё РґРµР±. РЁСѓРЅРґР°Р№ ТіР°Рј Р±СћР»РґРё. Р‘РёСЂ РєСѓСЂСЃ РёС‡РіР°РЅРґР°РЅ РєРµР№РёРЅ С‚СћР»РёТ› С‚СѓР·Р°Р»РґРё. <br><img loading="lazy" alt="" decoding="async" src="../assets/222.jpg" style="max-width: 400px; width: 100%"></div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m9.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РҐСѓС€СЂСѓР·</div> <div class="comment-date" data-num="1"></div> </div> <div class="comment-bottom">РўР°СЃРґРёТ›Р»Р°Р№РјР°РЅ, РјРµРЅРіР° ТіР°Рј С‘СЂРґР°Рј Р±РµСЂРґРё.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m10.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЁР°С…СЂСѓС…</div> <div class="comment-date" data-num="1"></div> </div> <div class="comment-bottom">Р РѕСЃС‚РґР°РЅ С‘СЂРґР°Рј Р±РµСЂРґРё, РєСћСЂРёС€РёРј СЏС…С€РёР»Р°РЅРґРё!</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a15.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р›РµР№Р»Р°</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom"> РўР°Р±Р»РµС‚РєР°Р»Р°СЂРЅРё Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј, СѓРјРёРґ Т›РёР»Р°РјР°РЅ С‘СЂРґР°Рј Р±РµСЂСЃР°. </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a16.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р›РёР°РЅР°</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom">Р‘РёР· ТіР°Рј РѕР»РґРёРє, С‡РµРіРёСЂРјР° С‚СѓС€РґРё. РЇС…С€РёР»Р°РЅРёС€Р»Р°СЂ Р±РѕСЂ, ТіР°Р»Рё РєСѓСЂСЃРЅРё РѕС…РёСЂРёРіР°С‡Р° РёС‡РјР°РґРёРє.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m11.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЁСѓС…СЂР°С‚</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom">РС€Р»Р°СЏРїС‚Рё! РљСћР·РёРј СЏС…С€Рё РєСћСЂР° Р±РѕС€Р»Р°РґРё.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a17.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РљСЂРёСЃС‚РёРЅР°</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom">ТІР°, С‚РµР·СЂРѕТ› Р±СѓСЋСЂС‚РјР° Т›РёР»РёС€ РєРµСЂР°Рє Р±Сѓ РІРѕСЃРёС‚Р°РЅРё.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a18.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р”РёР»РёСЏ</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom"> РћРЅР°Рј 62 С‘С€РґР°, РєСћР·Рё С…РёСЂР° РєСћСЂР°СЂ СЌРґРё. РЁРёС„РѕРєРѕСЂ РљР РРЎРўРђР›Р› С‚Р°РІСЃРёСЏ Т›РёР»РґРё. Р‘РёСЂ РєСѓСЂСЃРґР°РЅ РєРµР№РёРЅ СћР·Рё РєРёС‚РѕР± СћТ›РёР№ Р±РѕС€Р»Р°РґРё! Р Р°ТіРјР°С‚! </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m12.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р­Р»СЊР±РµРє</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom">РЋР·РёРј СѓС‡СѓРЅ Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј, РјСѓР°РјРјРѕ Р±РѕСЂ СЌРґРё.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m13.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РђР±РґСѓР»Р»РѕС…</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom"><span class="user-name">Р­Р»СЊР±РµРє</span>, РјРµРЅРґР° ТіР°Рј РјСѓР°РјРјРѕ Р±РѕСЂ СЌРґРё.Р‘РёСЂ РєСѓСЂСЃ РёС‡РіР°РЅРґР°РЅ РєРµР№РёРЅ Р±СѓРЅР°Т›Р°РЅРіРё СЏС…С€Рё РєСћСЂРіР°РЅРґРёРј СЌРјР°СЃРјР°РЅ . </div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m1.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р®СЃСѓС„</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom">Р Р°ТіРјР°С‚, С‡РµРіРёСЂРјР° СЋС‚РґРёРј! РљСѓС‚СЏРїРјР°РЅ СЌРЅРґРё</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a19.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р”Р°РЅР°</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom">Р‘РёР· ТіР°Рј СЃРёРЅР°Р± РєСћСЂРјРѕТ›С‡РёРјРёР· Р±Сѓ С‚Р°Р±Р»РµС‚РєР°Р»Р°СЂРЅРё.</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/a20.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">Р—Р°СЂРёРЅР°</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom">РњР°СЉР»СѓРјРѕС‚ Р±РµСЂРіСѓРЅРёРЅРіРёР· СѓС‡СѓРЅ СЂР°ТіРјР°С‚. ТІР°СЂ ТіРѕР»РґР° РЅРѕРјРёРЅРё СЌСЃР»Р°Р± Т›РѕР»Р°РјР°РЅ ))</div> </div> </div> <div class="comment-item"> <img loading="lazy" alt="" class="ava-img" decoding="async" src="../assets/m2.jpg"> <div class="comment-text"> <div class="comment-top"> <div class="comment-name user-name">РЁР°С…СЂСѓС…</div> <div class="comment-date" data-num="0"></div> </div> <div class="comment-bottom">РњРµРЅ ТіР°Рј Р±СѓСЋСЂС‚РјР° Т›РёР»РґРёРј!</div> </div> </div> </div> </div> </main><div id="orderWrapAfterComments" style="margin:30px auto;max-width:520px;padding:20px 15px;"> <div style="background:#fff;border-radius:24px;box-shadow:0 8px 40px rgba(0,0,0,0.18);overflow:hidden;padding:24px;"> <p style="text-align:center;font-weight:700;font-size:19px;color:#1a237e;margin:0 0 8px;">рџ“¦ Р‘СѓСЋСЂС‚РјР° Р±РµСЂРёРЅРі!</p> <p style="text-align:center;color:#555;margin:0 0 6px;">РЁРѕС€РёР»РёРЅРі! ТљРѕР»РіР°РЅ РІР°Т›С‚РёРЅРіРёР·:</p> <p style="text-align:center;font-size:28px;font-weight:800;color:#e53935;margin:0 0 18px;"> <span id="orderMinute2">10</span>:<span id="orderSecond2">00</span> </p> <form id="orderForm2" style="display:flex;flex-direction:column;gap:12px;"> <input name="ast" type="hidden" value="26"> <input name="uid" type="hidden" value="c_revlvdt"> <input name="tz" type="hidden" value="-300"> <input name="geo" type="hidden" value="UZ"> <input name="discount" type="hidden" value="70%"> <input autocomplete="name" name="name" placeholder="РСЃРј Р¤Р°РјРёР»РёСЏ" required="" style="border:2px solid #e3e8f0;border-radius:12px;padding:14px 16px;font-size:16px;outline:none;transition:border-color 0.2s;"> <input autocomplete="tel" name="phone" placeholder="+998 XX XXX-XXXX" required="" style="border:2px solid #e3e8f0;border-radius:12px;padding:14px 16px;font-size:16px;outline:none;" type="tel"> <input name="address" placeholder="РўСѓПЃР°СЂ Р¶РѕР№Рё (РЁР°С…Р°СЂ, Р Р°Р№РѕРЅ)" required="" style="border:2px solid #e3e8f0;border-radius:12px;padding:14px 16px;font-size:16px;outline:none;"> <input max="99" min="18" name="age" placeholder="РЃС€РёРЅРіРёР·" required="" style="border:2px solid #e3e8f0;border-radius:12px;padding:14px 16px;font-size:16px;outline:none;" type="number"> <button style="background:linear-gradient(135deg,#1976d2,#1565c0);color:#fff;border:none;border-radius:50px;padding:16px;font-size:17px;font-weight:700;cursor:pointer;letter-spacing:1px;" type="submit"> BUYURTMA BERISH </button> </form> <div id="orderSuccess2" style="display:none;text-align:center;padding:40px 0;"> <h2 style="color:green;font-size:24px;margin-bottom:12px;">Р‘СѓСЋСЂС‚Рјangiz СѓС‡СѓРЅ СЂР°ТіРјР°С‚!</h2> <p style="color:#555;">РЇТ›РёРЅ РІР°Т›С‚ РёС‡РёРґР° РјРµРЅРµРґР¶РµСЂРёРјРёР· СЃРёР·РіР° Т›СћРЅТ“РёСЂРѕТ› Т›РёР»Р°РґРё!</p> </div> <div id="orderError2" style="display:none;text-align:center;padding:20px;"> <h2 style="color:red;font-size:22px;">Р‘РёСЂРґР°РЅ РЅРёРјР°РґСѓСЂ Р±СћР»РґРё. РЎРµСЂРІРµСЂ С…Р°С‚РѕСЃРё.</h2> </div> </div> </div><div aria-label="РЎРѕРІТ“Р°РЅРіРёР·РЅРё РѕР»РёРЅРі" class="floating-gift-box" id="floatingGiftBox" role="button" tabindex="0"><img loading="lazy" alt="РЎРѕРІТ“Р° СЃР°РЅРґРёТ“Рё" class="gift-image" decoding="async" src="../assets/sandiq.webp"><div class="gift-label">РЎРѕРІТ“Р°РЅРіРёР·РЅРё РѕР»РёРЅРі!</div></div> <script> /* =================================================================
+   BARABAN O'YINI  v3
+   вЂ“ 3 ta urinish: tasodifiy 2-yoki 3-urinishda 70% tushadi
+   вЂ“ 1-urinish HAMISHA yutqazadi
+   вЂ“ Burchak hisoblash to'g'irlandi (doim aniq pozitsiya)
+   вЂ“ Near-miss effekti (overshoot в†’ qaytish)
+================================================================= */
+(function(){
+
+var SEG_DATA = [
+  '15%','35%','25%','50%',
+  '70%',           /* index 4  в†ђ WINNER */
+  '20%','40%','30%',
+  '55%','10%','45%','60%'
+];
+var WINNER = 4;
+var N      = SEG_DATA.length;   /* 12 */
+var ARC    = (2*Math.PI)/N;     /* 30В° */
+
+/* Rang juftlari: [to'q, yorug'] */
+var COLORS = [
+  ['#6b1414','#a31515'],
+  ['#1a1f6e','#2e3799'],
+  ['#6b1414','#a31515'],
+  ['#1a1f6e','#2e3799'],
+  ['#6b1414','#a31515'],  /* 4 вЂ“ winner, oldindan FARQ YO'Q */
+  ['#1a1f6e','#2e3799'],
+  ['#6b1414','#a31515'],
+  ['#1a1f6e','#2e3799'],
+  ['#6b1414','#a31515'],
+  ['#1a1f6e','#2e3799'],
+  ['#6b1414','#a31515'],
+  ['#1a1f6e','#2e3799'],
+];
+var WIN_COL = ['#92400e','#f59e0b']; /* yutgandan keyin oltin */
+
+/* в”Ђв”Ђ 3 urinish holati в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+var MAX_ATTEMPTS = 1;
+var attempt      = 0;                              /* 0..2 */
+var winAttempt   = 1;   /* 2 yoki 3 */
+var spinning     = false;
+var curAngle     = 0;
+var lastSeg      = -1;
+
+/* в”Ђв”Ђ Urinish ko'rsatkichini yangilash в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+function updateDots(){
+  var el = document.getElementById('attemptDots');
+  if(!el) return;
+  var left = MAX_ATTEMPTS - attempt;
+  var icons = '';
+  for(var i=0;i<MAX_ATTEMPTS;i++){
+    if(i < attempt) icons += '<span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#cbd5e1;border:2px solid #94a3b8;margin:0 4px;vertical-align:middle;"></span>';
+    else if(i===attempt) icons += '<span style="display:inline-block;width:32px;height:32px;border-radius:50%;background:#2563eb;border:3px solid #1e3a8a;margin:0 4px;vertical-align:middle;box-shadow:0 0 10px rgba(37,99,235,0.6);"></span>';
+    else icons += '<span style="display:inline-block;width:28px;height:28px;border-radius:50%;background:#dbeafe;border:2px solid #93c5fd;margin:0 4px;vertical-align:middle;"></span>';
+  }
+  el.innerHTML = '<div style="font-size:15px;font-weight:700;color:#1e3a8a;margin-bottom:6px;">РЈСЂРёРЅРёС€: <b style="font-size:20px;color:#dc2626;">'+(attempt+1)+'</b> / '+MAX_ATTEMPTS+'</div><div>'+icons+'</div>';
+}
+
+/* в”Ђв”Ђ Burchak hisoblash в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+/*  Pointer tepada (-PI/2).
+    Segment i markazi: curAngle + i*ARC + ARC/2
+    Bu tepaga kelishi uchun: curAngle = -PI/2 - i*ARC - ARC/2 (mod 2PI)
+    totalRot = targetAngle - currentAngle (+ to'liq aylanishlar)            */
+function calcTotalRot(fromAngle, segIndex, jitter){
+  var target = -Math.PI/2 - segIndex*ARC - ARC/2 + (jitter||0);
+  /* fromAngle dan target ga boradigan minimal musbat burchak */
+  var rot = ((target - fromAngle) % (2*Math.PI) + 2*Math.PI) % (2*Math.PI);
+  if(rot < 0.1) rot += 2*Math.PI; /* minimal 1 to'liq aylana */
+  var spins = (6 + Math.floor(Math.random()*4)) * 2*Math.PI;
+  return spins + rot;
+}
+
+/* в”Ђв”Ђ Tasodifiy yutqazuvchi segment в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+function loserIndex(){
+  var idx;
+  do { idx = Math.floor(Math.random()*N); } while(idx===WINNER);
+  return idx;
+}
+
+/* в”Ђв”Ђ DRAW в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+function draw(angle, winnerGlow){
+  var cv = document.getElementById('barabanWheel');
+  if(!cv) return;
+  var ctx = cv.getContext('2d');
+  var cx=cv.width/2, cy=cv.height/2, R=cx-2;
+
+  ctx.clearRect(0,0,cv.width,cv.height);
+
+  for(var i=0;i<N;i++){
+    var a0  = angle + i*ARC;
+    var a1  = a0 + ARC;
+    var mid = a0 + ARC/2;
+    var isW = (i===WINNER);
+    var col = (isW && winnerGlow) ? WIN_COL : COLORS[i];
+
+    /* Segment dolg'isi */
+    var grd = ctx.createLinearGradient(
+      cx+Math.cos(mid)*R*0.25, cy+Math.sin(mid)*R*0.25,
+      cx+Math.cos(mid)*R,      cy+Math.sin(mid)*R
+    );
+    grd.addColorStop(0, col[1]);
+    grd.addColorStop(1, col[0]);
+    ctx.beginPath(); ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,R,a0,a1); ctx.closePath();
+    ctx.fillStyle=grd; ctx.fill();
+
+    /* Chegara */
+    ctx.strokeStyle='rgba(255,255,255,0.2)';
+    ctx.lineWidth=1.2; ctx.stroke();
+
+    /* Shine */
+    ctx.save();
+    ctx.beginPath(); ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,R,a0,a1); ctx.closePath(); ctx.clip();
+    var sh=ctx.createRadialGradient(
+      cx+Math.cos(mid)*R*0.72,cy+Math.sin(mid)*R*0.72,0,
+      cx+Math.cos(mid)*R*0.72,cy+Math.sin(mid)*R*0.72,R*0.26
+    );
+    sh.addColorStop(0,'rgba(255,255,255,0.17)');
+    sh.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=sh; ctx.fill(); ctx.restore();
+
+    /* Pin */
+    ctx.save(); ctx.translate(cx,cy); ctx.rotate(a0);
+    var pg=ctx.createRadialGradient(-1,-1,0,0,0,5);
+    pg.addColorStop(0,'#fde68a'); pg.addColorStop(1,'#92400e');
+    ctx.beginPath(); ctx.arc(R-11,0,5,0,2*Math.PI);
+    ctx.fillStyle=pg; ctx.fill(); ctx.restore();
+
+    /* Matn вЂ” radius yo'nalishi bo'yicha, pastki yarmi aylantirilib */
+    ctx.save(); ctx.translate(cx,cy); ctx.rotate(mid);
+    var nm = ((mid%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
+    var tr;
+    if(nm>Math.PI && nm<2*Math.PI){
+      ctx.rotate(Math.PI); tr = -(R*0.64);
+    } else {
+      tr = R*0.64;
+    }
+    ctx.shadowColor='rgba(0,0,0,0.65)'; ctx.shadowBlur=4;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    if(isW && winnerGlow){
+      ctx.font='bold 17px Inter,Arial'; ctx.fillStyle='#1a1a1a';
+    } else {
+      ctx.font='bold 15px Inter,Arial'; ctx.fillStyle='#f1f5f9';
+    }
+    ctx.fillText(SEG_DATA[i], tr, 0);
+    ctx.shadowBlur=0; ctx.restore();
+  }
+
+  /* Markaziy disk */
+  var cg=ctx.createRadialGradient(cx-7,cy-7,2,cx,cy,33);
+  cg.addColorStop(0,'#ffffff'); cg.addColorStop(0.55,'#dbeafe');
+  cg.addColorStop(1,'#93c5fd');
+  ctx.beginPath(); ctx.arc(cx,cy,33,0,2*Math.PI);
+  ctx.fillStyle=cg; ctx.fill();
+  ctx.strokeStyle='#1e3a8a'; ctx.lineWidth=3; ctx.stroke();
+  ctx.beginPath(); ctx.arc(cx,cy,27,0,2*Math.PI);
+  ctx.strokeStyle='rgba(30,58,138,0.2)'; ctx.lineWidth=1.5; ctx.stroke();
+}
+
+/* в”Ђв”Ђ TICK в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+function checkTick(angle){
+  var s=Math.floor((((-angle%(2*Math.PI))+2*Math.PI)%(2*Math.PI))/ARC)%N;
+  if(s!==lastSeg){
+    lastSeg=s;
+    var el=document.getElementById('barabanArrow');
+    if(el){ el.classList.remove('tick','no-bounce');
+            void el.offsetWidth;
+            el.classList.add('tick','no-bounce');
+            setTimeout(function(){ el.classList.remove('tick','no-bounce'); },110); }
+  }
+}
+
+/* в”Ђв”Ђ CONFETTI в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+function confetti(){
+  var cols=['#dc2626','#f59e0b','#10b981','#3b82f6','#8b5cf6','#f97316','#fde047'];
+  for(var i=0;i<80;i++){
+    (function(d){
+      setTimeout(function(){
+        var el=document.createElement('div');
+        el.className='confetti-piece';
+        var circ=Math.random()>0.4;
+        el.style.cssText='left:'+(Math.random()*100)+'vw;background:'+
+          cols[Math.floor(Math.random()*cols.length)]+
+          ';transform:rotate('+(Math.random()*360)+'deg)'+
+          ';animation-duration:'+(1.8+Math.random()*2.5)+'s'+
+          ';width:'+(7+Math.random()*8)+'px'+
+          ';height:'+(circ?(7+Math.random()*8):(11+Math.random()*13))+'px'+
+          ';border-radius:'+(circ?'50%':'2px')+';opacity:0.9';
+        document.body.appendChild(el);
+        setTimeout(function(){ el.remove(); },6000);
+      },d);
+    })(i*28);
+  }
+}
+
+/* в”Ђв”Ђ ANIMATE (umumiy) в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+function animate(startA, totalRot, dur1, overshoot, dur2, onDone){
+  var p1Rot = totalRot + overshoot;
+  var p2Rot = -overshoot;
+  var t0=null, t1=null;
+
+  function ease1(t){ return 1-Math.pow(1-t,5); }
+  function ease2(t){ var c=1.70158; return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2); }
+
+  function ph1(ts){
+    if(!t0) t0=ts;
+    var p=Math.min((ts-t0)/dur1,1);
+    curAngle = startA + p1Rot*ease1(p);
+    checkTick(curAngle); draw(curAngle,false);
+    if(p<1){ requestAnimationFrame(ph1); }
+    else   { curAngle=startA+p1Rot; requestAnimationFrame(ph2); }
+  }
+  function ph2(ts){
+    if(!t1) t1=ts;
+    var p=Math.min((ts-t1)/dur2,1);
+    curAngle=(startA+p1Rot)+p2Rot*ease2(p);
+    draw(curAngle,false);
+    if(p<1){ requestAnimationFrame(ph2); }
+    else   { curAngle=startA+p1Rot+p2Rot; onDone(); }
+  }
+  requestAnimationFrame(ph1);
+}
+
+/* в”Ђв”Ђ SPIN в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+window.spinWheel = function(){
+  if(spinning || attempt>=MAX_ATTEMPTS) return;
+
+  var btn    = document.getElementById('spinBtn');
+  var btnTxt = document.getElementById('spinBtnText');
+  var msg    = document.getElementById('barabanMsg');
+  if(!btn) return;
+
+  spinning=true;
+  btn.classList.add('spinning');
+  if(btnTxt) btnTxt.innerHTML='<span style="font-size:16px">вЏі</span>';
+  if(msg){ msg.textContent=''; msg.className='baraban-msg'; }
+
+  /* Hozirgi urinish uchun qaysi segmentga tushish kerak? */
+  var currentTry = attempt + 1;   /* 1, 2, yoki 3 */
+  var isWinTurn  = (currentTry === winAttempt) || (currentTry === MAX_ATTEMPTS);
+  var targetSeg  = isWinTurn ? WINNER : loserIndex();
+
+  /* Jitter: segmentning tasodifiy joyiga (В±30%) */
+  var jitter = (Math.random()*0.55 - 0.275)*ARC;
+  /* Yutqazishda WINNER ga tushmaslik uchun jitterni cheklash */
+  if(!isWinTurn && targetSeg !== WINNER){
+    /* OK */
+  }
+
+  var totalRot  = calcTotalRot(curAngle, targetSeg, jitter);
+  var overshoot = 0; /* Near-miss effekti olib tashlandi */
+  var dur1 = 3800 + Math.random()*600;
+  var dur2 = 1; /* overshoot=0 bo'lganda phase2 kerak emas */
+  var startA = curAngle;
+
+  animate(startA, totalRot, dur1, overshoot, dur2, function(){
+    /* Spin tugadi */
+    attempt++;
+    spinning=false;
+    updateDots();
+
+    if(isWinTurn){
+      /* в”Ђв”Ђ YUTDI в”Ђв”Ђ */
+      draw(curAngle, true);
+      var cv=document.getElementById('barabanWheel');
+      if(cv) cv.classList.add('won');
+      btn.classList.remove('spinning');
+      if(btnTxt) btnTxt.innerHTML='<span style="font-size:16px">вњ…</span>';
+      btn.style.pointerEvents='none';
+      confetti();
+      if(msg){
+        msg.innerHTML='рџЋ‰ <b>РўР°Р±СЂРёРєР»Р°Р№РјРёР·! РЎРёР· 70% С‡РµРіРёСЂРјР° СЋС‚РґРёРЅРіРёР·!</b>';
+        msg.style.color='#16a34a';
+        msg.classList.add('baraban-win');
+      }
+      /* Chegirma qiymatini o'rnatish */
+      var di=document.getElementById('discountValue');
+      if(di) di.value='70%';
+
+      /* Narx blokini ko'rsatish */
+      var priceEl=document.querySelector('#pluginCta .order__price');
+      if(priceEl) priceEl.style.cssText='display:flex !important';
+
+      /* 2 soniyadan keyin spin popup + order forma */
+      setTimeout(function(){
+        /* 1. Spin popup ko'rsatish */
+        var spinEl=document.querySelector('#pluginCta .spin');
+        if(spinEl){
+          spinEl.classList.add('active');
+          var orderEl=document.querySelector('#pluginCta .order');
+          if(orderEl) orderEl.classList.add('active');
+          barabanStartTimer();
+          var btnClose=spinEl.querySelector('.spin__btn');
+          if(btnClose){
+            btnClose.addEventListener('click',function(){
+              spinEl.classList.remove('active');
+              /* Order formani ko'rsatish */
+              var orderEl=document.querySelector('#pluginCta .order');
+              if(orderEl) orderEl.classList.add('active');
+              /* Taymerni boshlash */
+              barabanStartTimer();
+              /* Formaga scroll */
+              setTimeout(function(){
+                var footer=document.querySelector('#pluginCta .order__footer');
+                if(footer) footer.scrollIntoView({behavior:'smooth',block:'end'});
+                else{
+                  var ord=document.querySelector('#pluginCta .order');
+                  if(ord) ord.scrollIntoView({behavior:'smooth',block:'center'});
+                }
+              },300);
+            });
+          }
+        }
+        /* 2. Baraban o'yinini yashirish */
+        var doorEl=document.getElementById('barabanGame');
+        if(doorEl){
+          doorEl.classList.add('hidden');
+          setTimeout(function(){ doorEl.classList.add('none'); },1200);
+        }
+      },2000);
+    } else {
+      /* в”Ђв”Ђ YUTQAZDI в”Ђв”Ђ */
+      draw(curAngle, false);
+      btn.classList.remove('spinning');
+      var left = MAX_ATTEMPTS - attempt;
+      if(btnTxt) btnTxt.innerHTML='РђР™Р›-<br>РђРќРў';
+      if(msg){ msg.textContent=''; }
+
+      if(attempt>=MAX_ATTEMPTS){
+        /* Barcha urinishlar tugadi вЂ” lekin winAttempt=MAX_ATTEMPTS holatida bu kod chaqirilmaydi */
+        if(btnTxt) btnTxt.innerHTML='<span style="font-size:16px">рџ”’</span>';
+        btn.style.pointerEvents='none';
+      } else {
+        /* Popup ko'rsatish */
+        setTimeout(function(){
+          var overlay = document.getElementById('barabanRetryOverlay');
+          var leftCount = document.getElementById('retryLeftCount');
+          var leftText = document.getElementById('retryLeftText');
+          var retryMsg = document.getElementById('retryMsg');
+          /* Dots row */
+          var dotsRow = document.getElementById('retryDotsRow');
+          if(dotsRow){
+            var dhtml = '';
+            for(var d=0;d<MAX_ATTEMPTS;d++){
+              if(d<attempt)       dhtml+='<div class="baraban-retry-dot done"></div>';
+              else                dhtml+='<div class="baraban-retry-dot remaining"></div>';
+            }
+            dotsRow.innerHTML = dhtml;
+          }
+          if(leftText) leftText.textContent = left;
+          if(retryMsg){
+            if(left===1){
+              retryMsg.innerHTML = 'РЎРёР·РґР° СЏРЅР° <b>1 С‚Р° РѕС…РёСЂРіРё</b> СѓСЂРёРЅРёС€ Т›РѕР»РґРё.<br>РЁР°РЅСЃ ТіР°Р»Рё Р±РѕСЂ вЂ” СѓСЂРёРЅРёР± РєСћСЂРёРЅРі!';
+            } else {
+              retryMsg.innerHTML = 'РЎРёР·РґР° СЏРЅР° <b>'+left+' С‚Р°</b> СѓСЂРёРЅРёС€ Т›РѕР»РґРё.<br>РЇРЅР° СѓСЂРёРЅРёР± РєСћСЂРёРЅРі!';
+            }
+          }
+          if(overlay) overlay.classList.add('show');
+        }, 600);
+      }
+    }
+  });
+};
+
+/* в”Ђв”Ђ TAYMER в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+function barabanStartTimer(){
+  var minEl=document.getElementById('orderMinute');
+  var secEl=document.getElementById('orderSecond');
+  if(!minEl||!secEl) return;
+  if(window.__barabanTimerStarted) return;
+  window.__barabanTimerStarted=true;
+  var t=Math.floor(60*(10-0.01));
+  function upd(){
+    var m=parseInt(t/60,10), s=parseInt(t%60,10);
+    minEl.innerHTML=m<10?'0'+m:m;
+    secEl.innerHTML=s<10?'0'+s:s;
+    if(--t<0){ t=0; clearInterval(tid); }
+  }
+  upd();
+  var tid=setInterval(upd,1000);
+}
+
+/* в”Ђв”Ђ RETRY POPUP YOPISH в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+window.closeRetryPopup = function(){
+  var overlay = document.getElementById('barabanRetryOverlay');
+  if(overlay) overlay.classList.remove('show');
+};
+
+/* в”Ђв”Ђ INIT в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ */
+function init(){
+  updateDots();
+  draw(0,false);
+  var cv=document.getElementById('barabanWheel');
+  if(cv) cv.addEventListener('click', spinWheel);
+}
+document.readyState==='loading'
+  ? document.addEventListener('DOMContentLoaded',init)
+  : init();
+
+})(); </script> <script> (function(){
+  'use strict';
+  const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
+  function digits(v){return (v||'').replace(/\D/g,'').replace(/^998/,'').slice(0,9)}
+  function mask(v){const d=digits(v);let o='+998';if(d.length)o+=' '+d.slice(0,2);if(d.length>2)o+=' '+d.slice(2,5);if(d.length>5)o+='-'+d.slice(5,9);return o}
+  function validPhone(v){return digits(v).length===9}
+  function bindPhone(input){if(!input)return;input.addEventListener('focus',()=>{if(!input.value)input.value='+998 '});input.addEventListener('input',()=>{input.value=mask(input.value);const err=$('#phoneError'),ok=$('#phoneOk');if(input.id==='phoneInput'){if(err)err.style.display=input.value.length>5&&!validPhone(input.value)?'block':'none';if(ok)ok.style.display=validPhone(input.value)?'block':'none'}})}
+  function startTimer(minEl,secEl){if(!minEl||!secEl)return;let t=599;const tick=()=>{const m=Math.floor(t/60),s=t%60;minEl.textContent=String(m).padStart(2,'0');secEl.textContent=String(s).padStart(2,'0');if(t>0)t--};tick();setInterval(tick,1000)}
+  function hideSubmittedForm(form){const panel=form.closest('.order');if(panel){const header=panel.querySelector('.order__header');const footer=panel.querySelector('.order__footer');if(header)header.style.display='none';if(footer)footer.style.display='none'}form.style.display='none'}
+  function submitTelegram(form, success, error){form.addEventListener('submit',async e=>{e.preventDefault();const phone=form.querySelector('[name="phone"]');if(phone&&!validPhone(phone.value)){phone.focus();phone.setCustomValidity('Telefon raqamini toвЂliq kiriting');phone.reportValidity();setTimeout(()=>phone.setCustomValidity(''),100);return}const btn=form.querySelector('button[type="submit"]');const original=btn?btn.textContent:'';if(btn){btn.disabled=true;btn.textContent='Р®Р‘РћР РР›РњРћТљР”Рђ...'}try{const data=new FormData(form);const token='8686784975:AAFi-nQ8k19jjZlEC8a4SV0PVmhaSFN1-GI';const chatId='-5205054614';const name=data.get('name')||'';const phoneValue=data.get('phone')||'';const address=data.get('address')||'';const age=data.get('age')||'';const discount=data.get('discount')||'70%';const text=['рџ†• Yangi buyurtma: Kristal/9','','рџ‘¤ Ism Familiya: '+name,'рџ“± Telefon: '+phoneValue,address?'рџ“Ќ Turar joyi: '+address:'',age?'рџЋ‚ Yosh: '+age:'','рџЋЃ Chegirma: '+discount,'рџ•’ Sana: '+new Date().toLocaleString('uz-UZ')].filter(Boolean).join('\n');const body=new URLSearchParams({chat_id:chatId,text:text,disable_web_page_preview:'true'});await fetch('https://api.telegram.org/bot'+token+'/sendMessage',{method:'POST',mode:'no-cors',body:body});hideSubmittedForm(form);if(success)success.style.display='block'}catch(err){hideSubmittedForm(form);if(success)success.style.display='block'}finally{if(btn){btn.disabled=false;btn.textContent=original||'BUYURTMA BERISH'}}})}
+  function scrollToGame(){const el=$('#pluginCta');if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+  document.addEventListener('DOMContentLoaded',()=>{
+    bindPhone($('#phoneInput'));bindPhone($('#orderForm2 [name="phone"]'));
+    const f1=$('#orderForm'), f2=$('#orderForm2');
+    if(f1)submitTelegram(f1,$('.js-success'),$('.js-error-text'));
+    if(f2)submitTelegram(f2,$('#orderSuccess2'),$('#orderError2'));
+    startTimer($('#orderMinute2'),$('#orderSecond2'));
+    const gift=$('#floatingGiftBox');
+    if(gift){const show=()=>gift.classList.toggle('show',scrollY>650);show();addEventListener('scroll',show,{passive:true});gift.addEventListener('click',scrollToGame);gift.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();scrollToGame()}})}
+    $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=$(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'})}}));
+    const modal=$('.spin');if(modal)modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('active')});
+  });
+})(); </script>
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=111325821', 'ym');
+
+    ym(111325821, 'init', {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111325821" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body> </html> 
+
+
+
+
