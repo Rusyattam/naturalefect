@@ -73,6 +73,8 @@
     }
 
     .button {
+      position: relative;
+      overflow: hidden;
       min-height: 132px;
       padding: 24px;
       border: 1px solid rgba(255, 255, 255, 0.18);
@@ -107,6 +109,8 @@
     }
 
     .button.f9 {
+      min-height: 184px;
+      padding-right: 170px;
       color: #ffffff;
       background: linear-gradient(135deg, #ef3b2d 0%, #ff8a00 100%);
       border-color: rgba(255, 255, 255, 0.28);
@@ -114,6 +118,41 @@
 
     .button.f9 span {
       color: rgba(255, 255, 255, 0.84);
+    }
+
+    .badge {
+      width: max-content;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      background: #ffffff;
+      color: #e53a22;
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .line {
+      display: block;
+      margin-top: -10px;
+      color: rgba(255, 255, 255, 0.94);
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .product {
+      position: absolute;
+      right: 14px;
+      bottom: 12px;
+      width: 138px;
+      max-height: 150px;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.3));
+      pointer-events: none;
     }
 
     .arrow {
@@ -150,6 +189,15 @@
         min-height: 112px;
         padding: 20px;
       }
+
+      .button.f9 {
+        min-height: 176px;
+        padding-right: 126px;
+      }
+
+      .product {
+        width: 112px;
+      }
     }
   </style>
 </head>
@@ -169,8 +217,11 @@
       </a>
 
       <a class="button f9" href="f9/">
+        <span class="badge">70% скидка</span>
         <strong>F9</strong>
+        <span class="line">Линия 12</span>
         <span>Открыть страницу F9 Fatizon</span>
+        <img class="product" src="f9/accest/fatizon_product.png" alt="F9 Fatizon">
         <span class="arrow" aria-hidden="true">›</span>
       </a>
     </nav>
