@@ -289,6 +289,207 @@
       .comment-text { font-size:15px; line-height:1.45; }
       .comment-proof { margin-left:55px; }
     }
+
+
+    /* ===== Promo wheel + Telegram contact form ===== */
+    .promo-block {
+      margin:42px auto 34px;
+      padding:30px 24px;
+      border:1px solid #e7e8ed;
+      border-radius:24px;
+      background:linear-gradient(180deg,#fffdf8 0%,#ffffff 100%);
+      box-shadow:0 18px 55px rgba(18,57,147,.10);
+      overflow:hidden;
+    }
+    .promo-head { text-align:center; max-width:680px; margin:0 auto 22px; }
+    .promo-kicker {
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 12px;
+      border-radius:999px;
+      background:#fff1ce;
+      color:#8a5a12;
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .promo-head h2 {
+      margin:0 0 8px;
+      font-size:clamp(25px,4vw,34px);
+      line-height:1.15;
+      color:#123993;
+    }
+    .promo-head p { margin:0; color:#5f636d; font-size:16px; line-height:1.55; }
+    .promo-grid {
+      display:grid;
+      grid-template-columns:minmax(280px,360px) minmax(0,1fr);
+      gap:30px;
+      align-items:center;
+      max-width:780px;
+      margin:0 auto;
+    }
+    .wheel-stage { position:relative; width:min(100%,340px); aspect-ratio:1; margin:0 auto; }
+    .wheel-pointer {
+      position:absolute;
+      left:50%; top:-3px;
+      z-index:5;
+      width:0; height:0;
+      transform:translateX(-50%);
+      border-left:17px solid transparent;
+      border-right:17px solid transparent;
+      border-top:34px solid #e23939;
+      filter:drop-shadow(0 3px 2px rgba(0,0,0,.22));
+    }
+    .wheel {
+      position:absolute;
+      inset:8px;
+      border-radius:50%;
+      border:9px solid #fff;
+      box-shadow:0 0 0 4px #123993,0 14px 38px rgba(0,0,0,.18);
+      background:conic-gradient(
+        #123993 0 45deg,
+        #f4c95d 45deg 90deg,
+        #4e86d8 90deg 135deg,
+        #f06b67 135deg 180deg,
+        #123993 180deg 225deg,
+        #f4c95d 225deg 270deg,
+        #4e86d8 270deg 315deg,
+        #f06b67 315deg 360deg
+      );
+      transition:transform 4.2s cubic-bezier(.12,.68,.12,1);
+      will-change:transform;
+    }
+    .wheel-label {
+      position:absolute;
+      left:50%; top:50%;
+      width:72px;
+      margin-left:-36px;
+      margin-top:-12px;
+      text-align:center;
+      font-size:18px;
+      line-height:24px;
+      font-weight:800;
+      color:#fff;
+      text-shadow:0 1px 3px rgba(0,0,0,.38);
+      transform:rotate(calc(var(--i) * 45deg + 22.5deg)) translateY(-117px) rotate(calc((var(--i) * -45deg) - 22.5deg));
+      transform-origin:center;
+      pointer-events:none;
+    }
+    .wheel-center {
+      position:absolute;
+      left:50%; top:50%;
+      z-index:4;
+      width:92px; height:92px;
+      transform:translate(-50%,-50%);
+      border:7px solid #fff;
+      border-radius:50%;
+      background:#123993;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-weight:800;
+      font-size:16px;
+      line-height:1.05;
+      box-shadow:0 5px 16px rgba(0,0,0,.22);
+      user-select:none;
+    }
+    .promo-side { text-align:center; }
+    .promo-side h3 { margin:0 0 8px; font-size:23px; line-height:1.2; }
+    .promo-side p { margin:0 0 18px; color:#666; font-size:15px; line-height:1.5; }
+    .promo-primary {
+      width:100%;
+      min-height:52px;
+      border:0;
+      border-radius:12px;
+      background:#e23a3a;
+      color:#fff;
+      font-size:18px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(226,58,58,.24);
+      transition:transform .15s ease,opacity .15s ease;
+    }
+    .promo-primary:hover { transform:translateY(-1px); }
+    .promo-primary:disabled { opacity:.65; cursor:not-allowed; transform:none; }
+    .promo-note { margin-top:10px !important; font-size:12px !important; color:#81848c !important; }
+    .promo-result {
+      display:none;
+      margin:16px 0 0;
+      padding:12px 14px;
+      border-radius:12px;
+      background:#eff9ea;
+      border:1px solid #cce8bd;
+      color:#2e6b20;
+      font-weight:800;
+      text-align:center;
+    }
+    .promo-result.show { display:block; }
+    .lead-form {
+      display:none;
+      max-width:560px;
+      margin:28px auto 0;
+      padding:24px;
+      border:1px solid #e8e9ef;
+      border-radius:18px;
+      background:#fff;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+    .lead-form.show { display:block; }
+    .lead-form h3 { margin:0 0 6px; text-align:center; font-size:25px; }
+    .lead-form .form-sub { margin:0 0 18px; text-align:center; color:#6d7078; font-size:14px; line-height:1.45; }
+    .lead-fields { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .lead-field { display:flex; flex-direction:column; gap:6px; }
+    .lead-field.full { grid-column:1/-1; }
+    .lead-field label { font-size:13px; font-weight:700; color:#41444b; }
+    .lead-field input {
+      width:100%;
+      height:50px;
+      border:1px solid #cfd3dc;
+      border-radius:10px;
+      padding:0 14px;
+      font:inherit;
+      font-size:16px;
+      outline:none;
+      background:#fff;
+    }
+    .lead-field input:focus { border-color:#123993; box-shadow:0 0 0 3px rgba(18,57,147,.12); }
+    .lead-consent {
+      display:flex;
+      gap:9px;
+      align-items:flex-start;
+      margin:14px 0;
+      font-size:12px;
+      line-height:1.4;
+      color:#686b73;
+    }
+    .lead-consent input { margin-top:2px; }
+    .form-status {
+      display:none;
+      margin:12px 0 0;
+      padding:11px 12px;
+      border-radius:10px;
+      font-size:14px;
+      font-weight:700;
+      text-align:center;
+    }
+    .form-status.show { display:block; }
+    .form-status.error { background:#fff0f0; color:#a51e1e; border:1px solid #ffd3d3; }
+    .form-status.success { background:#eff9ea; color:#2e6b20; border:1px solid #cce8bd; }
+    .hp-field { position:absolute !important; left:-9999px !important; width:1px !important; height:1px !important; opacity:0 !important; }
+
+    @media (max-width:720px) {
+      .promo-block { margin:32px -2px 26px; padding:24px 14px; border-radius:18px; }
+      .promo-grid { grid-template-columns:1fr; gap:22px; }
+      .wheel-stage { width:min(100%,292px); }
+      .wheel-label { font-size:16px; transform:rotate(calc(var(--i) * 45deg + 22.5deg)) translateY(-97px) rotate(calc((var(--i) * -45deg) - 22.5deg)); }
+      .lead-fields { grid-template-columns:1fr; }
+      .lead-field.full { grid-column:auto; }
+      .lead-form { padding:18px 14px; }
+    }
+
   </style>
 </head>
 <body>
@@ -355,6 +556,75 @@
         <figure class="media-card">
           <img src="https://static.tildacdn.net/tild6362-3865-4231-b766-656539646532/photo_2023-09-23_17-.webp" alt="" loading="lazy">
         </figure><div class="article-text"><ul><li>Иштирокчилар орасида озишнинг ўртача статистик кўрсаткичи: 4 ҳафтада 17 кг.</li><li>86% аёллар ва 88% эркаклар муаммоли соҳаларда: бақбақа, сон, бел, биқин, трицепслардаги ёғдан халос бўлишди.</li><li>1.3% иштирокчиларгина сезиларли ўзгаришларни қайд этишмади (улар қўшимчани йўриқномага қарамасдан қабул қилишган бўлса керак).</li><li>100% иштирокчилар ҳеч қандай ножўя таъсирларни кузатишмади, умумий саломатлиги фақат яхшиланди.</li></ul></div>
+
+
+
+    <section class="promo-block" id="buy" aria-labelledby="promoTitle">
+      <div class="promo-head">
+        <div class="promo-kicker">🎁 Акция</div>
+        <h2 id="promoTitle">Барабанни айлантиринг ва чегирма олинг</h2>
+        <p>Барабанни бир марта айлантиринг. Натижадан сўнг буюртма учун контакт маълумотларини қолдириш мумкин.</p>
+      </div>
+
+      <div class="promo-grid">
+        <div class="wheel-stage" aria-label="Барабан скидок">
+          <div class="wheel-pointer" aria-hidden="true"></div>
+          <div class="wheel" id="promoWheel">
+            <span class="wheel-label" style="--i:0">10%</span>
+            <span class="wheel-label" style="--i:1">20%</span>
+            <span class="wheel-label" style="--i:2">30%</span>
+            <span class="wheel-label" style="--i:3">40%</span>
+            <span class="wheel-label" style="--i:4">50%</span>
+            <span class="wheel-label" style="--i:5">60%</span>
+            <span class="wheel-label" style="--i:6">65%</span>
+            <span class="wheel-label" style="--i:7">70%</span>
+          </div>
+          <div class="wheel-center" aria-hidden="true">FATIZON</div>
+        </div>
+
+        <div class="promo-side">
+          <h3>Чегирмангизни билиб олинг</h3>
+          <p>Тугмани босинг. Барабан тўхтагандан кейин контакт формаси очилади.</p>
+          <button class="promo-primary" id="spinPromo" type="button">БАРАБАННИ АЙЛАНТИРИШ</button>
+          <div class="promo-result" id="promoResult" role="status" aria-live="polite"></div>
+          <p class="promo-note">Акция натижаси автоматик равишда буюртмага қўшилади.</p>
+        </div>
+      </div>
+
+      <form class="lead-form" id="telegramLeadForm" novalidate>
+        <h3>Контакт маълумотларингизни қолдиринг</h3>
+        <p class="form-sub">Менежер буюртмани аниқлаштириш учун сиз билан боғланади.</p>
+        <input type="hidden" name="discount" id="leadDiscount" value="">
+        <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="lead-fields">
+          <div class="lead-field">
+            <label for="leadName">Исм *</label>
+            <input id="leadName" name="name" type="text" maxlength="80" autocomplete="name" required placeholder="Исмингиз">
+          </div>
+          <div class="lead-field">
+            <label for="leadPhone">Телефон *</label>
+            <input id="leadPhone" name="phone" type="tel" maxlength="30" autocomplete="tel" required placeholder="+998 90 123 45 67">
+          </div>
+          <div class="lead-field">
+            <label for="leadAge">Ёш</label>
+            <input id="leadAge" name="age" type="number" min="18" max="120" inputmode="numeric" placeholder="Масалан, 35">
+          </div>
+          <div class="lead-field">
+            <label for="leadCity">Шаҳар / манзил</label>
+            <input id="leadCity" name="city" type="text" maxlength="120" autocomplete="address-level2" placeholder="Тошкент">
+          </div>
+        </div>
+
+        <label class="lead-consent">
+          <input type="checkbox" id="leadConsent" required>
+          <span>Маълумотларим буюртма бўйича мен билан боғланиш учун Telegram орқали сайт эгасига юборилишига розиман.</span>
+        </label>
+
+        <button class="promo-primary" id="leadSubmit" type="submit">БУЮРТМАНИ ЮБОРИШ</button>
+        <div class="form-status" id="leadStatus" role="status" aria-live="polite"></div>
+      </form>
+    </section>
 
     <section class="discussion" id="discussion">
       <h2>Мухокама</h2>
@@ -617,6 +887,124 @@
       dots.forEach(dot => dot.addEventListener('click', () => show(Number(dot.dataset.go))));
       show(0);
     })();
+  </script>
+  <script>
+
+    (() => {
+      const wheel = document.getElementById('promoWheel');
+      const spinButton = document.getElementById('spinPromo');
+      const resultBox = document.getElementById('promoResult');
+      const form = document.getElementById('telegramLeadForm');
+      const discountInput = document.getElementById('leadDiscount');
+      const submitButton = document.getElementById('leadSubmit');
+      const statusBox = document.getElementById('leadStatus');
+      if (!wheel || !spinButton || !resultBox || !form) return;
+
+      const discounts = [10, 20, 30, 40, 50, 60, 65, 70];
+      let spun = false;
+      let currentRotation = 0;
+
+      function setStatus(message, type) {
+        statusBox.textContent = message;
+        statusBox.className = `form-status show ${type}`;
+      }
+
+      function normalizePhone(value) {
+        const phone = String(value || '').replace(/\s+/g, ' ').trim();
+        if (!phone) return '';
+        if (phone.startsWith('+')) return phone;
+        const digits = phone.replace(/\D/g, '');
+        if (!digits) return '';
+        if (digits.startsWith('998')) return `+${digits}`;
+        return `+998 ${phone}`;
+      }
+
+      spinButton.addEventListener('click', () => {
+        if (spun) return;
+        spun = true;
+        spinButton.disabled = true;
+        spinButton.textContent = 'АЙЛАНМОҚДА...';
+
+        const index = Math.floor(Math.random() * discounts.length);
+        const discount = discounts[index];
+        const segmentCenter = index * 45 + 22.5;
+        const targetAtPointer = 360 - segmentCenter;
+        currentRotation += 360 * 7 + targetAtPointer;
+        wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+        window.setTimeout(() => {
+          discountInput.value = String(discount);
+          resultBox.textContent = `Сизнинг чегирмангиз — ${discount}%`;
+          resultBox.classList.add('show');
+          spinButton.textContent = 'ЧЕГИРМА ОЛИНДИ';
+          form.classList.add('show');
+          form.scrollIntoView({ behavior:'smooth', block:'center' });
+          window.setTimeout(() => document.getElementById('leadName')?.focus(), 500);
+        }, 4300);
+      });
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        statusBox.className = 'form-status';
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const payload = {
+          name: document.getElementById('leadName').value.trim(),
+          phone: normalizePhone(document.getElementById('leadPhone').value),
+          age: document.getElementById('leadAge').value.trim(),
+          city: document.getElementById('leadCity').value.trim(),
+          discount: discountInput.value,
+          website: form.elements.website.value,
+          page: location.href
+        };
+
+        if (payload.website) return;
+        if (!payload.phone) {
+          document.getElementById('leadPhone').focus();
+          return;
+        }
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'ЮБОРИЛМОҚДА...';
+
+        try {
+          const botToken = '8686784975:AAFi-nQ8k19jjZlEC8a4SV0PVmhaSFN1-GI';
+          const chatId = '-5039690929';
+          const text = [
+            'Yangi buyurtma: F9-2',
+            '',
+            `Ism: ${payload.name}`,
+            `Telefon: ${payload.phone}`,
+            payload.city ? `Manzil: ${payload.city}` : '',
+            payload.age ? `Yosh: ${payload.age}` : '',
+            payload.discount ? `Chegirma: ${payload.discount}%` : '',
+            `Sayt: ${payload.page}`,
+            `Sana: ${new Date().toLocaleString('uz-UZ')}`
+          ].filter(Boolean).join('\n');
+          const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method:'POST',
+            body:new URLSearchParams({
+              chat_id: chatId,
+              text,
+              disable_web_page_preview: 'true'
+            })
+          });
+          const data = await response.json().catch(() => ({}));
+          if (!response.ok || !data.ok) throw new Error(data.error || 'send_failed');
+
+          form.closest('.promo-block')?.remove();
+        } catch (error) {
+          setStatus('Юборишда хатолик бўлди. Бироздан кейин қайта уриниб кўринг.', 'error');
+          submitButton.disabled = false;
+          submitButton.textContent = 'БУЮРТМАНИ ЮБОРИШ';
+        }
+      });
+    })();
+
   </script>
 </body>
 </html>
