@@ -24,7 +24,7 @@
     }
 
     .screen {
-      width: min(980px, 100%);
+      width: min(1180px, 100%);
       display: grid;
       gap: 28px;
     }
@@ -67,7 +67,7 @@
 
     .actions {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
       margin-top: 8px;
     }
@@ -205,7 +205,7 @@
   <main class="screen">
     <section class="hero">
       <div class="eyebrow">Главное меню</div>
-      <h1>Kristal / F9-2</h1>
+      <h1>Kristal / F9 / F9-2</h1>
       <p>Выберите нужный сайт и переходите сразу на рабочую страницу.</p>
     </section>
 
@@ -213,6 +213,15 @@
       <a class="button" href="kristal/">
         <strong>Kristal</strong>
         <span>Открыть основной сайт</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="button f9" href="f9/">
+        <span class="badge">70% скидка</span>
+        <strong>F9</strong>
+        <span class="line">Линия 12</span>
+        <span>Открыть страницу F9 Fatizon</span>
+        <img class="product" src="f9/f9_files/main.jpg" alt="F9 Fatizon">
         <span class="arrow" aria-hidden="true">›</span>
       </a>
 
