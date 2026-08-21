@@ -13,13 +13,19 @@
       --bg: #1d304d;
       --card: #ffffff;
       --gold: #c79b66;
-      --muted: #6f7c8d;
+      --text: #080808;
+      --muted: #657184;
+    }
+
+    html {
+      min-width: 320px;
+      background: var(--bg);
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-      color: #060606;
+      color: var(--text);
       background: var(--bg);
       font-family: Georgia, "Times New Roman", serif;
     }
@@ -27,7 +33,7 @@
     .page {
       width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 42px 0 70px;
+      padding: 44px 0 72px;
     }
 
     .hero {
@@ -39,7 +45,7 @@
     .hero h1 {
       margin: 0;
       font-family: Arial, "Segoe UI", sans-serif;
-      font-size: clamp(54px, 6vw, 76px);
+      font-size: clamp(56px, 6vw, 76px);
       line-height: 0.95;
       font-weight: 900;
       letter-spacing: 0;
@@ -47,7 +53,7 @@
     }
 
     .hero p {
-      margin: 22px 0 0;
+      margin: 23px 0 0;
       color: rgba(255, 255, 255, 0.58);
       font-size: 18px;
       font-weight: 700;
@@ -59,12 +65,11 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 30px;
-      align-items: stretch;
     }
 
     .site-card {
       min-height: 198px;
-      padding: 36px 22px 30px;
+      padding: 34px 20px 30px;
       border-radius: 4px;
       display: flex;
       flex-direction: column;
@@ -74,24 +79,24 @@
       background: var(--card);
       text-align: center;
       text-decoration: none;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
     .site-card:hover,
     .site-card:focus-visible {
       transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
       outline: none;
     }
 
     .number {
-      margin-bottom: 12px;
+      margin-bottom: 13px;
       color: var(--gold);
       font-family: Arial, "Segoe UI", sans-serif;
       font-size: 52px;
       line-height: 1;
       font-weight: 900;
-      letter-spacing: 0;
     }
 
     .name {
@@ -102,10 +107,12 @@
     }
 
     .url {
-      margin-top: 6px;
+      max-width: 100%;
+      margin-top: 7px;
       color: var(--muted);
       font-size: 14px;
       line-height: 1.25;
+      overflow-wrap: anywhere;
     }
 
     @media (max-width: 1040px) {
@@ -161,88 +168,34 @@
     </header>
 
     <nav class="sites" aria-label="Список сайтов">
-      <a class="site-card" href="a9/">
-        <span class="number">01</span>
-        <h2 class="name">A9</h2>
-        <span class="url">mydomain.com/a9/</span>
-      </a>
-
-      <a class="site-card" href="kristal/">
-        <span class="number">02</span>
-        <h2 class="name">Kristal</h2>
-        <span class="url">mydomain.com/kristal/</span>
-      </a>
-
-      <a class="site-card" href="f9/">
-        <span class="number">03</span>
-        <h2 class="name">F9</h2>
-        <span class="url">mydomain.com/f9/</span>
-      </a>
-
-      <a class="site-card" href="kristal-2/">
-        <span class="number">04</span>
-        <h2 class="name">Kristal-2</h2>
-        <span class="url">mydomain.com/kristal-2/</span>
-      </a>
-
-      <a class="site-card" href="kristal-3/">
-        <span class="number">05</span>
-        <h2 class="name">Kristal-3</h2>
-        <span class="url">mydomain.com/kristal-3/</span>
-      </a>
-
-      <a class="site-card" href="sustav/">
-        <span class="number">06</span>
-        <h2 class="name">Sustav Pro Max</h2>
-        <span class="url">mydomain.com/sustav/</span>
-      </a>
-
-      <a class="site-card" href="a9-2/">
-        <span class="number">07</span>
-        <h2 class="name">A9-2</h2>
-        <span class="url">mydomain.com/a9-2/</span>
-      </a>
-
-      <a class="site-card" href="a9-3/">
-        <span class="number">08</span>
-        <h2 class="name">A9-3</h2>
-        <span class="url">mydomain.com/a9-3/</span>
-      </a>
-
-      <a class="site-card" href="kristal-4/">
-        <span class="number">09</span>
-        <h2 class="name">Kristal UZ Cyrillic</h2>
-        <span class="url">mydomain.com/kristal-4/</span>
-      </a>
-
       <a class="site-card" href="analist/">
-        <span class="number">10</span>
+        <span class="number">01</span>
         <h2 class="name">Analist</h2>
         <span class="url">mydomain.com/analist/</span>
       </a>
 
-      <a class="site-card" href="index(10).html">
-        <span class="number">11</span>
-        <h2 class="name">Sustav Pro Max</h2>
-        <span class="url">naturall-effect.com/index(10).html</span>
-      </a>
-
-      <a class="site-card" href="sbros-vesa/">
-        <span class="number">12</span>
-        <h2 class="name">Сброс веса</h2>
-        <span class="url">mydomain.com/sbros-vesa/</span>
-      </a>
-
-      <a class="site-card" href="migra-uz.html">
-        <span class="number">13</span>
-        <h2 class="name">Migra UZ</h2>
-        <span class="url">mydomain.com/migra-uz.html</span>
+      <a class="site-card" href="f9/">
+        <span class="number">02</span>
+        <h2 class="name">F9</h2>
+        <span class="url">mydomain.com/f9/</span>
       </a>
 
       <a class="site-card" href="f9-2/">
-        <span class="number">14</span>
+        <span class="number">03</span>
         <h2 class="name">F9-2</h2>
         <span class="url">mydomain.com/f9-2/</span>
+      </a>
+
+      <a class="site-card" href="kristal/">
+        <span class="number">04</span>
+        <h2 class="name">Kristal</h2>
+        <span class="url">mydomain.com/kristal/</span>
+      </a>
+
+      <a class="site-card" href="migra-uz.html">
+        <span class="number">05</span>
+        <h2 class="name">Migra UZ</h2>
+        <span class="url">mydomain.com/migra-uz.html</span>
       </a>
     </nav>
   </main>
