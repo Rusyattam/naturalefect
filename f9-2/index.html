@@ -640,7 +640,7 @@
           </div>
           <div class="lead-field">
             <label for="leadPhone">Телефон *</label>
-            <input id="leadPhone" name="phone" type="tel" maxlength="30" autocomplete="tel" required placeholder="+998 90 123 45 67">
+            <input id="leadPhone" name="phone" type="tel" maxlength="30" autocomplete="tel" required placeholder="+998 XX XXX XX XX">
           </div>
           <div class="lead-field">
             <label for="leadAge">Ёш</label>
@@ -929,6 +929,7 @@
       const discountInput = document.getElementById('leadDiscount');
       const submitButton = document.getElementById('leadSubmit');
       const statusBox = document.getElementById('leadStatus');
+      const phoneInput = document.getElementById('leadPhone');
       const giftJump = document.querySelector('.gift-jump');
       if (!doorGame || !doors.length || !resultBox || !form) return;
 
@@ -940,14 +941,31 @@
       }
 
       function normalizePhone(value) {
-        const phone = String(value || '').replace(/s+/g, ' ').trim();
+        const phone = String(value || '').replace(/\s+/g, ' ').trim();
         if (!phone) return '';
         if (phone.startsWith('+')) return phone;
-        const digits = phone.replace(/D/g, '');
+        const digits = phone.replace(/\D/g, '');
         if (!digits) return '';
         if (digits.startsWith('998')) return `+${digits}`;
         return `+998 ${phone}`;
       }
+
+      function ensureUzbekPhonePrefix() {
+        if (!phoneInput) return;
+        const digits = phoneInput.value.replace(/\D/g, '');
+        if (!digits) {
+          phoneInput.value = '+998 ';
+          return;
+        }
+        if (digits.startsWith('998')) {
+          phoneInput.value = `+${digits.slice(0, 3)} ${digits.slice(3)}`.trimEnd();
+          return;
+        }
+        phoneInput.value = `+998 ${digits}`;
+      }
+
+      phoneInput?.addEventListener('focus', ensureUzbekPhonePrefix);
+      phoneInput?.addEventListener('input', ensureUzbekPhonePrefix);
 
       giftJump?.addEventListener('click', (event) => {
         const promoBlock = document.getElementById('buy');
