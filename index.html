@@ -3,237 +3,379 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Главный экран</title>
+  <title>Главное меню</title>
   <style>
     * {
       box-sizing: border-box;
     }
 
+    :root {
+      --ink: #172033;
+      --muted: #657184;
+      --line: #dbe2ea;
+      --paper: #ffffff;
+      --soft: #f3f6fa;
+      --green: #168a5a;
+      --blue: #1d5c96;
+      --red: #e6462f;
+      --orange: #f58a18;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: #ffffff;
-      background:
-        linear-gradient(rgba(5, 17, 34, 0.74), rgba(5, 17, 34, 0.84)),
-        url("kristal/assets/hero-4.jpg") center / cover no-repeat,
-        #102842;
+      font-family: Arial, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #eef3f7;
+    }
+
+    .page {
+      min-height: 100vh;
       display: grid;
-      place-items: center;
-      padding: 28px;
+      grid-template-rows: auto 1fr;
     }
 
-    .screen {
-      width: min(1180px, 100%);
-      display: grid;
-      gap: 28px;
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
     }
 
-    .hero {
-      max-width: 720px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
+    .topbar-inner {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 66px;
+      margin: 0 auto;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      min-height: 34px;
-      padding: 0 14px;
-      border: 1px solid rgba(255, 255, 255, 0.26);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      backdrop-filter: blur(12px);
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    h1 {
-      margin: 22px 0 14px;
-      font-size: clamp(44px, 10vw, 86px);
-      line-height: 0.95;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
       letter-spacing: 0;
       text-transform: uppercase;
     }
 
-    p {
-      max-width: 560px;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.78);
-      font-size: clamp(17px, 2.4vw, 21px);
-      line-height: 1.55;
-    }
-
-    .actions {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .button {
-      position: relative;
-      overflow: hidden;
-      min-height: 132px;
-      padding: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+    .brand-mark {
+      width: 38px;
+      height: 38px;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.94);
-      color: #071827;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-4px);
-      background: #ffffff;
-      box-shadow: 0 34px 88px rgba(0, 0, 0, 0.34);
-    }
-
-    .button strong {
-      font-size: clamp(28px, 5vw, 44px);
-      line-height: 1;
-      text-transform: uppercase;
-    }
-
-    .button span {
-      color: #597082;
+      display: grid;
+      place-items: center;
+      background: #17324f;
+      color: #ffffff;
       font-size: 15px;
+      box-shadow: 0 10px 26px rgba(23, 50, 79, 0.22);
+    }
+
+    .topbar-note {
+      color: var(--muted);
+      font-size: 14px;
       font-weight: 700;
     }
 
-    .button.f9 {
-      min-height: 184px;
-      padding-right: 170px;
-      color: #ffffff;
-      background: linear-gradient(135deg, #ef3b2d 0%, #ff8a00 100%);
-      border-color: rgba(255, 255, 255, 0.28);
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 44px 0;
+      display: grid;
+      gap: 26px;
+      align-content: center;
     }
 
-    .button.f9 span {
-      color: rgba(255, 255, 255, 0.84);
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: 28px;
+      align-items: end;
     }
 
-    .badge {
-      width: max-content;
-      min-height: 34px;
-      padding: 0 12px;
+    .intro h1 {
+      margin: 0;
+      max-width: 740px;
+      color: #101a2b;
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 440px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      color: inherit;
+      background: var(--paper);
+      text-decoration: none;
+      display: grid;
+      grid-template-rows: 210px 1fr;
+      box-shadow: 0 18px 48px rgba(31, 43, 68, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #b8c4d2;
+      box-shadow: 0 24px 66px rgba(31, 43, 68, 0.18);
+    }
+
+    .preview {
+      position: relative;
+      min-height: 210px;
+      background: #dfe7ef;
+      overflow: hidden;
+    }
+
+    .preview img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.24s ease;
+    }
+
+    .card:hover .preview img {
+      transform: scale(1.04);
+    }
+
+    .preview::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(9, 18, 33, 0) 30%, rgba(9, 18, 33, 0.56) 100%);
+    }
+
+    .tag {
+      position: absolute;
+      left: 16px;
+      bottom: 14px;
+      z-index: 1;
+      min-height: 30px;
+      padding: 0 11px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
       background: #ffffff;
-      color: #e53a22;
-      font-size: 14px;
+      color: #152033;
+      font-size: 12px;
       font-weight: 900;
       text-transform: uppercase;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
     }
 
-    .line {
-      display: block;
-      margin-top: -10px;
-      color: rgba(255, 255, 255, 0.94);
-      font-size: 16px;
-      font-weight: 900;
+    .content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .content strong {
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
-    .product {
-      position: absolute;
-      right: 14px;
-      bottom: 12px;
-      width: 138px;
-      max-height: 150px;
-      object-fit: contain;
-      filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.3));
-      pointer-events: none;
+    .content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
     }
 
-    .arrow {
-      align-self: flex-end;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(7, 24, 39, 0.09);
-      font-size: 24px;
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    .pill {
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      background: var(--soft);
+      color: #2d3a4d;
+      font-size: 13px;
       font-weight: 800;
     }
 
-    .f9 .arrow {
-      background: rgba(255, 255, 255, 0.2);
+    .open {
+      min-height: 42px;
+      margin-top: 4px;
+      padding: 0 14px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 900;
+      background: var(--blue);
     }
 
-    @media (max-width: 680px) {
-      body {
-        align-items: start;
-        padding: 22px 14px;
+    .card.kristal .open {
+      background: var(--green);
+    }
+
+    .card.f9 .open {
+      background: linear-gradient(135deg, var(--red), var(--orange));
+    }
+
+    .arrow {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    @media (max-width: 920px) {
+      .intro {
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
 
-      .screen {
-        gap: 22px;
-      }
-
-      .actions {
+      .menu {
         grid-template-columns: 1fr;
       }
 
-      .button {
-        min-height: 112px;
-        padding: 20px;
+      .card {
+        min-height: 0;
+        grid-template-columns: 190px 1fr;
+        grid-template-rows: auto;
       }
 
-      .button.f9 {
-        min-height: 176px;
-        padding-right: 126px;
+      .preview {
+        min-height: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        width: min(100% - 24px, 1180px);
+        min-height: 58px;
       }
 
-      .product {
-        width: 112px;
+      .topbar-note {
+        display: none;
+      }
+
+      .shell {
+        width: min(100% - 24px, 1180px);
+        padding: 28px 0;
+      }
+
+      .intro h1 {
+        font-size: 34px;
+      }
+
+      .intro p {
+        font-size: 16px;
+      }
+
+      .card {
+        grid-template-columns: 1fr;
+        grid-template-rows: 180px auto;
+      }
+
+      .content {
+        padding: 18px;
+      }
+
+      .content strong {
+        font-size: 32px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="screen">
-    <section class="hero">
-      <div class="eyebrow">Главное меню</div>
-      <h1>Kristal / F9 / F9-2</h1>
-      <p>Выберите нужный сайт и переходите сразу на рабочую страницу.</p>
-    </section>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="brand-mark">UZ</span>
+          <span>Главное меню</span>
+        </div>
+        <div class="topbar-note">Быстрый переход к рабочим страницам</div>
+      </div>
+    </header>
 
-    <nav class="actions" aria-label="Переходы на сайты">
-      <a class="button" href="kristal/">
-        <strong>Kristal</strong>
-        <span>Открыть основной сайт</span>
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
+    <main class="shell">
+      <section class="intro">
+        <h1>Выберите нужный сайт</h1>
+        <p>Все рабочие страницы собраны в одном месте: Kristal, F9 и отдельная версия F9-2.</p>
+      </section>
 
-      <a class="button f9" href="f9/">
-        <span class="badge">70% скидка</span>
-        <strong>F9</strong>
-        <span class="line">Линия 12</span>
-        <span>Открыть страницу F9 Fatizon</span>
-        <img class="product" src="f9/f9_files/main.jpg" alt="F9 Fatizon">
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
+      <nav class="menu" aria-label="Переходы на сайты">
+        <a class="card kristal" href="kristal/">
+          <div class="preview">
+            <img src="kristal/assets/kristall.jpg" alt="Kristal">
+            <span class="tag">Основной сайт</span>
+          </div>
+          <div class="content">
+            <strong>Kristal</strong>
+            <p>Основная страница продукта с материалами и формой заказа.</p>
+            <div class="meta">
+              <span class="pill">Лендинг</span>
+              <span class="pill">Готов к открытию</span>
+            </div>
+            <span class="open">Открыть сайт <span class="arrow" aria-hidden="true">›</span></span>
+          </div>
+        </a>
 
-      <a class="button f9" href="f9-2/">
-        <span class="badge">70% скидка</span>
-        <strong>F9-2</strong>
-        <span class="line">Линия 12</span>
-        <span>Открыть страницу F9-2 Fatizon</span>
-        <img class="product" src="f9-2/f9_2_files/main.jpg" alt="F9-2 Fatizon">
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
-    </nav>
-  </main>
+        <a class="card f9" href="f9/">
+          <div class="preview">
+            <img src="f9/f9_files/main.jpg" alt="F9 Fatizon">
+            <span class="tag">70% скидка</span>
+          </div>
+          <div class="content">
+            <strong>F9</strong>
+            <p>Страница Fatizon с промо-блоком, барабаном и заявкой.</p>
+            <div class="meta">
+              <span class="pill">Fatizon</span>
+              <span class="pill">Линия 12</span>
+            </div>
+            <span class="open">Открыть F9 <span class="arrow" aria-hidden="true">›</span></span>
+          </div>
+        </a>
+
+        <a class="card f9" href="f9-2/">
+          <div class="preview">
+            <img src="f9-2/f9_2_files/main.jpg" alt="F9-2 Fatizon">
+            <span class="tag">Вторая версия</span>
+          </div>
+          <div class="content">
+            <strong>F9-2</strong>
+            <p>Отдельная версия Fatizon для параллельной работы и проверки.</p>
+            <div class="meta">
+              <span class="pill">Fatizon</span>
+              <span class="pill">Версия 2</span>
+            </div>
+            <span class="open">Открыть F9-2 <span class="arrow" aria-hidden="true">›</span></span>
+          </div>
+        </a>
+      </nav>
+    </main>
+  </div>
 </body>
 </html>
