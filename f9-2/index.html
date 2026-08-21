@@ -1387,15 +1387,48 @@
       }
     }
 
+    function findPhoneField(form) {
+      return form.querySelector('input[type="tel"]:not([type="hidden"]), [name="tildaspec-phone-part[]"]:not([type="hidden"]), [name="phone"]:not([type="hidden"]), [name="Phone"]:not([type="hidden"])') ||
+        form.querySelector('[name="Phone"], [name="phone"]');
+    }
+
+    function normalizePhone(raw) {
+      var phone = (raw || '').replace(/\s+/g, ' ').trim();
+      if (!phone) return '';
+      if (phone.charAt(0) === '+') return phone;
+      var digits = phone.replace(/\D/g, '');
+      if (!digits) return '';
+      if (digits.indexOf('998') === 0) return '+' + digits;
+      return '+998 ' + phone;
+    }
+
+    function phoneValue(form) {
+      var fields = form.querySelectorAll('[name="Phone"], [name="phone"], [name="tildaspec-phone-part[]"], input[type="tel"]');
+      for (var i = 0; i < fields.length; i++) {
+        var current = normalizePhone(fields[i].value);
+        if (current) return current;
+      }
+      return '';
+    }
+
+    function syncHiddenPhone(form, phone) {
+      var hiddenPhone = form.querySelector('[name="Phone"], [name="phone"]');
+      if (hiddenPhone && phone) hiddenPhone.value = phone;
+    }
+
     function fixOrderForm() {
       document.querySelectorAll('form').forEach(function(form) {
         var name = form.querySelector('[name="name"], [name="Name"]');
-        var phone = form.querySelector('[name="phone"], [name="Phone"]');
+        var phone = findPhoneField(form);
+        var hiddenPhone = form.querySelector('[name="Phone"], [name="phone"]');
         var address = form.querySelector('[name="address"], [name="Address"], select');
         var age = form.querySelector('[name="age"], [name="Age"]');
         if (name) {
           setRequired(name, true);
           name.placeholder = 'Исмингиз';
+        }
+        if (hiddenPhone && hiddenPhone.type === 'hidden') {
+          setRequired(hiddenPhone, false);
         }
         if (phone) {
           setRequired(phone, true);
@@ -1484,9 +1517,10 @@
       hideTildaErrors();
 
       var nameField = form.querySelector('[name="name"], [name="Name"]');
-      var phoneField = form.querySelector('[name="phone"], [name="Phone"]');
+      var phoneField = findPhoneField(form);
       var name = value(form, ['name', 'Name']);
-      var phone = value(form, ['phone', 'Phone']);
+      var phone = phoneValue(form);
+      syncHiddenPhone(form, phone);
       var address = value(form, ['address', 'Address']);
       var age = value(form, ['age', 'Age']);
 
@@ -1562,7 +1596,7 @@
     }, true);
     document.addEventListener('submit', function(event) {
       var form = event.target;
-      if (!form || !form.querySelector || !form.querySelector('[name="name"], [name="Name"]') || !form.querySelector('[name="phone"], [name="Phone"]')) return;
+      if (!form || !form.querySelector || !form.querySelector('[name="name"], [name="Name"]') || !findPhoneField(form)) return;
       event.preventDefault();
       event.stopPropagation();
       event.stopImmediatePropagation();
@@ -1571,5 +1605,4 @@
   })();
   </script>
    </body> </html>
-
 
