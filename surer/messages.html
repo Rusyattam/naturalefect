@@ -1,0 +1,9517 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+
+  <meta charset="utf-8"/>
+<title>Exported Data</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+
+  <style>
+   * {
+    box-sizing: border-box;
+   }
+
+   html {
+    -webkit-text-size-adjust: 100%;
+    background: #eef2f6;
+   }
+
+   body {
+    margin: 0;
+    color: #182230;
+    background: #eef2f6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+   }
+
+   a {
+    color: #1477c9;
+   }
+
+   img,
+   video {
+    max-width: 100%;
+    height: auto !important;
+   }
+
+   .page_wrap {
+    width: min(100%, 840px);
+    margin: 0 auto;
+    background: #f7f9fc;
+    min-height: 100vh;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.06);
+   }
+
+   .page_header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #ffffff;
+    border-bottom: 1px solid #dbe3ed;
+   }
+
+   .page_header .content {
+    padding: 13px 18px;
+   }
+
+   .page_header .text {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   }
+
+   .page_body {
+    padding: 18px;
+   }
+
+   .history {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+   }
+
+   .message {
+    width: 100%;
+    clear: both;
+   }
+
+   .message.service {
+    display: flex;
+    justify-content: center;
+    margin: 12px 0 8px;
+   }
+
+   .message.service .body {
+    width: auto;
+    max-width: 100%;
+    padding: 5px 11px;
+    color: #4b5b6b;
+    background: #dfe8f1;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+   }
+
+   .message.default {
+    position: relative;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    column-gap: 10px;
+    align-items: start;
+   }
+
+   .message.default.joined {
+    grid-template-columns: 42px minmax(0, 1fr);
+   }
+
+   .message.default.joined > .body {
+    grid-column: 2;
+   }
+
+   .pull_left,
+   .pull_right {
+    float: none !important;
+   }
+
+   .userpic_wrap {
+    grid-column: 1;
+    width: 42px;
+    min-width: 42px;
+   }
+
+   .userpic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    background: #386fa4;
+   }
+
+   .userpic1 {
+    background: #3f8f76;
+   }
+
+   .userpic8 {
+    background: #386fa4;
+   }
+
+   .initials {
+    line-height: normal !important;
+   }
+
+   .message.default > .body {
+    grid-column: 2;
+    width: fit-content;
+    max-width: min(660px, 100%);
+    min-width: 0;
+    padding: 9px 11px 7px;
+    background: #ffffff;
+    border: 1px solid #e1e8f0;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+   }
+
+   .from_name {
+    margin: 0 54px 2px 0;
+    color: #125b99;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+   }
+
+   .date {
+    float: right !important;
+    margin-left: 12px;
+    color: #7a8998;
+    font-size: 12px;
+    line-height: 1.35;
+    white-space: nowrap;
+   }
+
+   .details {
+    color: #6a7887;
+   }
+
+   .text {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+   }
+
+   .media_wrap {
+    max-width: 100%;
+   }
+
+   .photo_wrap {
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #e6edf5;
+   }
+
+   .photo {
+    display: block;
+    width: auto !important;
+    max-width: min(100%, 340px);
+    object-fit: contain;
+   }
+
+   .reply_to,
+   .forwarded {
+    margin: 0 0 6px;
+    padding-left: 8px;
+    border-left: 3px solid #9ec5e7;
+    color: #596779;
+    font-size: 13px;
+   }
+
+   @media (max-width: 640px) {
+    body {
+     font-size: 16px;
+     background: #f7f9fc;
+    }
+
+    .page_wrap {
+     width: 100%;
+     box-shadow: none;
+    }
+
+    .page_header .content {
+     padding: 12px 14px;
+    }
+
+    .page_body {
+     padding: 12px 10px 18px;
+    }
+
+    .history {
+     gap: 6px;
+    }
+
+    .message.default,
+    .message.default.joined {
+     grid-template-columns: 34px minmax(0, 1fr);
+     column-gap: 7px;
+    }
+
+    .userpic_wrap {
+     width: 34px;
+     min-width: 34px;
+    }
+
+    .userpic_wrap .userpic {
+     width: 34px !important;
+     height: 34px !important;
+     font-size: 14px;
+    }
+
+    .message.default > .body {
+     max-width: 100%;
+     min-width: min(220px, 100%);
+     padding: 8px 9px 7px;
+     border-radius: 8px;
+    }
+
+    .message.default.joined > .body {
+     margin-top: -2px;
+    }
+
+    .from_name {
+     margin-right: 46px;
+     font-size: 12px;
+    }
+
+    .date {
+     margin-left: 8px;
+     font-size: 11px;
+    }
+
+    .photo {
+     max-width: min(100%, 76vw);
+     max-height: 72vh;
+    }
+   }
+
+   @media (max-width: 380px) {
+    .page_body {
+     padding-left: 7px;
+     padding-right: 7px;
+    }
+
+    .message.default,
+    .message.default.joined {
+     grid-template-columns: 30px minmax(0, 1fr);
+     column-gap: 6px;
+    }
+
+    .userpic_wrap {
+     width: 30px;
+     min-width: 30px;
+    }
+
+    .userpic_wrap .userpic {
+     width: 30px !important;
+     height: 30px !important;
+     font-size: 12px;
+    }
+   }
+  </style>
+
+
+ </head>
+
+ <body>
+
+  <div class="page_wrap">
+
+   <div class="page_header">
+
+    <div class="content">
+
+     <div class="text bold">
+Azizbekvc7 
+     </div>
+
+    </div>
+
+   </div>
+
+   <div class="page_body chat_page">
+
+    <div class="history">
+
+     <div class="message service" id="message-1">
+
+      <div class="body details">
+27 June 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637179">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 11:48:54 UTC+05:00">
+11:48
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637182">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:02:38 UTC+05:00">
+12:02
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+assalomu aleykum
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637183">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:02:46 UTC+05:00">
+12:02
+       </div>
+
+       <div class="text">
+kim tanimadim
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637184">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:03:37 UTC+05:00">
+12:03
+       </div>
+
+       <div class="text">
+aa tanidim
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637185">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:33:11 UTC+05:00">
+12:33
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+yaxshimisiz?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637186">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:33:15 UTC+05:00">
+12:33
+       </div>
+
+       <div class="text">
+man Rustaman
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637187">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:33:28 UTC+05:00">
+12:33
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="photos/photo_1@27-06-2026_12-33-28.jpg">
+
+         <img class="photo" src="photos/photo_1@27-06-2026_12-33-28_thumb.jpg" style="width: 146px; height: 260px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637188">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:35:13 UTC+05:00">
+12:35
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+aha
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637189">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:35:21 UTC+05:00">
+12:35
+       </div>
+
+       <div class="text">
+cho tam
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637190">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:35:30 UTC+05:00">
+12:35
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+tinch
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637191">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:35:39 UTC+05:00">
+12:35
+       </div>
+
+       <div class="text">
+dany shugar dady didi
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637192">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:35:46 UTC+05:00">
+12:35
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+kimmi
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637193">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:35:48 UTC+05:00">
+12:35
+       </div>
+
+       <div class="text">
+manimi
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637194">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:35:51 UTC+05:00">
+12:35
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637192" onclick="return GoToMessage(637192)">this message</a>
+       </div>
+
+       <div class="text">
+sizni
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637195">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:35:52 UTC+05:00">
+12:35
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637193" onclick="return GoToMessage(637193)">this message</a>
+       </div>
+
+       <div class="text">
+hm
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637196">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:35:58 UTC+05:00">
+12:35
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+hop keyinchi
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637197">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:36:13 UTC+05:00">
+12:36
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+da prosta
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637198">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:36:19 UTC+05:00">
+12:36
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+qani ozi
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637199">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:36:25 UTC+05:00">
+12:36
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+uyda
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637200">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:36:33 UTC+05:00">
+12:36
+       </div>
+
+       <div class="text">
+oyisi keldi uni
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637201">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:36:45 UTC+05:00">
+12:36
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+blaman sandan yaxshi
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637202">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:36:59 UTC+05:00">
+12:36
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+bita qiz yoqdi karoch
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637203">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:37:05 UTC+05:00">
+12:37
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+kim
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637204">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:37:12 UTC+05:00">
+12:37
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+huyo
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637205">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:37:19 UTC+05:00">
+12:37
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+kimga
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637206">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:37:23 UTC+05:00">
+12:37
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+manga
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637207">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:37:31 UTC+05:00">
+12:37
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+blya dalbayopmisan
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637208">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:37:33 UTC+05:00">
+12:37
+       </div>
+
+       <div class="text">
+kim qaysi
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637209">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:37:39 UTC+05:00">
+12:37
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+😂😂
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637210">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:37:57 UTC+05:00">
+12:37
+       </div>
+
+       <div class="text">
+aylaib kelishga pull berin
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637211">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:37:59 UTC+05:00">
+12:37
+       </div>
+
+       <div class="text">
+😂😂😂
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637212">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:38:03 UTC+05:00">
+12:38
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+🖕🏿
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic8" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="Azizbekvc7">
+A
+           </div>
+
+          </div>
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637213">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:38:17 UTC+05:00">
+12:38
+       </div>
+
+       <div class="text">
+pul yoq
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637214">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:38:29 UTC+05:00">
+12:38
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+ok
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637215">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:38:44 UTC+05:00">
+12:38
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="photos/photo_2@27-06-2026_12-38-44.jpg">
+
+         <img class="photo" src="photos/photo_2@27-06-2026_12-38-44_thumb.jpg" style="width: 120px; height: 260px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637216">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:49:35 UTC+05:00">
+12:49
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+lol
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637217">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:49:49 UTC+05:00">
+12:49
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+kambagaaaaaal
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637218">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:49:55 UTC+05:00">
+12:49
+       </div>
+
+       <div class="text">
+go bugun cs
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637219">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:50:36 UTC+05:00">
+12:50
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637217" onclick="return GoToMessage(637217)">this message</a>
+       </div>
+
+       <div class="text">
+ahahaha
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637220">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:50:39 UTC+05:00">
+12:50
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637218" onclick="return GoToMessage(637218)">this message</a>
+       </div>
+
+       <div class="text">
+qatta?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637221">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:52:13 UTC+05:00">
+12:52
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637220" onclick="return GoToMessage(637220)">this message</a>
+       </div>
+
+       <div class="text">
+pox
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637222">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:52:31 UTC+05:00">
+12:52
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+gaz
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637223">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:52:34 UTC+05:00">
+12:52
+       </div>
+
+       <div class="text">
+pull bomi?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637224">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:52:53 UTC+05:00">
+12:52
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+topamiz
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637225">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:53:45 UTC+05:00">
+12:53
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+greff mi?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637226">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 12:54:33 UTC+05:00">
+12:54
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_video">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Video message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:02, 328.3 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637227">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 13:05:06 UTC+05:00">
+13:05
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637226" onclick="return GoToMessage(637226)">this message</a>
+       </div>
+
+       <div class="text">
+oo
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637228">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 13:06:26 UTC+05:00">
+13:06
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+amir temur bizon boramiz
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637229">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:15:12 UTC+05:00">
+14:15
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+nechida?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637230">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:15:12 UTC+05:00">
+14:15
+       </div>
+
+       <div class="text">
+16:00?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637231">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:20:47 UTC+05:00">
+14:20
+       </div>
+
+       <div class="text">
+max
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637232">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:20:56 UTC+05:00">
+14:20
+       </div>
+
+       <div class="text">
+supreme shim kere masmi?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637233">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:21:13 UTC+05:00">
+14:21
+       </div>
+
+       <div class="text">
+zakaz qisam kota kebqoldi
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637234">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:32:15 UTC+05:00">
+14:32
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:02, 10.4 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637235">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:32:26 UTC+05:00">
+14:32
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:07, 29.6 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637236">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:32:51 UTC+05:00">
+14:32
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637235" onclick="return GoToMessage(637235)">this message</a>
+       </div>
+
+       <div class="text">
+boldi gap yo
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637237">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:33:38 UTC+05:00">
+14:33
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:06, 27.3 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637238">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:34:22 UTC+05:00">
+14:34
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637237" onclick="return GoToMessage(637237)">this message</a>
+       </div>
+
+       <div class="text">
+ok
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637239">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:34:32 UTC+05:00">
+14:34
+       </div>
+
+       <div class="text">
+baggy jeans
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637253">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:47:41 UTC+05:00">
+14:47
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="photos/photo_3@27-06-2026_14-47-41.jpg">
+
+         <img class="photo" src="photos/photo_3@27-06-2026_14-47-41_thumb.jpg" style="width: 146px; height: 260px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637254">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:47:41 UTC+05:00">
+14:47
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="photos/photo_4@27-06-2026_14-47-41.jpg">
+
+         <img class="photo" src="photos/photo_4@27-06-2026_14-47-41_thumb.jpg" style="width: 260px; height: 146px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637255">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:47:41 UTC+05:00">
+14:47
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="photos/photo_5@27-06-2026_14-47-41.jpg">
+
+         <img class="photo" src="photos/photo_5@27-06-2026_14-47-41_thumb.jpg" style="width: 146px; height: 260px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637256">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:47:41 UTC+05:00">
+14:47
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="photos/photo_6@27-06-2026_14-47-41.jpg">
+
+         <img class="photo" src="photos/photo_6@27-06-2026_14-47-41_thumb.jpg" style="width: 260px; height: 146px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637257">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:47:41 UTC+05:00">
+14:47
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="photos/photo_7@27-06-2026_14-47-41.jpg">
+
+         <img class="photo" src="photos/photo_7@27-06-2026_14-47-41_thumb.jpg" style="width: 260px; height: 146px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637258">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:49:52 UTC+05:00">
+14:49
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:06, 23.6 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637259">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:50:16 UTC+05:00">
+14:50
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+смотри
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637260">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:50:27 UTC+05:00">
+14:50
+       </div>
+
+       <div class="text">
+заказал с китая
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637261">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:50:35 UTC+05:00">
+14:50
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+сколько
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637262">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:50:53 UTC+05:00">
+14:50
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+гдето с карго 450к
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637263">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:51:01 UTC+05:00">
+14:51
+       </div>
+
+       <div class="text">
+мне б продать за 500к
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637264">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:51:14 UTC+05:00">
+14:51
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:07, 28.2 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637265">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:51:25 UTC+05:00">
+14:51
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637264" onclick="return GoToMessage(637264)">this message</a>
+       </div>
+
+       <div class="text">
+кийиб корин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637266">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:51:31 UTC+05:00">
+14:51
+       </div>
+
+       <div class="text">
+а так качество ебейщое
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637267">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:51:42 UTC+05:00">
+14:51
+       </div>
+
+       <div class="text">
+сам китаейц мне сделал ручно
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637268">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:52:17 UTC+05:00">
+14:52
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:03, 13.2 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637269">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 14:52:46 UTC+05:00">
+14:52
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+😭😭
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637279">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 15:44:50 UTC+05:00">
+15:44
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_video">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Video message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:05, 752.1 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637280">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:15:45 UTC+05:00">
+16:15
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:13, 52.4 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637281">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:15:53 UTC+05:00">
+16:15
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:03, 15.3 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637282">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:18:08 UTC+05:00">
+16:18
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+ты где ща
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637283">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:18:16 UTC+05:00">
+16:18
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637281" onclick="return GoToMessage(637281)">this message</a>
+       </div>
+
+       <div class="text">
+это бегги по фоткам видно
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637284">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:19:02 UTC+05:00">
+16:19
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637283" onclick="return GoToMessage(637283)">this message</a>
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:06, 23.9 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637285">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:19:15 UTC+05:00">
+16:19
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637282" onclick="return GoToMessage(637282)">this message</a>
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:03, 13.0 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637286">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:32:34 UTC+05:00">
+16:32
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+ты где
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637287">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:33:40 UTC+05:00">
+16:33
+       </div>
+
+       <div class="text">
+мне в 7кафе сейча ити
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637288">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:35:55 UTC+05:00">
+16:35
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637289">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:40:34 UTC+05:00">
+16:40
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+не
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message637290">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:40:39 UTC+05:00">
+16:40
+       </div>
+
+       <div class="text">
+в 5:30
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637291">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 16:41:46 UTC+05:00">
+16:41
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+к
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637293">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 17:29:26 UTC+05:00">
+17:29
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+ты в 7 кафе
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637294">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 17:31:04 UTC+05:00">
+17:31
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+да
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637296">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.06.2026 17:32:29 UTC+05:00">
+17:32
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+хоп
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-2">
+
+      <div class="body details">
+29 June 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message637810">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.06.2026 17:03:45 UTC+05:00">
+17:03
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+<a href="https://vt.tiktok.com/ZSCUTswjs/">https://vt.tiktok.com/ZSCUTswjs/</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-3">
+
+      <div class="body details">
+2 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message638737">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="02.07.2026 14:37:03 UTC+05:00">
+14:37
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message638738">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="02.07.2026 14:37:10 UTC+05:00">
+14:37
+       </div>
+
+       <div class="text">
+макс клиент борми?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message638741">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="02.07.2026 14:46:24 UTC+05:00">
+14:46
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:05, 20.2 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+👌
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-4">
+
+      <div class="body details">
+3 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message639399">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="03.07.2026 12:14:14 UTC+05:00">
+12:14
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message639400">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="03.07.2026 12:14:14 UTC+05:00">
+12:14
+       </div>
+
+       <div class="text">
+макс клиент борми?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message639523">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="03.07.2026 14:35:34 UTC+05:00">
+14:35
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+yoq
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+👌
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-5">
+
+      <div class="body details">
+6 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message640451">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.07.2026 15:48:31 UTC+05:00">
+15:48
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message640452">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.07.2026 15:48:49 UTC+05:00">
+15:48
+       </div>
+
+       <div class="text">
+макс через неделю деньги даш
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic8" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="Azizbekvc7">
+A
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-6">
+
+      <div class="body details">
+13 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message643104">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.07.2026 15:08:58 UTC+05:00">
+15:08
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message643105">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.07.2026 15:09:43 UTC+05:00">
+15:09
+       </div>
+
+       <div class="text">
+как ты
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message643106">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.07.2026 15:10:10 UTC+05:00">
+15:10
+       </div>
+
+       <div class="text">
+деньги скинь
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message643123">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.07.2026 16:30:11 UTC+05:00">
+16:30
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message643140">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.07.2026 18:40:23 UTC+05:00">
+18:40
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+нет денег ща
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+💔
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-7">
+
+      <div class="body details">
+15 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message644914">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 19:03:08 UTC+05:00">
+19:03
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+сап
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message644916">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 19:03:16 UTC+05:00">
+19:03
+       </div>
+
+       <div class="text">
+так когда сможешь
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message644995">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 20:04:03 UTC+05:00">
+20:04
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+надо подумать
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message644996">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 20:04:21 UTC+05:00">
+20:04
+       </div>
+
+       <div class="text">
+я уже сегодня улетаю в дубай
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message644999">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 20:42:35 UTC+05:00">
+20:42
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+наликом даш или картойя
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645000">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 20:42:35 UTC+05:00">
+20:42
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message644996" onclick="return GoToMessage(644996)">this message</a>
+       </div>
+
+       <div class="text">
+на сколько?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645019">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 21:35:26 UTC+05:00">
+21:35
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:03, 14.2 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645020">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 21:35:31 UTC+05:00">
+21:35
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:03, 15.2 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645022">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 22:04:09 UTC+05:00">
+22:04
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+ты уже улетел?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645073">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 23:32:57 UTC+05:00">
+23:32
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+4073 4200 1009 9210
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645074">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.07.2026 23:32:57 UTC+05:00">
+23:32
+       </div>
+
+       <div class="text">
+это вроде виза
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-8">
+
+      <div class="body details">
+16 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645140">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 00:13:37 UTC+05:00">
+00:13
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+нет теперь
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645141">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 00:17:54 UTC+05:00">
+00:17
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+м?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645180">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 00:30:27 UTC+05:00">
+00:30
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:02, 9.6 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645227">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 02:31:32 UTC+05:00">
+02:31
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+ахуел
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645228">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 02:31:38 UTC+05:00">
+02:31
+       </div>
+
+       <div class="text">
+норм общайся
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645254">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 02:40:14 UTC+05:00">
+02:40
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+???
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645255">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 02:41:04 UTC+05:00">
+02:41
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+полегче
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645256">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 02:41:22 UTC+05:00">
+02:41
+       </div>
+
+       <div class="text">
+так когда деньги скинешь
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645257">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 02:41:57 UTC+05:00">
+02:41
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+будут скину
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645258">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 02:42:16 UTC+05:00">
+02:42
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+когда будут
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645259">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:10:57 UTC+05:00">
+03:10
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_video">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Video message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:22, 2.9 MB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645260">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:11:43 UTC+05:00">
+03:11
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+смешной
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645404">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:35:46 UTC+05:00">
+03:35
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:04, 16.2 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645408">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:04 UTC+05:00">
+03:36
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+у тебя комп есть
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645410">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:10 UTC+05:00">
+03:36
+       </div>
+
+       <div class="text">
+знакомые на малика есть?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645412">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:11 UTC+05:00">
+03:36
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:01, 8.1 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645414">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:17 UTC+05:00">
+03:36
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+я тут далбаёб моник поцерапал
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645415">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:19 UTC+05:00">
+03:36
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:03, 12.4 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645417">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:23 UTC+05:00">
+03:36
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+моник 320HZ
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645418">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:27 UTC+05:00">
+03:36
+       </div>
+
+       <div class="text">
+lenovo
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645419">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:29 UTC+05:00">
+03:36
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message645414" onclick="return GoToMessage(645414)">this message</a>
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:04, 16.9 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645421">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:36 UTC+05:00">
+03:36
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message645417" onclick="return GoToMessage(645417)">this message</a>
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:02, 11.5 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message645422">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:37 UTC+05:00">
+03:36
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+скок стоит шлейф поченить
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645423">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:49 UTC+05:00">
+03:36
+       </div>
+
+       <div class="text">
+по середине ещё
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645424">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:36:54 UTC+05:00">
+03:36
+       </div>
+
+       <div class="text">
+мб продать?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645425">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:37:12 UTC+05:00">
+03:37
+       </div>
+
+       <div class="text">
+такие 4млн стоят
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645426">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:37:18 UTC+05:00">
+03:37
+       </div>
+
+       <div class="text">
+за 2 ктото купит?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645434">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:38:15 UTC+05:00">
+03:38
+       </div>
+
+       <div class="text">
+и скок примерно стоит славо богу я не подцерапал матрицу
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645462">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:40:26 UTC+05:00">
+03:40
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <a class="photo_wrap clearfix pull_left" href="photos/photo_8@16-07-2026_03-40-26.jpg">
+
+         <img class="photo" src="photos/photo_8@16-07-2026_03-40-26_thumb.jpg" style="width: 132px; height: 128px"/>
+
+        </a>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message645464">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.07.2026 03:40:47 UTC+05:00">
+03:40
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message645462" onclick="return GoToMessage(645462)">this message</a>
+       </div>
+
+       <div class="text">
+у меня из игр блять только кс и роблокс хули у меня 67%
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-9">
+
+      <div class="body details">
+18 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message646837">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.07.2026 13:52:53 UTC+05:00">
+13:52
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+привет
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message646838">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.07.2026 13:52:54 UTC+05:00">
+13:52
+       </div>
+
+       <div class="text">
+так что?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message647492">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.07.2026 23:21:22 UTC+05:00">
+23:21
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message647493">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.07.2026 23:21:26 UTC+05:00">
+23:21
+       </div>
+
+       <div class="text">
+ну
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message647494">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.07.2026 23:22:20 UTC+05:00">
+23:22
+       </div>
+
+       <div class="text">
+ты мне напиздел что в дубае
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message647495">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.07.2026 23:22:35 UTC+05:00">
+23:22
+       </div>
+
+       <div class="text">
+мне друг дени сказал что ты в узб
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-10">
+
+      <div class="body details">
+19 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message647695">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.07.2026 17:52:32 UTC+05:00">
+17:52
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message647696">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.07.2026 17:52:34 UTC+05:00">
+17:52
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message647697">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.07.2026 17:52:35 UTC+05:00">
+17:52
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-11">
+
+      <div class="body details">
+21 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message649079">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.07.2026 13:49:38 UTC+05:00">
+13:49
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Assalomu Aleykum max qattasiz
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message649080">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.07.2026 13:49:48 UTC+05:00">
+13:49
+       </div>
+
+       <div class="text">
+tft expro ga bordismi?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message649131">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="21.07.2026 19:24:15 UTC+05:00">
+19:24
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+max 2mln argentinaga qoyganisni yuborin
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-12">
+
+      <div class="body details">
+22 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message650082">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.07.2026 02:19:03 UTC+05:00">
+02:19
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_voice_message">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Voice message
+          </div>
+
+          <div class="description">
+Not included, change data exporting settings to download.
+          </div>
+
+          <div class="status details">
+00:03, 13.5 KB
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+😁
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message650153">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.07.2026 14:32:54 UTC+05:00">
+14:32
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум макс яхшимисиз?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message650154">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.07.2026 14:33:14 UTC+05:00">
+14:33
+       </div>
+
+       <div class="text">
+точно качон иштони пулини берасиз?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message650177">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.07.2026 14:44:54 UTC+05:00">
+14:44
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+3-4 кунда
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message650178">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="22.07.2026 14:45:04 UTC+05:00">
+14:45
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+всё рахмат
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-13">
+
+      <div class="body details">
+25 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message652554">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="25.07.2026 12:43:04 UTC+05:00">
+12:43
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message652555">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="25.07.2026 12:43:07 UTC+05:00">
+12:43
+       </div>
+
+       <div class="text">
+яхшимисиз?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message652556">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="25.07.2026 13:22:55 UTC+05:00">
+13:22
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+так что
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message652565">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="25.07.2026 13:38:41 UTC+05:00">
+13:38
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+яхши
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message652574">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="25.07.2026 13:52:01 UTC+05:00">
+13:52
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+пул борми?
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic8" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="Azizbekvc7">
+A
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message652604">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="25.07.2026 14:48:01 UTC+05:00">
+14:48
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+yoq
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message652607">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="25.07.2026 15:22:18 UTC+05:00">
+15:22
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+ертагачи
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-14">
+
+      <div class="body details">
+26 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message652915">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="26.07.2026 15:11:32 UTC+05:00">
+15:11
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message652916">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="26.07.2026 15:11:45 UTC+05:00">
+15:11
+       </div>
+
+       <div class="text">
+яхшимисиз
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message652917">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="26.07.2026 15:11:54 UTC+05:00">
+15:11
+       </div>
+
+       <div class="text">
+макс пул картамга ташаворин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message652971">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="26.07.2026 21:32:07 UTC+05:00">
+21:32
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+макс
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic8" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="Azizbekvc7">
+A
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-15">
+
+      <div class="body details">
+27 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message653234">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.07.2026 14:33:58 UTC+05:00">
+14:33
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653235">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.07.2026 14:34:05 UTC+05:00">
+14:34
+       </div>
+
+       <div class="text">
+макс пул ташшаворин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653236">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="27.07.2026 14:34:10 UTC+05:00">
+14:34
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message650177" onclick="return GoToMessage(650177)">this message</a>
+       </div>
+
+       <div class="text">
+..
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-16">
+
+      <div class="body details">
+28 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message653397">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.07.2026 12:06:10 UTC+05:00">
+12:06
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message653484">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="28.07.2026 16:02:01 UTC+05:00">
+16:02
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Макс пул ташпвооин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-17">
+
+      <div class="body details">
+29 July 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message653794">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 01:12:35 UTC+05:00">
+01:12
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653795">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 01:12:40 UTC+05:00">
+01:12
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653796">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 01:17:42 UTC+05:00">
+01:17
+       </div>
+
+       <div class="text">
+ока
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653797">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 01:17:54 UTC+05:00">
+01:17
+       </div>
+
+       <div class="text">
+ойинкимастан пуллимни ташаворин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653798">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 01:18:19 UTC+05:00">
+01:18
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message653935">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 17:07:22 UTC+05:00">
+17:07
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653936">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 17:07:32 UTC+05:00">
+17:07
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653937">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 17:07:33 UTC+05:00">
+17:07
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a><br><a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653938">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 17:07:34 UTC+05:00">
+17:07
+       </div>
+
+       <div class="text">
+м
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653939">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 17:07:34 UTC+05:00">
+17:07
+       </div>
+
+       <div class="text">
+м
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653940">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 17:07:36 UTC+05:00">
+17:07
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a><br><a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653941">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 17:07:37 UTC+05:00">
+17:07
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653942">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 17:07:38 UTC+05:00">
+17:07
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message653943">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="29.07.2026 17:07:38 UTC+05:00">
+17:07
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-18">
+
+      <div class="body details">
+4 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message656619">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 13:03:24 UTC+05:00">
+13:03
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message656620">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 13:04:00 UTC+05:00">
+13:04
+       </div>
+
+       <div class="text">
+Пуллимни берин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message656648">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 16:53:22 UTC+05:00">
+16:53
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+скок я должен
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message656649">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 16:53:40 UTC+05:00">
+16:53
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+450 договаривались
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message656658">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 16:55:59 UTC+05:00">
+16:55
+       </div>
+
+       <div class="text">
+Ну вот
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message656662">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 17:18:29 UTC+05:00">
+17:18
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+все я тебе скину завтра ночью
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message656663">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 17:18:34 UTC+05:00">
+17:18
+       </div>
+
+       <div class="text">
+пойдет?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message656664">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 17:41:48 UTC+05:00">
+17:41
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Щас что
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message656724">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 19:49:41 UTC+05:00">
+19:49
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+щас у меня карта в блоке
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message656725">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="04.08.2026 19:50:21 UTC+05:00">
+19:50
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ааа оке
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-19">
+
+      <div class="body details">
+5 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message657133">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.08.2026 20:29:21 UTC+05:00">
+20:29
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message657166">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.08.2026 21:14:50 UTC+05:00">
+21:14
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Яхшимисиз
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message657231">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.08.2026 21:48:55 UTC+05:00">
+21:48
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+yaxshi ozin yaxshimi?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message657232">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.08.2026 21:49:26 UTC+05:00">
+21:49
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Да
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message657234">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.08.2026 21:49:45 UTC+05:00">
+21:49
+       </div>
+
+       <div class="text">
+Макс пуль ташаворин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message657235">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.08.2026 21:54:33 UTC+05:00">
+21:54
+       </div>
+
+       <div class="text">
+9860 3501 4241 5917
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message657250">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="05.08.2026 22:55:43 UTC+05:00">
+22:55
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-20">
+
+      <div class="body details">
+6 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message657601">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.08.2026 15:26:22 UTC+05:00">
+15:26
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Assalomu Alekum max
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message657941">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.08.2026 23:26:17 UTC+05:00">
+23:26
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message657942">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="06.08.2026 23:26:18 UTC+05:00">
+23:26
+       </div>
+
+       <div class="text">
+макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-21">
+
+      <div class="body details">
+7 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658072">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 12:41:08 UTC+05:00">
+12:41
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message658073">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 12:41:13 UTC+05:00">
+12:41
+       </div>
+
+       <div class="text">
+Пулл ташаворин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658074">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 13:45:23 UTC+05:00">
+13:45
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message658075">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 13:45:32 UTC+05:00">
+13:45
+       </div>
+
+       <div class="text">
+ота онени номерини бер
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658077">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:25:20 UTC+05:00">
+14:25
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+nima.  ?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658078">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:25:50 UTC+05:00">
+14:25
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Тип не красиво поступил
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message658079">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:25:57 UTC+05:00">
+14:25
+       </div>
+
+       <div class="text">
+Мои родители хотят с твоими поговорить
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658080">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:26:12 UTC+05:00">
+14:26
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+бля я знаю смотри я бы дал тебе денег и дам
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658081">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:26:15 UTC+05:00">
+14:26
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Папа в основном*
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658082">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:26:25 UTC+05:00">
+14:26
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+просто я оплатил контракт понимаешь
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658083">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:26:28 UTC+05:00">
+14:26
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message658080" onclick="return GoToMessage(658080)">this message</a>
+       </div>
+
+       <div class="text">
+Меня тоже пойми
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658084">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:26:33 UTC+05:00">
+14:26
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+дохуя денег
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658085">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:26:46 UTC+05:00">
+14:26
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Братан ну не надо было штаны брать тогда я столько жду уже
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658086">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:26:55 UTC+05:00">
+14:26
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+мне тоже не в кайф одевать вешь другого человека
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658087">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:27:07 UTC+05:00">
+14:27
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Возьми в долг я не знаю
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658088">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:27:09 UTC+05:00">
+14:27
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+бля я не думал что так будет
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658089">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:27:15 UTC+05:00">
+14:27
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message658088" onclick="return GoToMessage(658088)">this message</a>
+       </div>
+
+       <div class="text">
+++
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658090">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:27:24 UTC+05:00">
+14:27
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+я думал что я улечу перед улетом дам
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658091">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:27:42 UTC+05:00">
+14:27
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Просто моя мама трегирит
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message658092">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:27:47 UTC+05:00">
+14:27
+       </div>
+
+       <div class="text">
+Молл когда он деньги даст
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658093">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:28:06 UTC+05:00">
+14:28
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+ты папе скажи что вот в пределах  двух дней я дам
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message658094">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:28:08 UTC+05:00">
+14:28
+       </div>
+
+       <div class="text">
+хорошо ?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message658095">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:28:14 UTC+05:00">
+14:28
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+оке
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message658096">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="07.08.2026 14:28:23 UTC+05:00">
+14:28
+       </div>
+
+       <div class="text">
+удач
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-22">
+
+      <div class="body details">
+9 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message659350">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="09.08.2026 22:12:43 UTC+05:00">
+22:12
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message659351">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="09.08.2026 22:12:46 UTC+05:00">
+22:12
+       </div>
+
+       <div class="text">
+Яхшисиз
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-23">
+
+      <div class="body details">
+10 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message659645">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="10.08.2026 15:56:31 UTC+05:00">
+15:56
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Нима болди
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-24">
+
+      <div class="body details">
+13 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message660562">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.08.2026 12:58:24 UTC+05:00">
+12:58
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message660563">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.08.2026 12:58:27 UTC+05:00">
+12:58
+       </div>
+
+       <div class="text">
+яхшимисиз
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message660649">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.08.2026 18:44:08 UTC+05:00">
+18:44
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message660650">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.08.2026 18:44:09 UTC+05:00">
+18:44
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message660651">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="13.08.2026 18:44:10 UTC+05:00">
+18:44
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-25">
+
+      <div class="body details">
+15 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661252">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 01:41:16 UTC+05:00">
+01:41
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661253">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 01:41:26 UTC+05:00">
+01:41
+       </div>
+
+       <div class="text">
+энди бомади
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661254">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 01:41:32 UTC+05:00">
+01:41
+       </div>
+
+       <div class="text">
+кол ташадику
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661255">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 01:41:49 UTC+05:00">
+01:41
+       </div>
+
+       <div class="text">
+ота она номерни берин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661326">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:55:01 UTC+05:00">
+02:55
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message661255" onclick="return GoToMessage(661255)">this message</a>
+       </div>
+
+       <div class="text">
+iye jinni ota ona prichom man 2005 man rustam man davno uydan chiqib ketgan man man uchun ota onam javob bermidi
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661327">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:55:28 UTC+05:00">
+02:55
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+хоп
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661328">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:55:34 UTC+05:00">
+02:55
+       </div>
+
+       <div class="text">
+2 Кун отиб кети
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661329">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:55:52 UTC+05:00">
+02:55
+       </div>
+
+       <div class="text">
+тинчлими
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661330">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:55:57 UTC+05:00">
+02:55
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+hop uka esimda yoq kechgacha harakat qilaman tasha berishga
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661331">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:56:09 UTC+05:00">
+02:56
+       </div>
+
+       <div class="text">
+bilasan uka sani hurmat qilishimmi
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661332">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:56:10 UTC+05:00">
+02:56
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message661330" onclick="return GoToMessage(661330)">this message</a>
+       </div>
+
+       <div class="text">
+келишдик биза
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661333">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:56:25 UTC+05:00">
+02:56
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message661331" onclick="return GoToMessage(661331)">this message</a>
+       </div>
+
+       <div class="text">
+Яхши рахмат
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661334">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:56:32 UTC+05:00">
+02:56
+       </div>
+
+       <div class="text">
+энди тезро киберин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661335">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:56:36 UTC+05:00">
+02:56
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+hop
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661336">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:56:45 UTC+05:00">
+02:56
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+качон берасиз
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661337">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:56:50 UTC+05:00">
+02:56
+       </div>
+
+       <div class="text">
+Бита Гап этин
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661338">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:57:04 UTC+05:00">
+02:57
+       </div>
+
+       <div class="text">
+эсимдан чикиб колди у бу сиз
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661339">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:57:17 UTC+05:00">
+02:57
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+кара 1 кунда киберама
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661340">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:57:31 UTC+05:00">
+02:57
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+болди келишдик
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661341">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 02:58:07 UTC+05:00">
+02:58
+       </div>
+
+       <div class="text">
+9860 3501 4241 5917
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661749">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 18:41:54 UTC+05:00">
+18:41
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ассалому Алейкум макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661763">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 21:59:25 UTC+05:00">
+21:59
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Болди и?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message661764">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="15.08.2026 22:00:49 UTC+05:00">
+22:00
+       </div>
+
+       <div class="text">
+Унака Иш кимен энди
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-26">
+
+      <div class="body details">
+16 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message661998">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.08.2026 15:31:56 UTC+05:00">
+15:31
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_call">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Azizbekvc7
+          </div>
+
+          <div class="status details">
+Cancelled
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662047">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.08.2026 23:38:50 UTC+05:00">
+23:38
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662048">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.08.2026 23:38:55 UTC+05:00">
+23:38
+       </div>
+
+       <div class="text">
+Ассалому Алейкум
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662051">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.08.2026 23:39:24 UTC+05:00">
+23:39
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662052">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="16.08.2026 23:39:33 UTC+05:00">
+23:39
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message661339" onclick="return GoToMessage(661339)">this message</a>
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-27">
+
+      <div class="body details">
+18 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662442">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 00:44:19 UTC+05:00">
+00:44
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662443">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 00:44:28 UTC+05:00">
+00:44
+       </div>
+
+       <div class="text">
+Почему ты игноришь меня?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662444">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 00:44:31 UTC+05:00">
+00:44
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662445">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 00:59:50 UTC+05:00">
+00:59
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ау
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662446">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 01:00:58 UTC+05:00">
+01:00
+       </div>
+
+       <div class="text">
+Макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662447">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 01:01:04 UTC+05:00">
+01:01
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message661339" onclick="return GoToMessage(661339)">this message</a>
+       </div>
+
+       <div class="text">
+?
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662448">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 01:01:13 UTC+05:00">
+01:01
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662466">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 13:37:56 UTC+05:00">
+13:37
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662481">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:10:01 UTC+05:00">
+15:10
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_call">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Azizbekvc7
+          </div>
+
+          <div class="status details">
+Cancelled
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662482">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:12:27 UTC+05:00">
+15:12
+       </div>
+
+       <div class="text">
+почему ты меня избегаешь
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662483">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:12:32 UTC+05:00">
+15:12
+       </div>
+
+       <div class="text">
+Макс
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662484">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:13:11 UTC+05:00">
+15:13
+       </div>
+
+       <div class="text">
+Мы руки пожали договорились что ты мне деньги за 1 день даш
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662485">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:13:23 UTC+05:00">
+15:13
+       </div>
+
+       <div class="text">
+Не мужской поступок я тебе так скажу
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662488">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:15:54 UTC+05:00">
+15:15
+       </div>
+
+       <div class="text">
+вхах
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662489">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:16:05 UTC+05:00">
+15:16
+       </div>
+
+       <div class="text">
+Ебать ты кнч
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662490">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:16:29 UTC+05:00">
+15:16
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message662484" onclick="return GoToMessage(662484)">this message</a>
+       </div>
+
+       <div class="text">
+ну Окей сам факт что не красиво поступил
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662492">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:17:34 UTC+05:00">
+15:17
+       </div>
+
+       <div class="text">
+не шантажируй меня пожалуйста
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662493">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:17:45 UTC+05:00">
+15:17
+       </div>
+
+       <div class="text">
+Позвони мне обсудим
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662494">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:19:26 UTC+05:00">
+15:19
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message662491" onclick="return GoToMessage(662491)">this message</a>
+       </div>
+
+       <div class="text">
+я что на лоха похож
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662495">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:19:50 UTC+05:00">
+15:19
+       </div>
+
+       <div class="text">
+не надо реакции ставить ответь
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662497">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:21:49 UTC+05:00">
+15:21
+       </div>
+
+       <div class="text">
+я ща не смогу разговаривать по телефону
+       </div>
+
+       <span class="reactions">
+
+        <span class="reaction active">
+
+         <span class="emoji">
+❤
+         </span>
+
+         <span class="userpics">
+
+          <div class="userpic userpic1" style="width: 20px; height: 20px">
+
+           <div class="initials" style="line-height: 20px" title="ye">
+y
+           </div>
+
+          </div>
+
+         </span>
+
+        </span>
+
+       </span>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662503">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 15:33:52 UTC+05:00">
+15:33
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="reply_to details">
+In reply to <a href="#go_to_message637808" onclick="return GoToMessage(637808)">this message</a>
+       </div>
+
+       <div class="text">
+!!
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662550">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 19:39:35 UTC+05:00">
+19:39
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Так ну
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662554">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 20:16:12 UTC+05:00">
+20:16
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Ау
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662579">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 21:52:50 UTC+05:00">
+21:52
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+<a href="https://t.me/Azizbekvc7">@Azizbekvc7</a>
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662580">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 21:53:18 UTC+05:00">
+21:53
+       </div>
+
+       <div class="text">
+какой размер у штанов был
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662581">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 21:54:39 UTC+05:00">
+21:54
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_call">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Azizbekvc7
+          </div>
+
+          <div class="status details">
+Outgoing
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662585">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 21:55:35 UTC+05:00">
+21:55
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_call">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Azizbekvc7
+          </div>
+
+          <div class="status details">
+Outgoing
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662586">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 21:56:05 UTC+05:00">
+21:56
+       </div>
+
+       <div class="text">
+ладно сколько у тебя денег есть
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662587">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 21:56:52 UTC+05:00">
+21:56
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_call">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Azizbekvc7
+          </div>
+
+          <div class="status details">
+Cancelled
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662598">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 22:20:43 UTC+05:00">
+22:20
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+крч если деньги не вернёшь заяву напишу
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662603">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="18.08.2026 22:21:32 UTC+05:00">
+22:21
+       </div>
+
+       <div class="text">
+чат архивировал
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message service" id="message-28">
+
+      <div class="body details">
+19 August 2026
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662611">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.08.2026 00:00:23 UTC+05:00">
+00:00
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="media_wrap clearfix">
+
+        <div class="media clearfix pull_left media_call">
+
+         <div class="fill pull_left">
+
+         </div>
+
+         <div class="body">
+
+          <div class="title bold">
+Azizbekvc7
+          </div>
+
+          <div class="status details">
+Cancelled
+          </div>
+
+         </div>
+
+        </div>
+
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662612">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.08.2026 00:01:14 UTC+05:00">
+00:01
+       </div>
+
+       <div class="text">
+Ау
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662615">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic8" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+A
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.08.2026 00:52:42 UTC+05:00">
+00:52
+       </div>
+
+       <div class="from_name">
+Azizbekvc7 
+       </div>
+
+       <div class="text">
+я не брал у тя ничего ты докажи я просто притворялся что брал
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix" id="message662616">
+
+      <div class="pull_left userpic_wrap">
+
+       <div class="userpic userpic1" style="width: 42px; height: 42px">
+
+        <div class="initials" style="line-height: 42px">
+y
+        </div>
+
+       </div>
+
+      </div>
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.08.2026 01:09:40 UTC+05:00">
+01:09
+       </div>
+
+       <div class="from_name">
+ye 
+       </div>
+
+       <div class="text">
+Дент
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662617">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.08.2026 01:09:51 UTC+05:00">
+01:09
+       </div>
+
+       <div class="text">
+Дени
+       </div>
+
+      </div>
+
+     </div>
+
+     <div class="message default clearfix joined" id="message662618">
+
+      <div class="body">
+
+       <div class="pull_right date details" title="19.08.2026 01:12:10 UTC+05:00">
+01:12
+       </div>
+
+       <div class="text">
+и больше никому ничего не обещай если мужского нет
+       </div>
+
+      </div>
+
+     </div>
+
+    </div>
+
+   </div>
+
+  </div>
+
+  <script>
+   document.querySelectorAll("img").forEach(function (img) {
+    function hide() {
+     var wrap = img.closest("a") || img;
+     wrap.style.display = "none";
+    }
+    if (img.complete && img.naturalWidth === 0) hide();
+    else img.addEventListener("error", hide);
+   });
+  </script>
+ </body>
+
+</html>
