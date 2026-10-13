@@ -3,188 +3,426 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Сайты</title>
+  <title>natural-effect.online</title>
   <style>
     :root {
-      --bg: #0f172a;
-      --bg-2: #111827;
-      --panel: #ffffff;
-      --panel-alt: #f8fafc;
-      --text: #0f172a;
-      --muted: #475569;
-      --gold: #c79b66;
-      --shadow: rgba(15, 23, 42, 0.18);
-      --radius: 18px;
+      --chrome-bg: #2b2430;
+      --browser-bg: #1d232a;
+      --page-bg: #1b2128;
+      --panel: rgba(255, 255, 255, 0.06);
+      --text: #e5e7eb;
+      --muted: rgba(226, 232, 240, 0.76);
+      --soft: rgba(255, 255, 255, 0.66);
+      --primary: #b8c8f3;
+      --button: rgba(141, 174, 236, 0.22);
+      --button-alt: rgba(255, 255, 255, 0.08);
+      --dark-line: rgba(255, 255, 255, 0.08);
+      --shadow: rgba(0, 0, 0, 0.28);
     }
 
     * { box-sizing: border-box; }
 
-    html {
-      min-width: 320px;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      font-family: Arial, "Segoe UI", sans-serif;
+      background: #0b0d12;
+      color: var(--text);
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
-      color: var(--text);
-      font-family: Arial, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      background:
+        linear-gradient(180deg, rgba(152, 112, 130, 0.3), rgba(8, 10, 14, 0.35)),
+        linear-gradient(180deg, #0f172a 0%, #1d232d 100%);
+      overflow: hidden;
     }
 
-    .page {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 54px 0 72px;
-    }
-
-    .hero {
-      margin-bottom: 36px;
-      text-align: center;
-      color: #fff;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(2.6rem, 5vw, 5rem);
-      line-height: 0.96;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .hero p {
-      margin: 18px 0 0;
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 0.9rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-    }
-
-    .sites {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .site-card {
+    .window {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      background: var(--page-bg);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
       display: flex;
       flex-direction: column;
+    }
+
+    .browser-bar {
+      height: 42px;
+      background: var(--chrome-bg);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px 8px 12px;
+      gap: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.14);
+    }
+
+    .browser-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+
+    .control {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      opacity: 0.7;
+      display: inline-block;
+    }
+
+    .control.red { background: #f87171; }
+    .control.yellow { background: #fbbf24; }
+    .control.green { background: #34d399; }
+
+    .toolbar {
+      flex: 1;
+      display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 200px;
-      padding: 26px 18px 20px;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--panel) 0%, var(--panel-alt) 100%);
-      text-align: center;
-      text-decoration: none;
-      color: var(--text);
-      box-shadow: 0 14px 30px var(--shadow);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      border: 1px solid rgba(15, 23, 42, 0.06);
+      min-width: 0;
     }
 
-    .site-card:hover,
-    .site-card:focus-visible {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 36px rgba(15, 23, 42, 0.2);
-      outline: none;
+    .address-bar {
+      width: min(100%, 760px);
+      display: flex;
+      align-items: center;
+      height: 28px;
+      padding: 0 12px 0 10px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.84);
+      gap: 8px;
+      overflow: hidden;
     }
 
-    .number {
-      margin-bottom: 12px;
-      color: var(--gold);
-      font-size: clamp(2.1rem, 3vw, 3.2rem);
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: -0.04em;
+    .lock {
+      width: 12px;
+      height: 12px;
+      border: 2px solid rgba(255,255,255,0.7);
+      border-radius: 2px;
+      position: relative;
+      opacity: 0.8;
+      flex-shrink: 0;
     }
 
-    .name {
-      margin: 0;
-      font-size: 1.3rem;
-      font-weight: 700;
-      line-height: 1.2;
+    .lock::before {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 6px;
+      border: 2px solid rgba(255,255,255,0.7);
+      border-bottom: 0;
+      border-radius: 7px 7px 0 0;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -7px;
     }
 
     .url {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 0.76rem;
-      line-height: 1.4;
-      letter-spacing: 0.02em;
-      overflow-wrap: anywhere;
+      font-size: 12px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: rgba(255,255,255,0.8);
     }
 
-    @media (max-width: 1040px) {
-      .sites { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .browser-tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
     }
 
-    @media (max-width: 760px) {
-      .page { padding-top: 34px; }
-      .hero { margin-bottom: 26px; }
-      .sites { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-      .site-card { min-height: 172px; padding: 22px 14px 18px; }
+    .star,
+    .menu {
+      position: relative;
+      width: 14px;
+      height: 14px;
+      opacity: 0.8;
     }
 
-    @media (max-width: 460px) {
-      .page { width: min(100% - 20px, 1180px); }
-      .sites { grid-template-columns: 1fr; }
+    .star::before {
+      content: "★";
+      position: absolute;
+      inset: 0;
+      font-size: 14px;
+      line-height: 14px;
+      color: rgba(255,255,255,0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu {
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.32);
+      width: 16px;
+      height: 16px;
+    }
+
+    .menu::before {
+      content: "K";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: rgba(255,255,255,0.72);
+      font-weight: 700;
+    }
+
+    .page-body {
+      position: relative;
+      flex: 1;
+      background: linear-gradient(180deg, rgba(18,24,31,0.9) 0%, rgba(18,24,31,0.75) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .page-body::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 120px;
+      background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    .desktop-strip {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 34px;
+      background: rgba(34, 35, 38, 0.86);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.78);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      opacity: 0.7;
+    }
+
+    .error-card {
+      position: relative;
+      z-index: 1;
+      width: min(560px, calc(100% - 40px));
+      text-align: center;
+      color: var(--text);
+    }
+
+    .doc-icon {
+      width: 56px;
+      height: 64px;
+      position: relative;
+      margin: 0 auto 24px;
+      border: 2px solid rgba(255,255,255,0.65);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.02);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.02);
+      opacity: 0.75;
+    }
+
+    .doc-icon::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 16px;
+      height: 16px;
+      background: rgba(255,255,255,0.04);
+      border-left: 2px solid rgba(255,255,255,0.65);
+      border-bottom: 2px solid rgba(255,255,255,0.65);
+      transform: skew(-20deg);
+      border-radius: 0 0 0 10px;
+    }
+
+    .doc-icon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 44%;
+      width: 18px;
+      height: 12px;
+      transform: translate(-50%, -50%);
+      border-top: 2px solid rgba(255,255,255,0.7);
+      border-bottom: 2px solid rgba(255,255,255,0.7);
+      border-radius: 1px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 2.1vw, 2.1rem);
+      line-height: 1.3;
+      font-weight: 500;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .subhead {
+      margin-top: 14px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+
+    .tips {
+      margin-top: 18px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .tips strong {
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .tips ul {
+      margin: 0;
+      padding-left: 22px;
+      list-style: disc;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .error-code {
+      margin-top: 12px;
+      color: #8ab1ff;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .actions {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      min-width: 150px;
+      height: 38px;
+      border: 0;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: filter 0.15s ease, transform 0.15s ease;
+    }
+
+    .button:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: rgba(155, 187, 255, 0.85);
+      color: #101827;
+      box-shadow: 0 4px 12px rgba(125, 153, 226, 0.34);
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    @media (max-width: 640px) {
+      .browser-bar {
+        padding-inline: 10px;
+      }
+
+      .browser-controls {
+        gap: 8px;
+      }
+
+      .address-bar {
+        width: 100%;
+      }
+
+      .error-card {
+        width: min(90vw, 420px);
+      }
+
+      .actions {
+        gap: 12px;
+      }
+
+      .button {
+        min-width: 130px;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <header class="hero">
-      <h1>Сайты</h1>
-      <p>Выберите проект</p>
+  <div class="window" role="presentation">
+    <header class="browser-bar" aria-label="Браузер">
+      <div class="browser-controls" aria-hidden="true">
+        <span class="control red"></span>
+        <span class="control yellow"></span>
+        <span class="control green"></span>
+      </div>
+
+      <div class="toolbar">
+        <div class="address-bar" aria-label="Адрес страницы">
+          <span class="lock" aria-hidden="true"></span>
+          <span class="url">natural-effect.online</span>
+        </div>
+      </div>
+
+      <div class="browser-tools" aria-hidden="true">
+        <span class="star"></span>
+        <span class="menu"></span>
+      </div>
     </header>
 
-    <nav class="sites" aria-label="Список сайтов">
-      <a class="site-card" href="analist/">
-        <span class="number">01</span>
-        <h2 class="name">Analist</h2>
-        <span class="url">mydomain.com/analist/</span>
-      </a>
+    <main class="page-body">
+      <section class="error-card" aria-live="polite">
+        <div class="doc-icon" aria-hidden="true"></div>
+        <h1>Не удается получить доступ к сайту</h1>
+        <div class="subhead">Соединение сброшено.</div>
 
-      <a class="site-card" href="f9/">
-        <span class="number">02</span>
-        <h2 class="name">F9</h2>
-        <span class="url">mydomain.com/f9/</span>
-      </a>
+        <div class="tips">
+          <strong>Попробуйте сделать следующее:</strong>
+          <ul>
+            <li>Проверьте подключение к интернету.</li>
+            <li>Проверьте настройки прокси-сервера и брандмауэра.</li>
+            <li>Выполните диагностику сети в Windows.</li>
+          </ul>
+        </div>
 
-      <a class="site-card" href="f9-2/">
-        <span class="number">03</span>
-        <h2 class="name">F9-2</h2>
-        <span class="url">mydomain.com/f9-2/</span>
-      </a>
+        <div class="error-code">ERR_CONNECTION_RESET</div>
 
-      <a class="site-card" href="kristal/">
-        <span class="number">04</span>
-        <h2 class="name">Kristal</h2>
-        <span class="url">mydomain.com/kristal/</span>
-      </a>
+        <div class="actions">
+          <button class="button primary" type="button">Перезагрузить</button>
+          <button class="button secondary" type="button">Сведения</button>
+        </div>
+      </section>
 
-      <a class="site-card" href="surer/messages.html">
-        <span class="number">05</span>
-        <h2 class="name">Surer</h2>
-        <span class="url">mydomain.com/surer/messages.html</span>
-      </a>
-
-      <a class="site-card" href="snkece/">
-        <span class="number">06</span>
-        <h2 class="name">Snake</h2>
-        <span class="url">snkece/</span>
-      </a>
-
-      <a class="site-card" href="snkecf/">
-        <span class="number">07</span>
-        <h2 class="name">Snake 2</h2>
-        <span class="url">snkecf/</span>
-      </a>
-    </nav>
-  </main>
+      <div class="desktop-strip" aria-hidden="true">Desktop</div>
+    </main>
+  </div>
 </body>
 </html>
 
