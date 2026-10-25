@@ -61,6 +61,16 @@
       text-transform: uppercase;
     }
 
+    .hero p.hint {
+      margin: 14px auto 0;
+      max-width: 640px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.95rem;
+      letter-spacing: 0;
+      text-transform: none;
+      line-height: 1.45;
+    }
+
     .sites {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -139,37 +149,38 @@
     <header class="hero">
       <h1>Сайты</h1>
       <p>Выберите проект</p>
+      <p class="hint">Это папка на компьютере. Откройте index.html двойным щелчком. Адрес mydomain.com никуда не ведёт — страницы открываются отсюда.</p>
     </header>
 
     <nav class="sites" aria-label="Список сайтов">
       <a class="site-card" href="analist/">
         <span class="number">01</span>
         <h2 class="name">Analist</h2>
-        <span class="url">mydomain.com/analist/</span>
+        <span class="url">analist/</span>
       </a>
 
       <a class="site-card" href="f9/">
         <span class="number">02</span>
         <h2 class="name">F9</h2>
-        <span class="url">mydomain.com/f9/</span>
+        <span class="url">f9/</span>
       </a>
 
       <a class="site-card" href="f9-2/">
         <span class="number">03</span>
         <h2 class="name">F9-2</h2>
-        <span class="url">mydomain.com/f9-2/</span>
+        <span class="url">f9-2/</span>
       </a>
 
       <a class="site-card" href="kristal/">
         <span class="number">04</span>
         <h2 class="name">Kristal</h2>
-        <span class="url">mydomain.com/kristal/</span>
+        <span class="url">kristal/</span>
       </a>
 
       <a class="site-card" href="surer/messages.html">
         <span class="number">05</span>
         <h2 class="name">Surer</h2>
-        <span class="url">mydomain.com/surer/messages.html</span>
+        <span class="url">surer/messages.html</span>
       </a>
 
       <a class="site-card" href="snkece/">
@@ -182,6 +193,24 @@
         <span class="number">07</span>
         <h2 class="name">Snake 2</h2>
         <span class="url">snkecf/</span>
+      </a>
+
+      <a class="site-card" href="cartoons/">
+        <span class="number">08</span>
+        <h2 class="name">Cartoons</h2>
+        <span class="url">cartoons/</span>
+      </a>
+
+      <a class="site-card" href="yeezy/">
+        <span class="number">09</span>
+        <h2 class="name">Yeezy</h2>
+        <span class="url">yeezy/</span>
+      </a>
+
+      <a class="site-card" href="bank/">
+        <span class="number">10</span>
+        <h2 class="name">Перевод</h2>
+        <span class="url">bank/</span>
       </a>
     </nav>
   </main>
