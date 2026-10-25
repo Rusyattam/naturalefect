@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <title>Перевод на карту</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f6fa;
+      --ink: #1c212b;
+      --muted: #9aa1ab;
+      --line: #e6e9ef;
+      --danger: #e23b4a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #cfc8be;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, textarea { font-family: inherit; }
+
+    body {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px 16px;
+    }
+
+    .phone {
+      position: relative;
+      width: min(390px, 100%);
+      height: min(844px, calc(100vh - 48px));
+      height: min(844px, calc(100dvh - 48px));
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background-color: var(--bg);
+      background-image: radial-gradient(rgba(28, 33, 43, 0.045) 0.7px, transparent 0.75px);
+      background-size: 4px 4px;
+      border: 10px solid #141414;
+      border-radius: 32px;
+      box-shadow: 0 30px 70px rgba(40, 30, 20, 0.35);
+      user-select: none;
+    }
+
+    .screen { display: none; }
+    .screen.active {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+      scrollbar-width: none;
+    }
+    .screen.active::-webkit-scrollbar { display: none; }
+
+    .top {
+      display: grid;
+      grid-template-columns: 44px 1fr 44px;
+      align-items: center;
+      min-height: 48px;
+      flex: none;
+    }
+
+    .top h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .icon-btn, .chev-btn, .eye {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 12px;
+    }
+
+    .icon-btn { font-size: 30px; line-height: 1; }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 6px 8px 6px 16px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+      border-radius: 16px;
+    }
+
+    .mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+
+    .copy { flex: 1; min-width: 0; }
+
+    .card-title {
+      display: block;
+      font-size: 15.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-sub {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .eye {
+      width: 28px;
+      height: 28px;
+      color: #b0b6c0;
+    }
+
+    .eye .eye-off { display: none; }
+    .eye.off .eye-on { display: none; }
+    .eye.off .eye-off { display: block; }
+
+    .amount {
+      display: flex;
+      justify-content: flex-end;
+      align-items: baseline;
+      gap: 6px;
+      padding: 22px 22px 6px;
+      flex: none;
+    }
+
+    .amount .num {
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .amount .cur {
+      font-size: 22px;
+      font-weight: 500;
+      color: #a3aab6;
+    }
+
+    .amount.bad .num { color: var(--danger); }
+
+    .amount.shake { animation: shake 0.35s ease; }
+
+    @keyframes shake {
+      20% { transform: translateX(-3px); }
+      40% { transform: translateX(3px); }
+      60% { transform: translateX(-2px); }
+      80% { transform: translateX(2px); }
+    }
+
+    .tools {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 18px;
+      flex: none;
+      min-width: 0;
+    }
+
+    .tool {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-width: 0;
+      padding: 8px 0;
+      border: 0;
+      background: transparent;
+      color: #a0a7b2;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    #msgBtn.has-msg { max-width: 80%; color: var(--ink); font-weight: 600; }
+    #msgLabel { overflow: hidden; text-overflow: ellipsis; }
+    .plus { font-size: 16px; line-height: 1; }
+
+    .flow {
+      display: flex;
+      justify-content: center;
+      padding: 4px 0 2px;
+      flex: none;
+    }
+
+    .flow span {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #e3e6ec;
+      border-radius: 50%;
+      background: #fff;
+      color: #b7bec8;
+    }
+
+    .pad-wrap { margin-top: auto; flex: none; padding-bottom: env(safe-area-inset-bottom); }
+
+    .pad {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0 6px;
+    }
+
+    .key {
+      display: grid;
+      place-items: center;
+      height: clamp(50px, 7.4dvh, 66px);
+      border: 0;
+      border-radius: 14px;
+      background: transparent;
+      color: #222833;
+      font-size: 28px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .key.side { color: #9aa3af; font-size: 20px; font-weight: 600; }
+    .key:hover { background: rgba(28, 33, 43, 0.04); }
+    .key:active { background: rgba(28, 33, 43, 0.08); }
+
+    .submit {
+      display: block;
+      width: calc(100% - 32px);
+      height: 52px;
+      margin: 4px 16px 14px;
+      border: 0;
+      border-radius: 14px;
+      background: #eceff3;
+      color: #b5bcc6;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: default;
+    }
+
+    .submit.ready { background: #171a20; color: #fff; cursor: pointer; }
+    .submit.bad { color: var(--danger); }
+    .submit.ready:active { transform: scale(0.99); }
+
+    .home-pad { padding: 8px 16px 24px; }
+    .eyebrow { margin: 8px 0 0; color: var(--muted); font-size: 13px; font-weight: 600; }
+    .total {
+      margin: 4px 0 18px;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+    .section-label {
+      margin: 8px 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .own-item, .hist {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 12px;
+      border: 0;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 6px 16px rgba(28, 33, 43, 0.04);
+      text-align: left;
+      color: inherit;
+    }
+    .own-item { cursor: pointer; }
+    .own-item .card-title, .hist b { font-size: 15px; }
+    .own-item .card-sub, .hist small { color: var(--muted); font-size: 13px; }
+    .hist { display: block; }
+    .hist-top, .hist-bot {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+    .hist-top b:first-child,
+    .hist-bot small:first-child {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .hist-top b:last-child,
+    .hist-bot small:last-child { flex: none; white-space: nowrap; }
+    .hist-bot { margin-top: 4px; }
+    .empty { margin: 0 0 12px; color: #a0a7b2; font-size: 14px; }
+    .home-pad .submit { width: 100%; margin: 8px 0 18px; }
+
+    .ok {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto 0;
+      padding: 12px 20px 20px;
+      text-align: center;
+    }
+    .ok-badge {
+      display: grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #2fce73;
+      box-shadow: 0 10px 24px rgba(47, 206, 115, 0.28);
+      animation: pop 0.35s ease;
+    }
+    @keyframes pop {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .ok-label { margin: 16px 0 0; color: var(--muted); font-size: 15px; }
+    .ok-amount {
+      margin: 6px 0 0;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+    }
+    .ok-card {
+      width: 100%;
+      margin: 22px 0 18px;
+      padding: 6px 16px;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(28, 33, 43, 0.06);
+      text-align: left;
+    }
+    .ok-row { padding: 10px 0; border-bottom: 1px solid #f0f2f6; }
+    .ok-row:last-child { border-bottom: 0; }
+    .ok-row .k { display: block; color: #98a0ac; font-size: 12px; }
+    .ok-row .v { display: block; margin-top: 2px; font-size: 15px; font-weight: 600; overflow-wrap: anywhere; }
+    .ok .submit, .text-btn { width: 100%; }
+    .ok .submit { margin: 0; }
+    .text-btn {
+      margin-top: 4px;
+      padding: 12px;
+      border: 0;
+      background: transparent;
+      color: #5c6573;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .demo-note { margin: 4px 0 0; color: #a0a7b2; font-size: 12px; line-height: 1.4; }
+
+    .backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      background: rgba(20, 24, 33, 0.38);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .backdrop.show { opacity: 1; pointer-events: auto; }
+
+    .sheet {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 6;
+      max-height: 78%;
+      overflow: auto;
+      padding: 10px 16px calc(18px + env(safe-area-inset-bottom));
+      border-radius: 22px 22px 0 0;
+      background: #fff;
+      transform: translateY(105%);
+      visibility: hidden;
+      transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.28s;
+    }
+    .sheet.show {
+      transform: translateY(0);
+      visibility: visible;
+      transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s;
+    }
+    .grab {
+      width: 36px;
+      height: 4px;
+      margin: 4px auto 12px;
+      border-radius: 4px;
+      background: #e1e4ea;
+    }
+    .sheet-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .sheet-head h3 { margin: 0; font-size: 18px; }
+    textarea {
+      width: 100%;
+      min-height: 96px;
+      margin-bottom: 12px;
+      padding: 12px 14px;
+      border: 0;
+      border-radius: 14px;
+      background: #f4f6f9;
+      color: var(--ink);
+      font-size: 16px;
+      resize: none;
+      user-select: text;
+    }
+    .sheet .submit { width: 100%; margin: 0 0 8px; }
+    .pick-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 12px;
+      border: 0;
+      border-radius: 16px;
+      background: #f4f6f9;
+      text-align: left;
+      color: inherit;
+      cursor: pointer;
+    }
+    .pick-item.selected { outline: 2px solid #1c212b; }
+    .pick-item small { display: block; margin-top: 2px; color: var(--muted); }
+    .check {
+      margin-left: auto;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .toast {
+      position: absolute;
+      left: 50%;
+      bottom: 96px;
+      z-index: 7;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #1c212b;
+      color: #fff;
+      font-size: 13px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(8px);
+      transition: 0.2s ease;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    button:focus-visible, .card:focus-visible, textarea:focus-visible {
+      outline: 2px solid #4d7dff;
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 520px) {
+      body { display: block; padding: 0; background: var(--bg); }
+      .phone {
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .tool { font-size: 12px; }
+      .amount .num { font-size: 34px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone">
+    <section class="screen" id="home">
+      <div class="home-pad">
+        <p class="eyebrow">Доступно</p>
+        <p class="total" id="total"></p>
+        <p class="section-label">Мои карты</p>
+        <div id="ownList"></div>
+        <button type="button" class="submit ready" id="openTransfer">Перевод на карту</button>
+        <p class="section-label">История</p>
+        <div id="history"></div>
+      </div>
+    </section>
+
+    <section class="screen active" id="transfer" aria-label="Перевод на карту">
+      <header class="top">
+        <span></span>
+        <h1>Перевод на карту</h1>
+        <button type="button" class="icon-btn" id="close" aria-label="Закрыть">×</button>
+      </header>
+
+      <div class="card" id="fromCard">
+        <div class="mark" id="fromMark">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#fff" stroke-width="1.7"/>
+            <path d="M3 10h18" stroke="#fff" stroke-width="1.7"/>
+            <path d="M7 15h4" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="copy">
+          <span class="card-title" id="fromTitle"></span>
+          <span class="card-sub">
+            <span id="fromSub"></span>
+            <button type="button" class="eye" id="eye" aria-label="Скрыть баланс">
+              <svg class="eye-on" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
+                <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="12" cy="12" r="2.4" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+              <svg class="eye-off" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true">
+                <path d="M3 4.5 20 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M9.2 6.4A11 11 0 0 1 12 6c6.5 0 10 6 10 6a18 18 0 0 1-3.1 3.6M6.2 7.2C3.7 8.8 2 12 2 12s3.5 6 10 6c1.1 0 2.2-.2 3.2-.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </span>
+        </div>
+        <button type="button" class="chev-btn" id="fromChev" aria-label="Выбрать карту списания">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M4.5 7 9 11.5 13.5 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="amount" id="amount">
+        <span class="num" id="amountNum">0</span>
+        <span class="cur">сум.</span>
+      </div>
+
+      <div class="tools">
+        <button type="button" class="tool" id="msgBtn">
+          <span class="plus" id="msgPlus">+</span>
+          <span id="msgLabel">Сообщение</span>
+        </button>
+      </div>
+
+      <div class="flow" aria-hidden="true">
+        <span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 2v10M4 9l3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </div>
+
+      <button type="button" class="card" id="toPick">
+        <div class="mark" id="toMark">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+            <path d="M4 8h12M13 5l4 3-4 3" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 16H8M11 13l-4 3 4 3" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="copy">
+          <span class="card-title" id="toTitle"></span>
+          <span class="card-sub" id="toSub"></span>
+        </span>
+      </button>
+
+      <div class="pad-wrap">
+        <div class="pad" id="pad" role="group" aria-label="Клавиатура суммы">
+          <button type="button" class="key" data-k="1">1</button>
+          <button type="button" class="key" data-k="2">2</button>
+          <button type="button" class="key" data-k="3">3</button>
+          <button type="button" class="key side" data-k="max">Max</button>
+          <button type="button" class="key" data-k="4">4</button>
+          <button type="button" class="key" data-k="5">5</button>
+          <button type="button" class="key" data-k="6">6</button>
+          <button type="button" class="key side" data-k="000">000</button>
+          <button type="button" class="key" data-k="7">7</button>
+          <button type="button" class="key" data-k="8">8</button>
+          <button type="button" class="key" data-k="9">9</button>
+          <button type="button" class="key side" data-k="00">00</button>
+          <button type="button" class="key" data-k=".">.</button>
+          <button type="button" class="key" data-k="0">0</button>
+          <button type="button" class="key side" data-k="del" aria-label="Удалить">
+            <svg width="26" height="20" viewBox="0 0 26 20" fill="none" aria-hidden="true">
+              <path d="M8 1.5h13.2A2.3 2.3 0 0 1 23.5 3.8v12.4a2.3 2.3 0 0 1-2.3 2.3H8L2 10 8 1.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M12 6.5 18 13M18 6.5 12 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <button type="button" class="submit" id="submit" aria-disabled="true">Введите сумму</button>
+      </div>
+    </section>
+
+    <section class="screen" id="success">
+      <div class="ok">
+        <div class="ok-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+            <path d="M6 12.5 10 16.5 18 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="ok-label">Успешно</p>
+        <p class="ok-amount" id="okAmount"></p>
+        <div class="ok-card" id="okCard"></div>
+        <button type="button" class="submit ready" id="done">Готово</button>
+        <button type="button" class="text-btn" id="toHome">В кошелёк</button>
+        <p class="demo-note">Учебный экран: деньги никуда не отправляются.</p>
+      </div>
+    </section>
+
+    <div class="backdrop" id="backdrop"></div>
+    <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" aria-hidden="true" inert>
+      <div class="grab"></div>
+      <div class="sheet-head">
+        <h3 id="sheetTitle"></h3>
+        <button type="button" class="icon-btn" id="sheetClose" aria-label="Закрыть">×</button>
+      </div>
+      <div id="sheetBody"></div>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <p class="sr" id="live" aria-live="polite"></p>
+    <template id="iconCard">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#fff" stroke-width="1.7"/>
+        <path d="M3 10h18" stroke="#fff" stroke-width="1.7"/>
+        <path d="M7 15h4" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+    </template>
+    <template id="iconMove">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+        <path d="M4 8h12M13 5l4 3-4 3" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 16H8M11 13l-4 3 4 3" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </template>
+  </main>
+
+  <script>
+    const KEY = "dexpress-bank-demo-v1";
+    const INITIAL = {
+      own: [
+        { id: "agro", mask: "9210", bank: "Agrobank", balanceCents: 83852695, color: "#2fce73" },
+        { id: "asaka", mask: "4402", bank: "Asaka bank", balanceCents: 25000000, color: "#17b3a8" }
+      ],
+      recipients: [
+        { id: "davr", mask: "2652", bank: "Davr bank", name: "Saidova U.", color: "#4d7dff" }
+      ],
+      fromId: "agro",
+      toId: "davr",
+      raw: "",
+      message: "",
+      hideBalance: false,
+      history: []
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const screens = ["home", "transfer", "success"];
+    let sheetMode = null;
+    let toastTimer = 0;
+
+    function fresh() {
+      return JSON.parse(JSON.stringify(INITIAL));
+    }
+
+    function load() {
+      try {
+        const parsed = JSON.parse(sessionStorage.getItem(KEY) || "null");
+        if (!parsed || !Array.isArray(parsed.own) || !Array.isArray(parsed.recipients)) return fresh();
+        if (!parsed.own.every((card) => Number.isInteger(card.balanceCents))) return fresh();
+        return parsed;
+      } catch (err) {
+        return fresh();
+      }
+    }
+
+    const state = load();
+    if (!state.own.some((card) => card.id === state.fromId)) state.fromId = state.own[0].id;
+    if (!state.recipients.some((card) => card.id === state.toId)) state.toId = state.recipients[0].id;
+    if (typeof state.raw !== "string") state.raw = "";
+    if (typeof state.message !== "string") state.message = "";
+    if (!Array.isArray(state.history)) state.history = [];
+    state.hideBalance = !!state.hideBalance;
+
+    function save() {
+      try { sessionStorage.setItem(KEY, JSON.stringify(state)); } catch (err) {}
+    }
+
+    function currentFrom() {
+      return state.own.find((card) => card.id === state.fromId) || state.own[0];
+    }
+
+    function currentTo() {
+      return state.recipients.find((card) => card.id === state.toId) || state.recipients[0];
+    }
+
+    function formatCents(cents) {
+      const abs = Math.abs(cents);
+      const whole = Math.floor(abs / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0");
+      const frac = String(abs % 100).padStart(2, "0");
+      return (cents < 0 ? "−" : "") + whole + "." + frac;
+    }
+
+    function formatPretty(cents) {
+      const text = formatCents(cents);
+      return text.endsWith(".00") ? text.slice(0, -3) : text;
+    }
+
+    function formatRaw(raw) {
+      if (!raw) return "0";
+      const dot = raw.includes(".");
+      const parts = raw.split(".");
+      const grouped = (parts[0] || "0").replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0");
+      return dot ? grouped + "." + (parts[1] || "") : grouped;
+    }
+
+    function rawToCents(raw) {
+      if (!raw || raw === ".") return 0;
+      const parts = raw.split(".");
+      const dec = ((parts[1] || "") + "00").slice(0, 2);
+      return Number(parts[0] || "0") * 100 + Number(dec);
+    }
+
+    function centsToRaw(cents) {
+      const whole = Math.floor(cents / 100);
+      const frac = cents % 100;
+      if (frac === 0) return String(whole);
+      return whole + "." + String(frac).padStart(2, "0");
+    }
+
+    function cardLabel(card) {
+      return "** " + card.mask + " · " + card.bank;
+    }
+
+    function paintMark(node, color, kind) {
+      node.style.background = color;
+      const icon = document.getElementById(kind === "move" ? "iconMove" : "iconCard");
+      node.replaceChildren(icon.content.cloneNode(true));
+    }
+
+    function show(name) {
+      screens.forEach((id) => $(id).classList.toggle("active", id === name));
+      if (name !== "transfer") closeSheet();
+    }
+
+    function toast(text) {
+      const node = $("toast");
+      node.textContent = text;
+      node.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => node.classList.remove("show"), 1700);
+    }
+
+    function closeSheet() {
+      sheetMode = null;
+      $("backdrop").classList.remove("show");
+      $("sheet").classList.remove("show");
+      $("sheet").setAttribute("aria-hidden", "true");
+      $("sheet").setAttribute("inert", "");
+      screens.forEach((id) => { $(id).style.overflow = ""; });
+    }
+
+    function openSheet(mode) {
+      sheetMode = mode;
+      const body = $("sheetBody");
+      body.replaceChildren();
+      if (mode === "msg") {
+        $("sheetTitle").textContent = "Сообщение";
+        const area = document.createElement("textarea");
+        area.id = "msgInput";
+        area.maxLength = 80;
+        area.placeholder = "Комментарий к переводу";
+        area.value = state.message;
+        const saveBtn = document.createElement("button");
+        saveBtn.type = "button";
+        saveBtn.className = "submit ready";
+        saveBtn.id = "msgSave";
+        saveBtn.textContent = "Сохранить";
+        body.append(area, saveBtn);
+        revealSheet();
+        area.focus();
+      } else {
+        const cards = mode === "from" ? state.own : state.recipients;
+        const selected = mode === "from" ? state.fromId : state.toId;
+        $("sheetTitle").textContent = mode === "from" ? "Откуда" : "Куда";
+        cards.forEach((card) => {
+          const item = document.createElement("button");
+          item.type = "button";
+          item.className = "pick-item" + (card.id === selected ? " selected" : "");
+          item.dataset.id = card.id;
+          const mark = document.createElement("span");
+          mark.className = "mark";
+          paintMark(mark, card.color, card.balanceCents != null ? "card" : "move");
+          const text = document.createElement("span");
+          const title = document.createElement("b");
+          title.textContent = cardLabel(card);
+          const sub = document.createElement("small");
+          sub.textContent = card.balanceCents != null
+            ? (state.hideBalance ? "••••••" : formatCents(card.balanceCents) + " сум")
+            : card.name;
+          text.append(title, sub);
+          item.append(mark, text);
+          if (card.id === selected) {
+            const check = document.createElement("span");
+            check.className = "check";
+            check.textContent = "✓";
+            item.append(check);
+          }
+          body.append(item);
+        });
+        revealSheet();
+      }
+      $("transfer").style.overflow = "hidden";
+    }
+
+    function revealSheet() {
+      const sheet = $("sheet");
+      sheet.removeAttribute("inert");
+      sheet.setAttribute("aria-hidden", "false");
+      sheet.classList.add("show");
+      $("backdrop").classList.add("show");
+    }
+
+    function renderHome() {
+      const total = state.own.reduce((sum, card) => sum + card.balanceCents, 0);
+      $("total").textContent = state.hideBalance ? "••••••" : formatCents(total) + " сум";
+      const list = $("ownList");
+      list.replaceChildren();
+      state.own.forEach((card) => {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.className = "own-item";
+        const mark = document.createElement("span");
+        mark.className = "mark";
+        paintMark(mark, card.color, "card");
+        const text = document.createElement("span");
+        const title = document.createElement("span");
+        title.className = "card-title";
+        title.textContent = cardLabel(card);
+        const sub = document.createElement("span");
+        sub.className = "card-sub";
+        sub.textContent = state.hideBalance ? "••••••" : formatCents(card.balanceCents) + " сум";
+        text.append(title, sub);
+        item.append(mark, text);
+        item.addEventListener("click", () => {
+          state.fromId = card.id;
+          save();
+          show("transfer");
+          render();
+        });
+        list.append(item);
+      });
+
+      const history = $("history");
+      history.replaceChildren();
+      if (!state.history.length) {
+        const empty = document.createElement("p");
+        empty.className = "empty";
+        empty.textContent = "Пока пусто";
+        history.append(empty);
+        return;
+      }
+      state.history.forEach((item) => {
+        const row = document.createElement("div");
+        row.className = "hist";
+        const top = document.createElement("div");
+        top.className = "hist-top";
+        const who = document.createElement("b");
+        who.textContent = item.name;
+        const sum = document.createElement("b");
+        sum.textContent = "− " + formatPretty(item.amount) + " сум";
+        top.append(who, sum);
+        const bot = document.createElement("div");
+        bot.className = "hist-bot";
+        const route = document.createElement("small");
+        route.textContent = item.route || (item.from + " → " + item.to);
+        const time = document.createElement("small");
+        time.textContent = new Date(item.at).toLocaleString("ru-RU", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+        bot.append(route, time);
+        row.append(top, bot);
+        history.append(row);
+      });
+    }
+
+    function renderTransfer() {
+      const from = currentFrom();
+      const to = currentTo();
+      const cents = rawToCents(state.raw);
+      paintMark($("fromMark"), from.color, "card");
+      paintMark($("toMark"), to.color, "move");
+      $("fromTitle").textContent = cardLabel(from);
+      $("fromSub").textContent = state.hideBalance ? "••••••" : formatCents(from.balanceCents) + " сум";
+      $("toTitle").textContent = cardLabel(to);
+      $("toSub").textContent = to.name;
+      $("eye").classList.toggle("off", state.hideBalance);
+      $("eye").setAttribute("aria-label", state.hideBalance ? "Показать баланс" : "Скрыть баланс");
+      $("amountNum").textContent = formatRaw(state.raw);
+      const digits = state.raw.replace(".", "").length;
+      $("amountNum").style.fontSize = digits > 7 ? "30px" : digits > 5 ? "36px" : "";
+      $("amount").classList.toggle("bad", cents > from.balanceCents);
+      $("msgPlus").hidden = !!state.message;
+      $("msgLabel").textContent = state.message || "Сообщение";
+      $("msgBtn").classList.toggle("has-msg", !!state.message);
+      $("msgBtn").title = state.message || "";
+
+      const submit = $("submit");
+      const canSend = cents > 0 && cents <= from.balanceCents;
+      submit.classList.toggle("ready", canSend);
+      submit.classList.toggle("bad", cents > from.balanceCents);
+      submit.setAttribute("aria-disabled", canSend ? "false" : "true");
+      if (cents > from.balanceCents) submit.textContent = "Недостаточно средств";
+      else if (cents > 0) submit.textContent = "Перевести";
+      else submit.textContent = "Введите сумму";
+      $("live").textContent = "Сумма " + formatRaw(state.raw) + " сум";
+    }
+
+    function renderSuccess() {
+      const item = state.history[0];
+      if (!item) return;
+      $("okAmount").textContent = formatPretty(item.amount) + " сум";
+      const card = $("okCard");
+      card.replaceChildren();
+      const rows = [
+        ["Откуда", item.from],
+        ["Куда", item.to],
+        ["Получатель", item.name]
+      ];
+      if (item.message) rows.push(["Сообщение", item.message]);
+      rows.push(["Время", new Date(item.at).toLocaleString("ru-RU", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })]);
+      rows.forEach(([label, value]) => {
+        const row = document.createElement("div");
+        row.className = "ok-row";
+        const k = document.createElement("span");
+        k.className = "k";
+        k.textContent = label;
+        const v = document.createElement("span");
+        v.className = "v";
+        v.textContent = value;
+        row.append(k, v);
+        card.append(row);
+      });
+    }
+
+    function render() {
+      renderHome();
+      renderTransfer();
+      renderSuccess();
+    }
+
+    function appendDigit(digit) {
+      if (state.raw.includes(".")) {
+        if (state.raw.split(".")[1].length >= 2) return;
+        state.raw += digit;
+        return;
+      }
+      if (state.raw.length >= 9) return;
+      if (state.raw === "" && digit === "0") return;
+      state.raw += digit;
+    }
+
+    function appendZeros(count) {
+      if (!state.raw || state.raw.includes(".")) return;
+      if (state.raw.length + count > 9) return;
+      state.raw += "0".repeat(count);
+    }
+
+    function onKey(key) {
+      if (key === "del") state.raw = state.raw.slice(0, -1);
+      else if (key === "max") {
+        const cents = currentFrom().balanceCents;
+        if (cents <= 0) { toast("На карте нет средств"); return; }
+        state.raw = centsToRaw(cents);
+      } else if (key === "000") appendZeros(3);
+      else if (key === "00") appendZeros(2);
+      else if (key === ".") {
+        if (!state.raw.includes(".")) state.raw = (state.raw || "0") + ".";
+      } else appendDigit(key);
+      renderTransfer();
+    }
+
+    function send() {
+      const cents = rawToCents(state.raw);
+      const from = currentFrom();
+      const to = currentTo();
+      if (cents <= 0 || cents > from.balanceCents) {
+        $("amount").classList.remove("shake");
+        void $("amount").offsetWidth;
+        $("amount").classList.add("shake");
+        return;
+      }
+      from.balanceCents -= cents;
+      state.history.unshift({
+        amount: cents,
+        from: cardLabel(from),
+        to: cardLabel(to),
+        route: from.bank + " → " + to.bank,
+        name: to.name,
+        message: state.message,
+        at: Date.now()
+      });
+      state.history = state.history.slice(0, 12);
+      state.raw = "";
+      state.message = "";
+      save();
+      render();
+      show("success");
+    }
+
+    $("pad").addEventListener("click", (event) => {
+      const key = event.target.closest("[data-k]");
+      if (!key) return;
+      onKey(key.dataset.k);
+    });
+
+    $("submit").addEventListener("click", send);
+    $("fromCard").addEventListener("click", (event) => {
+      if (event.target.closest(".eye") || event.target.closest("#fromChev")) return;
+      openSheet("from");
+    });
+    $("fromChev").addEventListener("click", () => openSheet("from"));
+    $("toPick").addEventListener("click", () => openSheet("to"));
+    $("eye").addEventListener("click", (event) => {
+      event.stopPropagation();
+      state.hideBalance = !state.hideBalance;
+      save();
+      render();
+    });
+    $("msgBtn").addEventListener("click", () => openSheet("msg"));
+    $("close").addEventListener("click", () => show("home"));
+    $("openTransfer").addEventListener("click", () => show("transfer"));
+    $("done").addEventListener("click", () => show("transfer"));
+    $("toHome").addEventListener("click", () => show("home"));
+    $("backdrop").addEventListener("click", closeSheet);
+    $("sheetClose").addEventListener("click", closeSheet);
+
+    $("sheetBody").addEventListener("click", (event) => {
+      if (event.target.closest("#msgSave")) {
+        state.message = $("msgInput").value.trim();
+        closeSheet();
+        save();
+        renderTransfer();
+        return;
+      }
+      const item = event.target.closest("[data-id]");
+      if (!item) return;
+      if (sheetMode === "from") state.fromId = item.dataset.id;
+      if (sheetMode === "to") state.toId = item.dataset.id;
+      closeSheet();
+      save();
+      render();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        if ($("sheet").classList.contains("show")) closeSheet();
+        else if ($("success").classList.contains("active")) show("transfer");
+        else if ($("transfer").classList.contains("active")) show("home");
+        return;
+      }
+      if (!$("transfer").classList.contains("active") || $("sheet").classList.contains("show")) return;
+      if (event.target && event.target.tagName === "TEXTAREA") return;
+      if (/^\d$/.test(event.key)) { event.preventDefault(); onKey(event.key); }
+      else if (event.key === "." || event.key === ",") { event.preventDefault(); onKey("."); }
+      else if (event.key === "Backspace") { event.preventDefault(); onKey("del"); }
+      else if (event.key === "Enter") { event.preventDefault(); send(); }
+    });
+
+    render();
+  </script>
+</body>
+</html>
