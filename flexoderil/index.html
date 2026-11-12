@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
@@ -451,6 +451,24 @@
       background: #ffebee;
       color: #c62828;
     }
+    .order-success {
+      display: none;
+      margin-top: 8px;
+      padding: 22px 16px;
+      border-radius: 12px;
+      background: #e8f5e9;
+      color: #1b5e20;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .order-success.show { display: block; }
+    .order-card.is-sent .order-form,
+    .order-card.is-sent .order-note,
+    .order-card.is-sent .price-line,
+    .order-card.is-sent .lead,
+    .order-card.is-sent .urgency { display: none; }
 
     /* ===== PRODUCT INTRO ===== */
     .product-intro {
@@ -1210,6 +1228,7 @@
         <button class="cta-btn" type="submit">220,000 СУМГА ОЛИШ</button>
         <div class="form-msg" role="status"></div>
       </form>
+      <div class="order-success" role="status"></div>
       <p class="order-note">Акция амал қилади: 05.11.2026 дан 12.11.2026 гача, шу жумладан</p>
     </section>
 
@@ -1663,6 +1682,7 @@
         <button class="cta-btn" type="submit">БУЮРТМА БЕРИНГ</button>
         <div class="form-msg" role="status"></div>
       </form>
+      <div class="order-success" role="status"></div>
       <p class="order-note">Акция амал қилади: 05.11.2026 дан 12.11.2026 гача, шошилинг!</p>
     </section>
 
@@ -1805,18 +1825,20 @@
 
         sendToTelegram(name, phone)
           .then(function () {
-            msg.classList.add("ok");
-            msg.textContent = "Раҳмат, " + name + "! Буюртмангиз қабул қилинди. Тез орада боғланамиз.";
+            document.querySelectorAll(".order-card").forEach(function (card) {
+              card.classList.add("is-sent");
+              var success = card.querySelector(".order-success");
+              if (success) {
+                success.textContent = "Раҳмат, " + name + "! Буюртмангиз қабул қилинди. Тез орада боғланамиз.";
+                success.classList.add("show");
+              }
+            });
             showToast("Буюртма муваффақиятли юборилди!");
-            form.reset();
-            phoneInput.value = "+998";
           })
           .catch(function () {
             msg.classList.add("err");
             msg.textContent = "Хабар юборилмади. Яна уриниб кўринг.";
             showToast("Хабар юборилмади");
-          })
-          .then(function () {
             if (btn) {
               btn.disabled = false;
               btn.textContent = btn.dataset.oldText || "БУЮРТМА БЕРИНГ";
