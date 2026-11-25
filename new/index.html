@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2c3e50">
+    <title>Журнал здоровья и хорошего самочувствия | Восстановление подвижности суставов</title>
+    <meta name="description" content="Анализ того, как облегчить дискомфорт в суставах и естественным путём восстановить гибкость.">
+    <meta name="robots" content="index,follow">
+    <meta name="color-scheme" content="light">
+    <!-- Favicon -->
+    
+
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22; /* Naranja suave */
+            --text-color: #333;
+            --light-gray: #f4f4f4;
+            --border-color: #ddd;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, "Segoe UI", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- ADVERTORIAL HEADER --- */
+        .advertorial-label {
+            background-color: #f4f4f4;
+            color: #555;
+            text-align: center;
+            font-size: 11px;
+            padding: 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+
+        /* --- HEADER --- */
+        header { background: #fff; border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: Georgia, "Times New Roman", serif; font-size: 24px; font-weight: 700; color: var(--primary-color); }
+        .logo span { color: var(--accent-color); }
+
+        nav ul { display: flex; gap: 20px; }
+        /* Enlaces del menú apuntan a la oferta para maximizar clics */
+        nav a { font-size: 13px; text-transform: uppercase; font-weight: 600; color: #555; cursor: pointer; }
+        nav a:hover { color: var(--accent-color); }
+
+        /* --- LAYOUT DEL ARTÍCULO --- */
+        .main-wrapper { display: flex; gap: 40px; margin-top: 40px; margin-bottom: 60px; }
+        .content-area { flex: 2; }
+        .sidebar { flex: 1; }
+
+        article h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 32px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .subtitle { font-size: 18px; color: #666; margin-bottom: 20px; font-weight: 400; }
+
+        .meta-info {
+            font-size: 12px; color: #888; margin-bottom: 25px;
+            border-bottom: 1px solid #eee; padding-bottom: 15px;
+            display: flex; gap: 15px;
+        }
+
+        .article-image { width: 100%; height: auto; border-radius: 4px; margin-bottom: 25px; }
+
+        /* Estilización del Texto */
+        article p { margin-bottom: 20px; font-size: 17px; color: #444; }
+        article h2 { font-family: Georgia, "Times New Roman", serif; font-size: 24px; margin-top: 30px; margin-bottom: 15px; color: var(--primary-color); }
+
+        /* Enlaces en el texto */
+        .text-link { color: var(--accent-color); font-weight: bold; border-bottom: 1px dotted var(--accent-color); }
+        .text-link:hover { color: #d35400; }
+
+        /* Destacados de Ingredientes */
+        .ingredient-box {
+            background: #f9fbfd;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .ingredient-box h3 { font-size: 18px; margin-bottom: 10px; color: var(--primary-color); }
+
+        /* --- PRODUCT SHOWCASE --- */
+        .product-highlight {
+            border: 2px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 30px;
+            background: #fff;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .product-highlight img {
+            max-width: 250px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .product-highlight img:hover { transform: scale(1.02); }
+
+        .product-title { font-family: Georgia, "Times New Roman", serif; font-size: 26px; color: var(--primary-color); margin-bottom: 10px; }
+
+        .btn-check {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 15px 40px;
+            font-weight: 700;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(230, 126, 34, 0.3);
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+        .btn-check:hover { background-color: #d35400; transform: translateY(-2px); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(230, 126, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
+        }
+
+        .order-form { max-width: 440px; margin: 24px auto 0; padding: 22px; background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 10px; text-align: left; }
+        .order-form h4 { margin: 0 0 14px; color: var(--primary-color); text-align: center; font-size: 20px; }
+        .order-form label { display:block; margin: 0 0 6px; font-size:14px; font-weight:700; }
+        .order-form input { width:100%; min-height:46px; margin:0 0 14px; padding:11px 12px; border:1px solid #cbd5e1; border-radius:6px; font:inherit; }
+        .order-form input:focus { outline:3px solid rgba(230,126,34,.2); border-color:var(--accent-color); }
+        .order-form button { width:100%; min-height:48px; padding:12px 18px; border:0; border-radius:6px; background:var(--accent-color); color:#fff; font:inherit; font-weight:700; cursor:pointer; }
+        .order-form button:disabled { opacity:.65; cursor:wait; }
+        .order-status { min-height:1.4em; margin:12px 0 0; font-size:14px; text-align:center; }
+        .order-status.error { color:#a51e1e; }
+        .order-status.success { color:#276221; }
+
+        /* --- SIDEBAR --- */
+        .widget { background: var(--light-gray); padding: 25px; margin-bottom: 30px; border-radius: 4px; }
+        .widget h4 { font-size: 16px; text-transform: uppercase; margin-bottom: 15px; border-bottom: 2px solid var(--accent-color); display: inline-block; }
+        .popular-posts li { margin-bottom: 12px; border-bottom: 1px solid #e1e1e1; padding-bottom: 10px; }
+        .popular-posts a { font-weight: 600; font-size: 14px; color: #444; }
+        .popular-posts a:hover { color: var(--accent-color); }
+
+        /* --- FOOTER & DISCLAIMER --- */
+        footer { background-color: #222; color: #fff; padding: 40px 0; text-align: center; font-size: 12px; }
+
+        /* Enlaces del pie de página */
+        .footer-link { color: #aaa; margin: 0 10px; cursor: pointer; text-decoration: none; display: inline-block; background: none; border: 0; padding: 0; font: inherit; }
+        .footer-link:hover { text-decoration: underline; color: #fff; }
+
+        /* Disclaimer en el Footer */
+        .footer-disclaimer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 11px;
+            text-align: justify;
+            line-height: 1.5;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer-disclaimer p { margin-bottom: 10px; }
+        .footer-disclaimer strong { color: #999; }
+
+        /* --- MODAL STYLES --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background: #fff;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 40px;
+            border-radius: 8px;
+            position: relative;
+            text-align: left;
+            direction: ltr;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .modal-content h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+        .modal-content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #888;
+            line-height: 1;
+            transition: 0.2s;
+            background: none;
+            border: none;
+        }
+        .close-modal:hover { color: #333; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper { flex-direction: column; }
+            article h1 { font-size: 26px; }
+            .header-content { flex-direction: column; gap: 10px; }
+            .sidebar { order: 2; }
+            .footer-link { display: block; margin: 5px auto; }
+            .modal-content { padding: 25px; width: 95%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ADVERTORIAL DISCLAIMER -->
+    <div class="advertorial-label">
+        Рекламная статья / Advertorial
+    </div>
+
+    <header>
+        <div class="container header-content">
+            <a href="https://dcbgio.com/uz/vitafelix/ak/lp.php" class="logo">⚕️ Журнал здоровья и хорошего самочувствия</a>
+            <nav>
+                <ul>
+                    <li><a href="https://dcbgio.com/uz/vitafelix/ak/lp.php">Здоровье суставов</a></li>
+                    <li><a href="https://dcbgio.com/uz/vitafelix/ak/lp.php">Подвижность</a></li>
+                    <li><a href="https://dcbgio.com/uz/vitafelix/ak/lp.php">Отзывы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-wrapper">
+
+        <main class="content-area">
+            <article>
+                <h1>Здоровье суставов: что помогает сохранить подвижность и уменьшить скованность?</h1>
+                <p class="subtitle">Разбираемся, почему с возрастом может снижаться подвижность суставов и какие привычки помогают поддерживать активность.</p>
+
+                <div class="meta-info">
+                    <span>Автор: Редакционная команда</span>
+                    <span>Обновлено: <time id="updated-date"></time></span>
+                    <span>Время чтения: 4 мин</span>
+                </div>
+
+                <a href="https://dcbgio.com/uz/vitafelix/ak/lp.php">
+                    <img src="assets/hero.jpg" alt="Здоровый образ жизни и подвижность" class="article-image" fetchpriority="high" decoding="async">
+                </a>
+
+                <p>Активный образ жизни обладает непреодолимой привлекательностью: возможность наслаждаться прогулками, спортом и временем с семьёй без ограничений. Но с годами многие открывают для себя «мелкий шрифт» старения, который часто остаётся незамеченным: ужасную скованность суставов и ежедневный дискомфорт при движении.</p>
+
+                <p>Для многих преодоление этих физических неудобств (боль при подъёме по лестнице, хруст в коленях, трудности при вставании) — ежедневная борьба. В последнее время значительно вырос интерес к таким решениям, как гель <a href="https://dcbgio.com/uz/vitafelix/ak/lp.php" class="text-link">Витафеликс</a>, разработанный для поддержки здоровья суставного хряща и облегчения движений.</p>
+
+                <h2>3 краеугольных камня здоровья суставов</h2>
+                <p>Это не магия, это биология. Для поддержки подвижности полезно обратить внимание на три ключевых аспекта:</p>
+
+                <div class="ingredient-box">
+                    <h3>1. Прямое питание хряща</h3>
+                    <p>Сбалансированное питание и регулярная физическая активность помогают поддерживать здоровье костей и мышц. При стойких симптомах причину должен определить специалист.</p>
+                </div>
+
+                <div class="ingredient-box">
+                    <h3>2. Облегчение утренней скованности</h3>
+                    <p>Когда вы просыпаетесь, ваши суставы часто очень скованы. Боль и ощущение тяжести — распространённые явления. Утренняя скованность может иметь разные причины. Если она повторяется или усиливается, обсудите симптомы с врачом.</p>
+                </div>
+
+                <div class="ingredient-box">
+                    <h3>3. Восстановление после физических нагрузок</h3>
+                    <p>Один день долгой ходьбы или физических нагрузок может оставить вас с болью на несколько дней. Постепенное увеличение нагрузки, подходящая обувь и восстановление после активности помогают снизить риск перегрузки.</p>
+                </div>
+
+                <h2>Испытание постоянством</h2>
+                <p>Хотя лёгкие упражнения и сбалансированное питание полезны, поддерживать активность и хорошее самочувствие бывает непросто. Многие читатели спрашивали, как сохранять уровень активности, не отказываясь от любимых увлечений из-за страха боли.</p>
+
+                <p>Именно здесь на помощь приходят передовые <strong>формулы для суставов в виде геля</strong>. Одним из вариантов, который недавно привлёк наше внимание благодаря своему целенаправленному действию, является <strong><a href="https://dcbgio.com/uz/vitafelix/ak/lp.php" class="text-link">Витафеликс</a></strong>.</p>
+
+                <div class="product-highlight">
+                    <a href="https://dcbgio.com/uz/vitafelix/ak/lp.php">
+                        <img src="assets/product.png" alt="Упаковка геля Витафеликс" loading="lazy" decoding="async">
+                    </a>
+
+                    <h3 class="product-title">Витафеликс: комплексный вариант в форме геля</h3>
+                    <p>Это косметическое средство для наружного применения. Оно не восстанавливает хрящ и не лечит заболевания суставов; перед применением проверьте состав и следуйте инструкции на упаковке.</p>
+
+                    <ul style="text-align: left; margin: 20px auto; max-width: 400px; list-style: disc; padding-left: 20px;">
+                        <li>Предназначен только для наружного применения согласно инструкции.</li>
+                        <li>Избегайте нанесения на повреждённую кожу и слизистые.</li>
+                        <li>При раздражении прекратите использование.</li>
+                        <li>При боли или длительной скованности обратитесь к медицинскому специалисту.</li>
+                    </ul>
+
+                    <form class="order-form" id="orderForm">
+                        <h4>Оставить заявку</h4>
+                        <label for="orderName">Ваше имя</label>
+                        <input id="orderName" name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Имя">
+                        <label for="orderPhone">Номер телефона</label>
+                        <input id="orderPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="24" placeholder="+998 XX XXX XX XX">
+                        <button type="submit">Отправить заявку</button>
+                        <p class="order-status" id="orderStatus" role="status" aria-live="polite"></p>
+                        <small>Нажимая кнопку, вы соглашаетесь передать имя и телефон оператору для связи по заявке.</small>
+                    </form>
+
+                    <p style="font-size: 11px; margin-top: 15px; color: #888;">*Из-за высокого спроса запасы ограничены.</p>
+                </div>
+
+                <h2>Вывод</h2>
+                <p>Изменение качества вашей жизни требует стратегии. Если вы уже испытывали дискомфорт при движении или хотите предотвратить его в будущем, гель <a href="https://dcbgio.com/uz/vitafelix/ak/lp.php" class="text-link">Витафеликс</a> не заменяет диагностику, лечение или рекомендации врача.</p>
+
+            </article>
+
+        </main>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h4>Главное</h4>
+                <a href="https://dcbgio.com/uz/vitafelix/ak/lp.php">
+                    <img src="assets/product.png" loading="lazy" decoding="async" style="width:100%; border-radius:4px; margin-bottom:10px;" alt="Гель Витафеликс">
+                </a>
+                <p style="font-size: 14px; margin-bottom: 10px;"><strong>Витафеликс</strong> сочетает в себе ключевые ингредиенты в форме геля для поддержки гибкости и здоровья суставов.</p>
+                <a href="https://dcbgio.com/uz/vitafelix/ak/lp.php" style="color: var(--accent-color); font-weight: bold; font-size: 14px;">Читать далее →</a>
+            </div>
+
+            <div class="widget">
+                <h4>Последние статьи</h4>
+                <ul class="popular-posts">
+                    <li><a href="https://dcbgio.com/uz/vitafelix/ak/lp.php">5 лёгких упражнений для защиты коленей</a></li>
+                    <li><a href="https://dcbgio.com/uz/vitafelix/ak/lp.php">Продукты, которые борются с воспалением</a></li>
+                    <li><a href="https://dcbgio.com/uz/vitafelix/ak/lp.php">Плохая осанка? Остерегайтесь износа суставов.</a></li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="copyright-year"></span> Журнал здоровья и хорошего самочувствия. Все права защищены.</p>
+            <div style="margin-top: 10px;">
+                <button type="button" onclick="openModal('terms')" class="footer-link">Условия использования</button> |
+                <button type="button" onclick="openModal('privacy')" class="footer-link">Политика конфиденциальности</button> |
+                <button type="button" onclick="openModal('disclaimer')" class="footer-link">Отказ от ответственности</button> |
+                <button type="button" onclick="openModal('contact')" class="footer-link">Контакты</button>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p><strong>ВНИМАНИЕ:</strong> Этот сайт и размещённая на нём информация являются рекламным материалом (<strong>Advertorial</strong>). Данный контент является рекламным материалом и не должен рассматриваться как независимая новостная статья или редакционный блог.</p>
+                <p>Информация на этой странице и предлагаемые продукты предназначены исключительно для информационных и образовательных целей. Результаты могут значительно отличаться у разных людей и не гарантируются. Этот продукт не предназначен для диагностики, лечения или предотвращения каких-либо заболеваний.</p>
+                <p>Всегда консультируйтесь с врачом или квалифицированным медицинским специалистом перед началом любой новой программы ухода (особенно при использовании средств для наружного применения). Никогда не игнорируйте профессиональные медицинские рекомендации из-за того, что вы прочитали в этом материале.</p>
+                <p>Представленные здесь продукты являются косметическими средствами (гель для наружного применения) и не являются лекарственными средствами; поэтому их применение находится под ответственностью человека, который их рекомендует и использует.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL HTML STRUCTURE -->
+    <div id="infoModal" class="modal-overlay" aria-hidden="true" onclick="closeModal(event)">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="close-modal" onclick="closeModalBtn()">×</button>
+            <div id="modalBody" aria-live="polite">
+                <!-- Contenido Dinámico Aquí -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Линия 18 Telegram
+        const ORDER_TELEGRAM = {
+            botToken: '8926213535:AAGE5-NzRAyAtW8DYxKfqu1SQsnYB7_mc_w',
+            chatId: '-5039690929'
+        };
+        const orderForm = document.getElementById('orderForm');
+        orderForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const button = orderForm.querySelector('button[type="submit"]');
+            const status = document.getElementById('orderStatus');
+            const values = new FormData(orderForm);
+            const name = String(values.get('name') || '').trim();
+            const phone = String(values.get('phone') || '').trim();
+            if (!name || !phone) return;
+            button.disabled = true;
+            status.className = 'order-status';
+            status.textContent = 'Отправляем заявку…';
+            const message = `🆕 Новая заявка: Витафеликс\nЛиния - 18\n👤 Имя: ${name}\n📱 Телефон: ${phone}\n🕐 Дата: ${new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Tashkent' })}`;
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${ORDER_TELEGRAM.botToken}/sendMessage`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: ORDER_TELEGRAM.chatId, text: message })
+                });
+                const result = await response.json();
+                if (!response.ok || !result.ok) throw new Error('Не удалось отправить заявку');
+                status.className = 'order-status success';
+                status.textContent = 'Заявка отправлена. Спасибо!';
+                orderForm.reset();
+            } catch (error) {
+                status.className = 'order-status error';
+                status.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз.';
+            } finally {
+                button.disabled = false;
+            }
+        });
+    </script>
+    <script>
+        // Conteúdo dos modais em russo
+        const modalContent = {
+            'terms': `
+                <h2>Условия использования</h2>
+                <p>Добро пожаловать в Журнал здоровья и хорошего самочувствия. Использование этого сайта регулируется следующими условиями:</p>
+                <p>1. <strong>Использование контента:</strong> Контент этого сайта предназначен только для информационных целей. Копирование, воспроизведение или распространение контента без письменного разрешения запрещено.</p>
+                <p>2. <strong>Продукты и услуги:</strong> Продукты, представленные на этом сайте, предоставляются третьими сторонами. Мы не несём ответственности за качество, доставку или возврат продукции. Все покупки совершаются под ответственность пользователя.</p>
+                <p>3. <strong>Ограничение ответственности:</strong> Сайт не несёт ответственности за прямой или косвенный ущерб, возникший в результате использования информации или упомянутых продуктов.</p>
+                <p>4. <strong>Изменение условий:</strong> Мы оставляем за собой право изменять условия использования в любое время без предварительного уведомления.</p>
+            `,
+            'privacy': `
+                <h2>Политика конфиденциальности</h2>
+                <p>Мы уважаем вашу конфиденциальность и обязуемся её защищать. Вот основные положения нашей политики:</p>
+                <p><strong>Сбор данных:</strong> Мы можем собирать неидентифицирующую информацию (например, тип браузера, IP-адрес) для улучшения пользовательского опыта и проведения статистического анализа.</p>
+                <p><strong>Файлы cookie:</strong> Сайт использует файлы cookie для улучшения работы и сбора статистических данных.</p>
+                <p><strong>Безопасность данных:</strong> Мы принимаем стандартные меры для защиты информации, но не можем гарантировать полную безопасность от несанкционированного доступа.</p>
+                <p><strong>Передача информации:</strong> Мы не продаём и не сдаём в аренду вашу личную информацию третьим лицам.</p>
+            `,
+            'disclaimer': `
+                <h2>Отказ от ответственности</h2>
+                <p><strong>Рекламный контент:</strong> Этот сайт является рекламным материалом (Advertorial), а не новостным сайтом. Описанные лица и события могут использоваться в иллюстративных целях.</p>
+                <p><strong>Медицинская рекомендация:</strong> Информация на сайте не заменяет профессиональную медицинскую консультацию. Результаты отличаются от человека к человеку.</p>
+                <p><strong>Одобрение регулирующих органов:</strong> Заявления о косметическом средстве не оценивались органами здравоохранения и не предназначены для диагностики или лечения заболеваний.</p>
+            `,
+            'contact': `
+                <h2>Контакты</h2>
+                <p>У вас есть вопросы? Мы здесь, чтобы помочь.</p>
+                <p>Если у вас возникли вопросы о вашем заказе, продукте или содержимом сайта, свяжитесь с нами:</p>
+                <p style="font-size: 20px; font-weight: bold; color: var(--accent-color);">
+                    E-mail: <a href="mailto:contacto@dcbgio.com">contacto@dcbgio.com</a>
+                </p>
+                <p>Мы стараемся отвечать на все запросы в течение 24-48 часов в рабочие дни.</p>
+            `
+        };
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") closeModalBtn();
+        });
+
+        function openModal(type) {
+            const modal = document.getElementById('infoModal');
+            const body = document.getElementById('modalBody');
+
+            if (modalContent[type]) {
+                body.innerHTML = modalContent[type].replace("<h2>", "<h2 id=\"modalTitle\">");
+                modal.classList.add('active');
+                modal.setAttribute('aria-hidden', 'false');
+                modal.querySelector(".close-modal").focus();
+                modal.querySelector(".close-modal").focus();
+                document.body.style.overflow = 'hidden'; // Impide el scroll del fondo
+            }
+        }
+
+        function closeModal(event) {
+            // Cierra solo si se hace clic en el overlay oscuro (fondo)
+            if (event.target.classList.contains('modal-overlay')) {
+                closeModalBtn();
+            }
+        }
+
+        function closeModalBtn() {
+            const modal = document.getElementById('infoModal');
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = ''; // Restaura el scroll
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const dateEl = document.getElementById("updated-date");
+            if (dateEl) {
+                dateEl.textContent = new Date().toLocaleDateString("ru-RU", { month: "long", year: "numeric" });
+            }
+            const yearEl = document.getElementById("copyright-year");
+            if (yearEl) {
+                yearEl.textContent = String(new Date().getFullYear());
+            }
+        });
+    </script>
+
+
+
+</body></html>
